@@ -1,0 +1,50 @@
+@import 'colors';
+@import 'fonts';
+
+/***********************************************
+                    DROPZONE
+***********************************************/
+#dropzone.dropzone {
+    position: relative;
+    min-height: 100px;
+    border: 2px dashed hsla(0,0%,100%,.3);
+    background: $colorVeryLightDark;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+#dropzone.dropzone.hover {
+    background: $colorDarker;
+}
+#dropzone.dropzone .message {
+    font-size: 26px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center!important;
+    flex-direction: column;
+}
+
+#dropzone.dropzone .message h3 {
+    font-size: 18px;
+}
+
+#dropzone.dropzone .message .agraicon {
+    font-size: 50px;
+}
+
+#dropzone.dropzone .message input {
+    display: none;
+}
+
+/***********************************************
+                   RESPONSIVE
+***********************************************/
+@media (max-width: 767.98px) {
+    #dropzone.dropzone .message h3 {
+        font-size: 16px;
+    }
+}

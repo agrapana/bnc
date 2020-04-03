@@ -1,0 +1,139 @@
+// @import '../../globalresources/colors.scss';
+// @import '../../globalresources/fonts.scss';
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'grid.scss';
+
+/***********************************************
+            FRONT PORTFOLIO DETAILS
+***********************************************/
+#frontendwebsite #homepage .contentwrap .mainImage .slick-list {
+    border: 1px solid rgba(0,0,0,.125);
+    margin-bottom: 10px;
+}
+#frontendwebsite #homepage .contentwrap .mainImage .slick-list .slick-slide .moreImages {
+    cursor: pointer;
+}
+#frontendwebsite #homepage .contentwrap .mainImage .slick-list .slick-slide .moreImages:hover {
+    background: rgba(0,0,0,.125);
+}
+#frontendwebsite #homepage .contentwrap .mainImage .slick-list .slick-slide img {
+    display: table-cell;
+}
+#frontendwebsite #homepage .contentwrap .mainImage .slick-dots {
+    position: relative !important;
+    bottom: 0 !important;
+}
+#frontendwebsite #homepage .contentwrap .mainImage .slick-dots li {
+    border: 1px solid rgba(0,0,0,.125);
+    margin-right: 5px;
+    width: 156px !important;
+}
+#frontendwebsite #homepage .contentwrap .productInfo h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 26px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: capitalize;
+    font-family: Lato,sans-serif;
+}
+#frontendwebsite #homepage .contentwrap .productInfo .productInfoBrand {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+#frontendwebsite #homepage .contentwrap .productInfo .tagLine {
+    display: block;
+}
+#frontendwebsite #homepage .contentwrap .productInfo .tagLine h5 {
+    color: #333;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+/***********************************************
+        FRONT PORTFOLIO DETAILS ONEPAGE
+***********************************************/
+
+#frontportfoliosingleskeleton {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+#portfoliodetails {
+    position: relative;
+    background-color: $colorDark;
+    padding-top: 65px;
+}
+
+#portfoliodetails .section {
+    position: relative;
+    border-bottom: none !important;
+    padding: 60px 0;
+    overflow: hidden;
+}
+#portfoliodetails .section .headingblock {
+    text-align: center !important;
+    margin: 0 !important;
+}
+
+#portfoliodetails .section .headingblock::after{
+    content: "";
+    display: block;
+    width: 40px;
+    margin: 30px auto 0;
+    border-top: 2px solid $colorLight;
+}
+#portfoliodetails .section .container .headingblock h3 {
+    margin-bottom: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $colorWhite;
+    font-family: $Roboto;
+    font-size: 26px;
+}
+
+#portfoliodetails .slidercontainer,
+#portfoliodetails .relatedslidercontainer {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#portfoliodetails .relatedslidercontainer {
+    padding-bottom: 30px;
+}
+
+#portfoliodetails .relatedslidercontainer .slick-track {
+    width: 100% !important;
+}
+
+#portfoliodetails .relatedslidercontainer h4 {
+    font-weight: 600;
+    font-size: 18px;
+    padding: 50px 0 10px 0;
+}
+
+// #portfoliodetails .relatedslidercontainer .carouselimage:hover {
+
+// }
+
+#portfoliodetails .slidercontainer .carouselimage,
+#portfoliodetails .relatedslidercontainer .carouselimage {
+    background-size: cover !important;
+}
+
+// #portfoliodetails .slidercontainer .slick-slide .carouselimage img {
+//     display: inherit !important;
+// }
+
+@media (min-width: 835.99px) and (max-width: 1023.98px) {
+    #portfoliodetails .slidercontainer,
+    #portfoliodetails .relatedslidercontainer {
+        height: 500px !important;
+        overflow: hidden
+    }
+}

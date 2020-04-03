@@ -1,0 +1,387 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'grid.scss';
+/***********************************************
+                FRONT LOGIN
+***********************************************/
+#frontloginwrapper {
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+    position: relative;
+    // opacity: 1;
+    // -webkit-animation-fill-mode: both;
+    // animation-fill-mode: both;
+    float: none;
+}
+#frontloginwrapper #frontlogin {
+    position: relative;
+    overflow: hidden;
+}
+#frontloginwrapper #frontlogin .contentwrap {
+    position: relative;
+    padding: 0;
+}
+#frontloginwrapper #frontlogin .contentwrap .section {
+    width: 100%;
+    position: absolute;
+    background-image: url(/admin/assets/images/loginwallpaper2.jpg);
+    background-size: cover;
+    content: '';
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+#frontloginwrapper #frontlogin .colFormLabel {
+    padding-top: calc(.375rem + 1px);
+    padding-bottom: calc(.375rem + 1px);
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: 1.5;
+    color: $colorLight;
+}
+#frontloginwrapper #frontlogin .dropdownmenu {
+    position: absolute;
+    width: 100%;
+    top: 90%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 13px;
+    text-align: left;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    // -webkit-box-shadow: 0 1px 1px 1px rgba(255,255,255,.2);
+    // box-shadow: 0 1px 1px 1px rgba(255,255,255,.2);
+    background-clip: padding-box;
+}
+#frontloginwrapper #frontlogin .dropdownmenu > li > a,
+#frontloginwrapper #frontlogin .dropdownmenu > li > .memberHeaderLink {
+    display: block;
+    padding: 5px 18px;
+    clear: both;
+    color: $colorLight;
+    font-weight: normal;
+    line-height: 1.49;
+    white-space: nowrap;
+}
+#frontloginwrapper #frontlogin .dropdownmenu > li > a:hover,
+#frontloginwrapper #frontlogin .dropdownmenu > li > .memberHeaderLink:hover {
+    color: $colorWhite;
+}
+#frontloginwrapper #frontlogin .dropdownmenu .divider {
+    height: 1px;
+    margin: 9px 18px;
+    overflow: hidden;
+    background-color: #4c536e;
+}
+#frontloginwrapper #frontlogin .listgroupitem:first-child {
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+#frontloginwrapper #frontlogin .listgroupitem {
+    position: relative;
+    display: block;
+    padding: 2px 15px;
+    margin-bottom: -1px;
+    background-color: $colorDark;
+    border: 1px solid $colorDarkerGray;
+    cursor: pointer;
+}
+#frontloginwrapper #frontlogin .listgroupitem:hover {
+    background-color: $colorGreen;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper {
+    top: 50%;
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: -219.75px;
+    height: auto !important;
+    left: 0;
+    max-width: none !important;
+    z-index: 20;
+    position: relative !important;
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card {
+    max-width: 400px;
+    background-color: rgba(34,34,34,0.93);
+    position: relative !important;
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 0 !important;
+    border: none !important;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody {
+    padding: 40px;
+    flex: 1 1 auto;
+    min-height: 1px;
+}
+
+//////////// FORM
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .formWrapper {
+    font-size: 15px;
+    line-height: 15px;
+    color: rgba(0,0,0,.65);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .formGroup {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 40px;
+    position: relative;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .formGroup .controlLabel {
+    font-weight: normal;
+    color: $colorLight;
+    display: inline-block;
+    max-width: 100%;
+    margin-left: 1px;
+    margin-bottom: 10px;
+    position: relative;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .formGroup .formGroupWrapper {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: unset;
+    cursor: pointer;
+    display: inline-block;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .formGroup .formGroupWrapper .checkboxWrapper {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    vertical-align: middle;
+    top: -.09em;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .formActions {
+    border-top: 1px solid #e4e9f0;
+    padding-top: 2.5rem;
+    margin: 1.53rem 0 0.5rem 0;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .form-control {
+    padding-left: 34px;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .form-control::-moz-placeholder {
+    color: #9b9b9f;
+    opacity: 1;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .form-control:-ms-input-placeholder {
+    color: #9b9b9f;
+    opacity: 1;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .form-control::-webkit-input-placeholder {
+    color: #9b9b9f;
+    opacity: 1;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody label {
+    display: inline-block;
+    margin-bottom: 0;
+    max-width: 100%;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .checkbox, .radio {
+    position: relative;
+    display: block;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody button, input {
+    box-shadow: none;
+    overflow: visible;
+}
+/***********************************************
+                    ICON
+***********************************************/
+#frontloginwrapper #frontlogin input[type="text"], 
+#frontloginwrapper #frontlogin input[type="email"], 
+#frontloginwrapper #frontlogin input[type="number"],
+#frontloginwrapper #frontlogin input[type="password"], 
+#frontloginwrapper #frontlogin input[type="text"] {
+    padding: 7px 13px 7px 35px !important;
+}
+#frontloginwrapper #frontlogin input::-webkit-outer-spin-button,
+#frontloginwrapper #frontlogin input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#frontloginwrapper #frontlogin input[type=number] {
+    -moz-appearance: textfield;
+  }
+#frontloginwrapper #frontlogin .errorLabel {
+    position: absolute;
+    font-size: 15px;
+    font-family: $Roboto;
+    color: $colorRed;
+    margin: 7px 3px 3px 3px;
+}
+#frontloginwrapper #frontlogin .successLabel {
+    position: absolute;
+    font-size: 15px;
+    color: $colorGreen;
+    margin: 7px 3px 3px 3px;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .adminloginform .mobileIconPosition {
+    position: inherit;
+    top: 100%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    line-height: 0;
+    color: rgba(0,0,0,.25);
+    z-index: 3;
+    margin-left: 10px;
+    text-align: center;
+    right: 0;
+    cursor: pointer;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .adminloginform .iconPosition {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    line-height: 0;
+    color: $colorDarkGray;
+    z-index: 3;
+    margin-left: 10px;
+    cursor: pointer;
+}
+#frontloginwrapper #frontlogin .contentwrap .sectionwrapper .loginWrapper .card .cardBody .adminloginform .iconPosition .agraicon {
+    display: inline-block;
+    font-style: normal;
+    vertical-align: -.125em;
+    text-align: center;
+    text-transform: none;
+    line-height: 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/***********************************************
+                    BUTTON
+***********************************************/
+#frontloginwrapper #frontlogin .submitButton {
+    width: 100%;
+    margin: 16px auto;
+    display: block;
+}
+#profilecontent .submitButton {
+    width: 200px;
+    margin: 16px auto;
+    display: block;
+}
+#profilecontent .submitButtonShadow {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 32px;
+    padding: 5px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    overflow: visible;
+    transform: translate3d(0,0,0);
+    transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+}
+#frontloginwrapper #frontlogin .submitButtonShadow:not([class*=mat-elevation-z]),
+#profilecontent .submitButtonShadow:not([class*=mat-elevation-z]) {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12) !important;
+}
+#frontloginwrapper #frontlogin .submitButtonShadow {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 32px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+    transform: translate3d(0,0,0);
+    transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+}
+#frontloginwrapper #frontlogin .submitButtonShadow.buttonColor,
+#profilecontent .submitButtonShadow.buttonColor{
+    background-color: $colorGreen;
+    color: $colorLightGray;
+}
+#frontloginwrapper #frontlogin .submitButtonShadow.buttonColor:hover,
+#profilecontent .submitButtonShadow.buttonColor:hover {
+    background-color: $colorLightGreen;
+    color: #fff;
+}
+/***********************************************
+                RESPONSIVE
+***********************************************/
+@media (max-width: 767.98px) {
+    #frontloginwrapper #frontlogin .formGroup {
+        margin-bottom: 20px !important;
+    }
+    #frontloginwrapper #frontlogin .formGroup .controlLabel {
+        font-size: 14px !important;
+        margin-left: 1px !important;
+        margin-bottom: 3px !important;
+    }
+}

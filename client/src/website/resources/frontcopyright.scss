@@ -1,0 +1,25 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'grid.scss';
+
+/***********************************************
+                FRONT COPYRIGHT
+***********************************************/
+#frontcopyright {
+    background-color: $colorDark;
+    text-align: center;
+}
+#frontcopyright p.footercopy {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 0;
+}
+
+#frontcopyright p.footercopy a {
+    color: $colorLightGreen;
+}
+
+#frontcopyright p.footercopy a:hover {
+    color: $colorLight;
+}

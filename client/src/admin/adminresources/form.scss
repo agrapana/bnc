@@ -1,0 +1,391 @@
+@import 'colors';
+@import 'fonts';
+/***********************************************
+                    FORM
+***********************************************/
+#lumisoftmaster .categoryButtonWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+}
+#lumisoftmaster .deleteButtonWrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+#lumisoftmaster .deleteButtonWrapper .deleteButton {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0 20px 0 0;
+    min-width: 20px;
+    line-height: 20px;
+    padding: 0;
+    border-radius: 4px;
+    overflow: visible;
+    transform: translate3d(0, 0, 0);
+    transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+#lumisoftmaster .deleteButtonWrapper .deleteButton .svg-inline--fa.fa-w-11 {
+    width: 0.7em !important;
+}
+#lumisoftmaster .deleteButtonWrapper .deleteButton.buttonColor {
+    background-color:#e60000;
+    color:#d3d3d3;
+}
+#lumisoftmaster .formstyle .noicon {
+    padding: 7px 13px 7px 10px !important;
+}
+#lumisoftmaster .categoryButtonWrapper .categoryButton {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0 20px 0 0;
+    min-width: 32px;
+    line-height: 32px;
+    padding: 0;
+    border-radius: 4px;
+    overflow: visible;
+    transform: translate3d(0, 0, 0);
+    transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+#lumisoftmaster .categoryButtonWrapper .categoryButton.buttonColor {
+    background-color:#111111;
+    color:#d3d3d3;
+}
+.colFormLabel {
+    padding-top: calc(.375rem + 1px);
+    padding-bottom: calc(.375rem + 1px);
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: 1.5;
+}
+#lumisoftmaster .additionalformstyle .iconPosition {
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    line-height: 0;
+    color:
+    #878787;
+    z-index: 3;
+    margin-left: 10px;
+    cursor: pointer;
+}
+#lumisoftmaster .additionalformstyle .errorLabel {
+    position: absolute;
+    font-size: 13px;
+    margin: 8px 8px 8px 0;
+    color: $colorRed;
+}
+#lumisoftmaster .additionalformstyle .errorAddCategory {
+    padding: 15px;
+    color: $colorRed;
+}
+
+#lumisoftmaster .additionalformstyle .successAddCategory {
+    padding: 15px;
+    color: $colorLightGreen;
+}
+
+#lumisoftmaster .additionalmenudropdown {
+    position: absolute;
+    z-index: 99;
+    width: 215px;
+}
+#lumisoftmaster .page_container .listgroupitem:first-child {
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+}
+#lumisoftmaster .page_container .listgroupitem {
+    position: relative;
+    display: block;
+    // padding: 7px 15px;
+    margin-bottom: -1px;
+    background-color:#222222;
+    border: 1px solid#5a5a5a;
+    cursor: pointer;
+}
+#lumisoftmaster .page_container .listgroupitem:hover {
+    background-color: $colorGreen;
+}
+
+.formstyle .iconPosition {
+    top: 42%;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    line-height: 0;
+    color: $colorDarkGray;
+    z-index: 3;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.formstyle .iconPosition.iconadditional {
+    top: 50%;
+}
+.formstyle .errorLabel {
+    position: absolute;
+    font-size: 13px;
+    margin: 3px;
+}
+
+.formstyle input[type="text"], .formstyle input[type="email"], .formstyle input[type="number"],
+.formstyle input[type="password"], .additionalformstyle input[type="text"] {
+    padding: 7px 13px 7px 35px !important;
+}
+
+.inputbutton {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    padding: 7px 13px 7px 35px;
+    width: 100%;
+    height: 32px;
+    font-size: 15px;
+    line-height: 1;
+    color: $colorGray;
+    background-color: $colorVeryLightDark;
+    background-image: none;
+    border: 1px solid $colorDarker;
+    border-radius: 4px;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.inputbutton:hover {
+    border-color: $colorDarkerGray !important;
+}
+
+.inputbutton:focus {
+    box-shadow: none !important;
+    border-color: $colorDarkerGray !important;
+    background-color: $colorDarker !important;
+}
+/***********************************************
+                FORM DROPDOWN
+***********************************************/
+.formstyle .dropdownmenu {
+    position: absolute;
+    width: 100%;
+    top: 90%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    padding: 0 15px;
+    margin: 0;
+    list-style: none;
+    font-size: 13px;
+    text-align: left;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    // -webkit-box-shadow: 0 1px 1px 1px rgba(255,255,255,.2);
+    // box-shadow: 0 1px 1px 1px rgba(255,255,255,.2);
+    background-clip: padding-box;
+}
+.formstyle .dropdownmenu > li > a,
+.formstyle .dropdownmenu > li > .memberHeaderLink {
+    display: block;
+    padding: 5px 18px;
+    clear: both;
+    color: $colorLight;
+    font-weight: normal;
+    line-height: 1.49;
+    white-space: nowrap;
+}
+.formstyle .dropdownmenu > li > a:hover,
+.formstyle .dropdownmenu > li > .memberHeaderLink:hover {
+    color: $colorWhite;
+}
+.formstyle .dropdownmenu .divider {
+    height: 1px;
+    margin: 9px 18px;
+    overflow: hidden;
+    background-color: #4c536e;
+}
+
+.formstyle .listgroupitem:first-child {
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+.formstyle .listgroupitem {
+    position: relative;
+    display: block;
+    padding: 2px 15px;
+    margin-bottom: -1px;
+    background-color: $colorDark;
+    border: 1px solid $colorDarkerGray;
+    cursor: pointer;
+}
+.formstyle .listgroupitem:hover {
+    background-color: $colorGreen;
+}
+.formstyle .formSubmitButtonWithBack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.formstyle .errorSubmit {
+    position: absolute;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    color: $colorRed;
+    text-transform: uppercase;
+    left: 20px;
+}
+.formstyle .successSubmit {
+    position: absolute;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    color: $colorGreen;
+    text-transform: uppercase;
+    left: 20px;
+}
+.formstyle .showThumbnail {
+    position: relative;
+    padding: 20px;
+    background-color: $colorVeryLightDark;
+}
+.formstyle .dropzoneImageWrapper {
+    flex-direction: row;
+    display: flex;
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+.formstyle .dropzoneImageWrapper:last-child {
+    flex-direction: row;
+    display: flex;
+    padding-bottom: 0;
+    cursor: pointer;
+}
+.formstyle .dropzoneImageWrapper .dropzoneImageInner > span {
+    padding-left: 20px;
+    padding-bottom: 5px;
+    width: 100%;
+    display: block;
+}
+.formstyle .dropzoneImageWrapper img {
+    height: 135px;
+}
+.formsubmitButton,
+.formbackButton {
+    width: 100%;
+    margin: 16px auto;
+    display: block;
+}
+
+.formsubmitButtonShadow:not([class*=mat-elevation-z]) {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+.formsubmitButtonShadow {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 32px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+    transform: translate3d(0,0,0);
+    transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+}
+
+.formbackButton.formsubmitButtonShadow {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0 20px 0 0;
+    min-width: 36px;
+    line-height: 32px;
+    padding: 0;
+    border-radius: 4px;
+    overflow: visible;
+    transform: translate3d(0,0,0);
+    transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+}
+.formsubmitButtonShadow.buttonColor {
+    background-color: $colorGreen;
+    color: $colorLightGray;
+}
+.formsubmitButtonShadow.buttonColor:hover {
+    background-color: $colorLightGreen;
+    color: #fff;
+}
+
+@media (max-width: 767.98px) {
+    .formstyle .dropzoneImageWrapper .dropzoneImageInner {
+        display: none;
+    }
+    .colFormLabel {
+        padding-bottom: 0;
+    }
+    .formstyle .iconPosition {
+        color: $colorDarkGray;
+        top: 50%;
+    }
+    .categoryButton {
+        margin: 0
+    }
+    #lumisoftmaster .paddingRight {
+        padding-right: 0;
+    }
+}

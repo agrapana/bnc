@@ -1,0 +1,33 @@
+// @import '../../globalresources/colors.scss';
+// @import '../../globalresources/fonts.scss';
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'grid.scss';
+
+/***********************************************
+                FRONT PARALLAX
+***********************************************/
+.quote {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 170px 0;
+}
+.parallaxquote {
+    color:#fff;
+    font-weight: 300;
+    font-family: $Roboto;
+    text-align: center;
+    font-size: 38px;
+    line-height: 48px;
+}
+.quoteauthor {
+    margin-top: 20px;
+    color:#fff;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+}

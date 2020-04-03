@@ -1,0 +1,105 @@
+// @import '../../globalresources/colors.scss';
+// @import '../../globalresources/fonts.scss';
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'grid.scss';
+/***********************************************
+                FRONT FOOTER
+***********************************************/
+#frontfooter {
+    position: relative;
+    padding: 60px 0 80px 0;
+}
+
+#frontfooter .frontwidget {
+    position: relative;
+    margin-top: 50px;
+}
+
+#frontfooter .frontwidget:first-child {
+    margin-top: 0;
+}
+
+#frontfooter .frontwidget .footerlogo {
+    display: block;
+    margin-bottom: 30px;
+}
+
+#frontfooter .frontwidget p {
+    line-height: 1.7;
+}
+
+#frontfooter .frontwidget p:not(.lead) {
+    font-size: 14px;
+}
+
+#frontfooter .frontwidget address {
+    font-style: normal;
+    line-height: inherit;
+    margin-bottom: 30px;
+}
+
+abbr[title], abbr[data-original-title] {
+    text-decoration: underline;
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+    cursor: help;
+    border-bottom: 0;
+    -webkit-text-decoration-skip-ink: none;
+    text-decoration-skip-ink: none;
+}
+
+#frontfooter .frontwidget > h4 {
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+}
+
+#frontfooter .frontwidget .frontfooterdownloadbutton {
+    flex-direction: column;
+    display: flex;
+}
+
+
+#frontfooter .footersocial h3 {
+    color: #ffffff;
+}
+#frontfooter .footersocial ul {
+    padding-top: 5px;
+}
+#frontfooter .footersocial ul li {
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+}
+#frontfooter .footersocial ul li a {
+    // width: 35px;
+    // height: 35px;
+    line-height: 35px;
+    font-size: 35px;
+    color: $colorLightGray;
+    border-radius: 3px;
+    // background: #aaaaaa;
+    display: inline-block;
+    -webkit-transition: all 0.2s linear;
+    -o-transition:all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+#frontfooter .footersocial ul li a svg:hover {
+    color: $colorLightGreen;
+}
+
+@media (max-width: 767.98px) {
+    #frontfooter .footersocial{
+        padding-top: 30px;
+    }
+}
+
+@media (min-width: 767.99px) and (max-width: 835.98px) {
+    #frontfooter .container {
+        padding: 0 20px !important;
+    }
+}

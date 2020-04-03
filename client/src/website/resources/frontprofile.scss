@@ -1,0 +1,90 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'grid.scss';
+/***********************************************
+                FRONT PROFILE
+***********************************************/
+#profilecontent {
+    position: relative;
+    overflow: hidden;
+}
+#profilecontent .formActions {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+#profilecontent .pagetitlewrap {
+    padding: 150px 0px 200px 0px;
+    background-image: url(/admin/assets/images/profilewallpaper.jpg);
+    background-size: cover;
+    background-position: 0px -74.2573px;
+    // top: -100px;
+    // margin-bottom: -100px;
+    background-color: transparent;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    border-bottom: none;
+    text-align: right;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.15);
+    position: relative;
+}
+#profilecontent .pagetitlewrap h1 {
+    font-size: 1.7rem;
+}
+#profilecontent .pagetitlewrap h1,
+#profilecontent .pagetitlewrap span,
+#profilecontent .pagetitlewrap p {
+    color: $colorWhite;
+}
+#profilecontent .contentwrap {
+    position: relative;
+    padding: 80px 0;
+}
+#profilecontent .imgthumbnail {
+    border-radius: 50%;
+    // float: left;
+    // margin: 5px 20px 13px 0;
+    // padding: .25rem;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    height: auto;
+    max-width: 100px;
+    position: absolute;
+}
+#profilecontent .headingblock {
+    margin-bottom: 50px;
+    border: none;
+    margin-top: 15px;
+    margin-left: 120px;
+}
+#profilecontent .headingblock::after {
+    content: '';
+    display: none;
+    margin-top: 30px;
+    width: 40px;
+    border-top: 2px solid #444;
+}
+#profilecontent .headingblock h3 {
+    font-size: 26px;
+    margin-bottom: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+}
+#profilecontent .headingblock span {
+    font-size: 20px;
+    display: block;
+    margin-top: 10px;
+    font-weight: 300;
+    color: #777;
+}
+/***********************************************
+                RESPONSIVE
+***********************************************/
+@media (max-width: 767.98px) {
+    #profilecontent .pagetitlewrap {
+        padding: 100px 0px;
+    }
+}

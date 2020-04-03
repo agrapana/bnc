@@ -1,0 +1,281 @@
+@import 'colors';
+@import 'fonts';
+
+/***********************************************
+                MAIN DASHBOARD
+***********************************************/
+#lumisoftmaster .page_container .pageWrapper .masterContainer .masterDashboard {
+    margin-left: 245px;
+    flex: 1 0 auto;
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    // width: 100%;
+    // min-width: 100%;
+    position: relative;
+    overflow: hidden;
+    min-height: 90vh;
+}
+#lumisoftmaster .page_container .pageWrapper .masterContainer .masterDashboard .masterDashboardContainer {
+    padding: 30px 30px 30px 20px;
+    width: 100%;
+}
+#lumisoftmaster .page_container .pageWrapper .masterContainer .masterDashboard.rightsidebar > .center {
+    order: 1;
+}
+#lumisoftmaster .page_container .pageWrapper .masterContainer .masterDashboard.simple.rightsidebar > .center {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    z-index: 3;
+    min-width: 0;
+    width: 100%;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+#lumisoftmaster .page_container .pageWrapper .masterContainer .masterDashboard > .center > .contentDashboard {
+    background: #f5f5f5;
+    flex: 1;
+}
+#lumisoftmaster .page_container .pageWrapper .masterContainer .masterDashboard > .center > .contentDashboard .contentDashboardWrapper {
+    height: 100%;
+}
+#lumisoftmaster .page_container .pageWrapper .masterContainer .masterDashboard .contentDashboardHeader {
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
+#lumisoftmaster .page_container .pageWrapper .masterContainer .masterDashboard > .center > .contentDashboard .contentDashboardWrapper .contentDashboardBody {
+    flex-grow: 1;
+}
+#lumisoftmaster .page_container .pageWrapper .masterContainer .masterDashboard > .center > .contentDashboard .contentDashboardWrapper .contentDashboardBody .contentDashboardBodyWrapper{
+    overflow-y: hidden;
+}
+
+/////////////////////////////////////
+/////////////////////////////////////
+///////////// Title box /////////////
+/////////////////////////////////////
+/////////////////////////////////////
+#lumisoftmaster .page_container .pageWrapper .masterContainer .masterDashboard .masterDashboardContainer .containerfluid .pagetitlebox {
+    padding-bottom: 20px;
+}
+#lumisoftmaster .page_container .pageWrapper .masterContainer .masterDashboard .masterDashboardContainer .containerfluid .pagetitlebox .pageTitle {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 30px;
+}
+#lumisoftmaster .page_container .pageWrapper .masterContainer .masterDashboard .masterDashboardContainer .containerfluid .pagetitlebox .breadcrumb {
+    padding: 4px 0;
+    background-color: transparent;
+    margin-bottom: 0;
+}
+#lumisoftmaster .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    border-radius: .25rem;
+    // padding: .75rem 1rem;
+    // margin-bottom: 1rem;
+    // background-color: transparent;
+}
+#lumisoftmaster .breadcrumbitem .currentpagetitle {
+    color: $colorWhite;
+}
+#lumisoftmaster .breadcrumbcontainer {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+#lumisoftmaster .breadcrumbcontainer a {
+    color: $colorGray;
+}
+#lumisoftmaster .breadcrumbcontainer a:hover {
+    color: $colorGreen;
+}
+#lumisoftmaster .breadcrumbcontainer .breadcrumbicon {
+    margin: 0 7px;
+}
+#lumisoftmaster .breadcrumbicon::before {
+    display: inline-block;
+    font: normal normal normal 24px/1 Material Design Icons;
+    font-size: inherit;
+    text-rendering: auto;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+#lumisoftmaster .breadcrumbcontainer .itemContent {
+    align-items: center;
+    display: table-row;
+}
+#lumisoftmaster .breadcrumbcontainer .itemContent .itemInner {
+    display: table-cell;
+  width: 100%;
+  vertical-align: middle;
+  white-space: nowrap;
+  align-items: center;
+}
+#lumisoftmaster .breadcrumbcontainer .itemContent .breadcrumbhome {
+    font-size: 14px;
+}
+
+/////////////////////////////////////
+/////////////////////////////////////
+//////////// Right Button ///////////
+/////////////////////////////////////
+/////////////////////////////////////
+#lumisoftmaster .pagetitlebutton {
+    float: right;
+    display: flex;
+    flex-direction: row;
+}
+#lumisoftmaster .pagetitlebutton .pagetitledropdown {
+    position: relative;
+}
+#lumisoftmaster .pagetitlethebutton {
+    background-color: $colorDark;
+    color: $colorGray;
+    border: 1px solid $colorDark;
+    border-radius: 3px;
+    padding: .375rem .75rem;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+#lumisoftmaster .pagetitlethebutton:hover,
+#lumisoftmaster .dropdownitem:hover {
+    background-color: $colorGreen;
+    color: $colorWhite;
+    border: 1px solid $colorGreen;
+}
+#lumisoftmaster .pagetitlethebutton .breadcrumbicon {
+    margin-right: 0.5rem;
+    font-size: 12px;
+}
+#lumisoftmaster .pagetitledropdown .dropdownsettingmenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: auto !important;
+    bottom: auto;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 0 13px 0 rgba(36,36,41,.07);
+    background-color: $colorDark;
+    cursor: pointer;
+}
+#lumisoftmaster .pagetitledropdown .dropdownsettingmenu.show {
+    display: block;
+    position: absolute;
+    will-change: transform;
+    top: 0;
+    transform: translate3d(-63px, 40px, 0px);
+}
+#lumisoftmaster .dropdownitem {
+    display: block;
+    width: 100%;
+    padding: .6rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: $colorGray;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 1px solid $colorDark;
+}
+
+#lumisoftmaster .waveseffect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+}
+/////////////////////////////////////
+/////////////////////////////////////
+///////////// Right Side ////////////
+/////////////////////////////////////
+/////////////////////////////////////
+
+#lumisoftmaster .masterDashboard > .sidebar {
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+}
+#lumisoftmaster .masterDashboard.simple.rightsidebar>.sidebar.locked-open {
+    background: 0 0;
+    box-shadow: none;
+}
+#lumisoftmaster .masterDashboard.simple.rightsidebar>.sidebar {
+    order: 2;
+    overflow: hidden;
+}
+#lumisoftmaster .masterDashboard .posRelative {
+    position: relative !important;
+}
+
+#lumisoftmaster .masterDashboard .rightposition {
+    right: 0;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    transition: transform 0.2s ease;
+    will-change: transform;
+}
+@media (max-width: 767.98px) {
+    #lumisoftmaster .masterDashboard .masterDashboardContainer {
+        padding: 20px 10px 20px 10px !important;
+        width: 100% !important;
+    }
+    #lumisoftmaster .pagetitledropdown .dropdownsettingmenu.show {
+        transform: translate3d(-63px, 45px, 0px) !important;
+    }
+    #lumisoftmaster .pagetitlebutton {
+        padding-top: 20px !important;
+        display: flex !important;
+        justify-content: center !important;
+        float: none !important;
+    }
+    #lumisoftmaster .pagetitlethebutton {
+        padding: 10px 12px 8px 12px !important;
+    }
+    #lumisoftmaster .pagetitlethebutton .breadcrumbicon {
+        margin-right: 0 !important;
+        font-size: 16px !important;
+    }
+    #lumisoftmaster .pagetitlethebutton .pagetitlebuttontext {
+        display: none !important;
+    }
+}
+@media (max-width: 1025px) {
+    #lumisoftmaster .masterDashboard {
+        margin-left: 0 !important;
+    }
+    #lumisoftmaster .masterDashboard .open {
+        -webkit-transform: translateX(0)!important;
+        transform: translateX(0)!important;
+    }
+}
+@media (min-width: 1026px) {
+    #lumisoftmaster .masterDashboard .open {
+        -webkit-transform: translateX(0)!important;
+        transform: translateX(0)!important;
+    }
+}

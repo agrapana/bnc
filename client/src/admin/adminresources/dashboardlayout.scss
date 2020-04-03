@@ -1,0 +1,367 @@
+@import 'colors';
+@import 'fonts';
+/***********************************************
+                DASHBOARD LAYOUT
+***********************************************/
+#lumisoftmaster .sidebarNavigation {
+    position: relative;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    flex: 1 1;
+}
+#lumisoftmaster .agContainer {
+    -ms-touch-action: auto;
+    touch-action: auto;
+    overflow: hidden !important;
+    -ms-overflow-style: none;
+}
+#lumisoftmaster .pageWrapper .masterContainer .containerfluid .rightSideOption.open {
+    transform: translateX(0);
+}
+
+#lumisoftmaster .pageWrapper .masterContainer .containerfluid .rightSideOption.open .actionTitle {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 0;
+    padding: 15px 20px;
+    border-bottom: 1px solid 
+    rgba(255, 255, 255, 0.07);
+    float: right;
+    min-height: 63px;
+}
+#lumisoftmaster .pageWrapper .masterContainer .containerfluid .rightSideOption.open .actionTitle .actionTitleText {
+    height: 32px;
+    vertical-align: middle;
+    display: table-cell;
+}
+#lumisoftmaster .pageWrapper .masterContainer .containerfluid .rightSideOption.open .rightSideButtonWrapper {
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    min-height: 1px;
+    width: 100%;
+    float: left;
+}
+#lumisoftmaster .pageWrapper .masterContainer .containerfluid .rightSideOption.open .rightSideButtonWrapper .rightSideButton {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color:#222222;
+    color:#bbbbbb;
+    border: 1px solid #222222;
+    border-radius: 3px;
+    padding: .375rem .75rem;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+#lumisoftmaster .pageWrapper .masterContainer .containerfluid .rightSideOption.open .rightSideButtonWrapper .rightSideButton:hover {
+    background-color: $colorGreen;    
+    color: $colorWhite;
+    border: 1px solid $colorGreen;
+}
+#lumisoftmaster .pageWrapper .masterContainer .containerfluid .rightSideOption.open .rightSideButtonWrapper .rightSideButton .rightSideButtonText {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+#lumisoftmaster .pageWrapper .masterContainer .containerfluid .rightSideOption.open .rightSideButtonWrapper .rightSideButton svg {
+    margin-right: 0.5rem;
+    // font-size: 12px;
+}
+#lumisoftmaster .pageWrapper .masterContainer .containerfluid .rightSideOption {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 245px;
+    // background-color: #3f4a59;
+    // background-color: #272723; last one
+    background-color: $colorLightDark;
+    white-space: nowrap;
+    // -webkit-box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.2);
+    // box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.2);
+    // -webkit-box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+    // box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+    display: -webkit-box;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    z-index: 999;
+    -webkit-transform: translateX(150%);
+    -moz-transform: translateX(150%);
+    -ms-transform: translateX(150%);
+    transform: translateX(150%);
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    transition: .3s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+}
+#lumisoftmaster .pageWrapper .memberpageLeftNav{
+    position: fixed;
+    top: 56px;
+    left: 0;
+    bottom: 0;
+    width: 245px;
+    // background-color: #3f4a59;
+    // background-color: #272723; last one
+    background-color: $colorLightDark;
+    white-space: nowrap;
+    // -webkit-box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.2);
+    // box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+    display: -webkit-box;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    z-index: 45;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    transition: .3s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+}
+#lumisoftmaster .memberpageLeftNav .navigationHeader {
+    font-size: 0.6875rem;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: $Roboto;
+    color: $colorLight;
+    padding: 11px 15px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+}
+#lumisoftmaster .memberpageLeftNav .version {
+    position: absolute;
+    font-size: 0.8rem;
+    font-family: $Roboto;
+    display: block;
+    color: $colorDarkGray;
+    padding: 11px 15px;
+    bottom: 10px;
+    right: 10px;
+}
+#lumisoftmaster .memberpageLeftNav nav ul li a.menuLink {
+    color: $colorDarkGray;
+    font-family: $Roboto;
+}
+#lumisoftmaster .memberpageLeftNav nav ul li a.menuLink .iconcontainer {
+    width: 35px;
+}
+#lumisoftmaster .memberpageLeftNav nav ul li a.menuLink .iconcontainer .agraicon {
+    font-size: 14px;
+}
+#lumisoftmaster .memberpageLeftNav nav ul .menuItem {
+    vertical-align: top;
+    -webkit-transition: opacity 0.5s linear;
+    transition: opacity 0.5s linear;
+}
+#lumisoftmaster .memberpageLeftNav nav ul .menuItem a {
+    text-decoration: none;
+}
+#lumisoftmaster .memberpageLeftNav nav ul .menuItem > a:hover {
+    background-color: $colorDark !important;
+    color: $colorWhite !important;
+    border-right: 7px solid $colorGreen !important;
+}
+#lumisoftmaster .memberpageLeftNav nav ul .menuItem > a.active {
+    // background-color: #2ecd99;
+    background-color: $colorDark !important;
+    color: $colorWhite !important;
+    border-right: 7px solid $colorGreen !important;
+}
+.menu {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+.menuItem {
+    vertical-align: top;
+    -webkit-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
+}
+.menuItem a {
+    text-decoration: none;
+}
+.menuItem > a.active {
+    // background-color: #2ecd99;
+    background-color: #168970;
+    color: #fff;
+}
+.menuLink {
+    position: relative;
+    height: 40px;
+    padding: 0 12px;
+    font-weight: 400;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+    color: #fff;
+}
+.pageLeftNav .navigationHeader {
+    font-size: 0.6875rem;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #a1a1a1;
+    padding: 11px 15px;
+}
+.pageWrapper {
+    margin: 0;
+    width: 100%;
+}
+.pageWrapper .pageRight {
+    margin-left: 260px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-transition: margin-left .3s ease-out;
+    transition: margin-left .3s ease-out;
+}
+.pageWrapper .pageContainer .pageInner .pageRight h2{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+.pageWrapper .pageContainer .pageInner .pageRight p{
+    padding: 0 15px;
+    margin: 0;
+}
+.pageWrapper .pageContainer .pageInner .pageRight .pageRightWrapper{
+    padding: 0 15px 15px 15px;
+    // display: flex;
+}
+.pageRightWrapper .pageRightInner {
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+/***********************************************
+                DASHBOARD PANEL
+***********************************************/
+#dashboardpanelcss .card {
+    border: none;
+    box-shadow: 0 0 13px 0 rgba(36,36,41,.07);
+    margin-bottom: 30px;
+    background-color: $colorDark;
+}
+#dashboardpanelcss .dashboardlink a {
+    color:$colorWhite !important;
+}
+#dashboardpanelcss .card.bgpattern {
+    background-image: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAGQBAMAAACkCxkHAAAAG1BMVEVHcEznTF7nTF7nTF7oTmDoUWLnTF7nTF7nTF4LFobgAAAACXRSTlMAaEspWg9DNhzTxGxNAAADuElEQVR42u3cUWriQBzA4cIi7OvAXqAh7AUCm+dKDrCwFHwWyAEEzAF88dirttuuGjWpJjOQ76OAQJ/m58w/CZinJwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoIM/liApi8IapNVDkMR6CJKQTSFIQmaHHoKkdFwJktr2ECSx7SFIYttDkNRyCJJYDkHiej3NIUjMzbEoWliXWDU2RSFI6jUEiRDjdVtcY4XGjbEpbrBKo7XYFl1YqqFLzF4Xt/eFICN02IXYFr1Zukf4PdsH2FnsImw3m+LrLGbvu+vFnUsuyANjbIcr8aa0yD1qFIMrn63zPQ+eHqyp82CpO+XYjpFjmeVBkERyNHW28yJIEofVW41DD0FuGTpHs36vkWXPQZCb22PIy9yyqZfZpzwIcsv3q9/tpqnrj693/bPeW6+bg7K83KFsmvX6qMVnD0G+dFyVTV1nXfzcqT8tl5f/NQjyxeOqXC+zxwuC3OoxYo23CyxBeo+Pps6yYXsI0mN8DLQ5jnoI0u5P65ONEXoI0rHHgDmOegjSqUc5YI7jHoJ06bHORushyO0eg26P0x6C3Owx6PY46yHIjevdYbdHftZDkOs9mkG3Rx6CIL3uz9ej9xDk2vOr1aA9qiBIr+e7w46P83EuyJlN1HEuyNUL3nL88SHIlYFeRhgfglwe6L+iHFeCXBogZZzjSpALA+RXhKsrQS4PkDLa9hCkbYCUkaaHIO0DZMD7jyoEQXoPkGW000qQtgNrFe+0EqTlwFrFzSHI3rehL3i75xDk+MAqY+cQ5OjAGuICq+qVQ5CjW8KHD5C8Cn0J8rk/VtXej+rH7u/wcT4fdXMI8nEL0jR1feE+Yd9ltBqCPM3Kj19dXlumqhqlxuSDzBbrrk9h91HmncZGFe4x6Rqb/+47uj3Y2J9gF1vMqzt2xuSDvL3DuG+Pdy+HmZ/Pd6r88Pnl/hRTDvLv7Qw9DqyxTDLH9uzG/DkIEvesOrkRDILE2h2btidXL4LEnR0nGyQPgkRx/FuDMsEDa1JBTl+VsUpvok8qyOmrAMoUD6zpBDl/k8wqwYk+nSDnb8pIdIOEiW6PZDfIJIK0vdinTHKiTyNI63vhUt0gEwjS+l64ZDdImOL4+H+DpNYj/AWjfaLVysu/8gAAAABJRU5ErkJggg==);
+    background-size: cover;
+    background-position: bottom;
+}
+#dashboardpanelcss .card .cardBody {
+    min-height: 0;
+}
+#dashboardpanelcss .card .cardBody .ministate {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#dashboardpanelcss .card .cardBody .ministate .ministatetitle{
+    text-transform: uppercase;
+}
+#dashboardpanelcss .card .cardBody .ministate .icon{
+    font-size: 24px;
+}
+/***********************************************
+              DASHBOARD RESPONSIVE
+***********************************************/
+@media (max-width: 767.98px){
+    .pageWrapper {
+        padding: 0;
+    }
+    .pageWrapper .pageContainer .pageInner{
+        padding: 2rem !important;
+        display: table !important;
+    }
+    .pageWrapper .pageContainer .pageInner .pageLeftNav{
+        position: fixed;
+        left: 0;
+        width: 298px;
+        margin-left: 0;
+        bottom: 0;
+        z-index: 45;
+        border-right: 1px solid #2a3e4c;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+    .pageWrapper .pageContainer .pageInner .memberpageLeftNav{
+        position: fixed;
+        left: 0;
+        width: 298px;
+        margin-left: 0;
+        bottom: 0;
+        z-index: 45;
+        border-right: 1px solid #2a3e4c;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+    .pageWrapper .pageContainer .pageInner .pageLeftNav .pageLeftNavScroll{
+        position: relative;
+        overflow: hidden;
+        width: auto;
+        height: 100%;
+    }
+    .pageWrapper .pageContainer .pageInner .memberpageLeftNav .pageLeftNavScroll{
+        position: relative;
+        overflow: hidden;
+        width: auto;
+        height: 100%;
+    }
+    .pageWrapper .pageContainer .pageInner .pageRight{
+        width: 298px;
+        display: block;
+    }
+    .pageWrapper .pageContainer .pageInner .pageRight .pageRightWrapper{
+        padding: 0;
+    }
+    .pageWrapper .pageContainer .pageInner .pageRight .pageRightWrapper .pageRightInner{
+        display: block;
+    }
+    .pageWrapper .pageContainer .pageInner .pageRight h2{
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .pageWrapper .pageContainer .pageInner .pageRight p{
+        padding-bottom: 1rem;
+    }
+    .innerLeft {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .innerRight {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}

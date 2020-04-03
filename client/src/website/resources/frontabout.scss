@@ -1,0 +1,71 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'grid.scss';
+
+/***********************************************
+                FRONT ABOUT US
+***********************************************/
+#frontaboutus {
+    position: relative;
+    overflow: hidden;
+    background-color: $colorVeryLightDark;
+    margin-bottom: 0;
+    padding-bottom: 50px;
+}
+
+#frontaboutus .contentwrap {
+    position: relative;
+    padding: 80px 0;
+}
+
+#frontaboutus .contentwrap .headingblock {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+#frontaboutus .contentwrap .headingblock h1 {
+    text-transform: uppercase;
+    color: $colorWhite;
+    font-size: 32px;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+#frontaboutus .contentwrap .headingblock::after {
+    content: '';
+    display: block;
+    margin-top: 30px;
+    width: 40px;
+    border-top: 2px solid $colorLight;
+}
+
+#frontaboutus .contentwrap p {
+    line-height: 1.8;
+}
+
+#frontaboutus .contentwrap .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+@media (max-width: 767.98px) {
+    #frontaboutus .contentwrap .headingblock {
+        margin-bottom: 50px;
+        margin-top: 40px;
+    }
+    #frontaboutus .contentwrap {
+        position: relative;
+        padding-top: 0;
+        padding-bottom: 155px;
+    }
+}
+
+@media (min-width: 767.99px) and (max-width: 835.98px) {
+    #frontaboutus .contentwrap {
+        padding: 20px 0 410px 0 !important;
+    }
+    #frontaboutus .contentwrap .container {
+        padding: 0 20px !important;
+    }
+}
+

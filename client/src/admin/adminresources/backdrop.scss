@@ -1,0 +1,50 @@
+/***********************************************
+                    BACKDROP
+***********************************************/
+.backdrop{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 105;
+}
+.memberbackdrop{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 450;
+}
+.dashboardbackdrop{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    cursor: pointer;
+}
+.doublebackdrop{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1500;
+}
+.tablebackdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 995;
+    cursor: pointer;
+}

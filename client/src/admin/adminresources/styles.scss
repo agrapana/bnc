@@ -1,0 +1,184 @@
+@import 'reset';
+@import 'loading';
+@import 'loadingtable';
+@import 'colors';
+@import 'fonts';
+@import 'grid';
+@import 'margin';
+@import 'padding';
+@import 'authentication';
+@import 'admin';
+@import 'backdrop';
+@import 'dashboardlayout';
+@import 'form';
+@import 'header';
+@import 'sidedrawer';
+@import 'table';
+@import 'dropzone';
+@import 'dropzoneforicon';
+@import 'pagination';
+@import 'nomatch';
+
+/***********************************************
+                    GENERAL
+***********************************************/
+*, ::after, ::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#lumisoftauthentication ::selection, 
+#lumisoftmaster ::selection {
+    background: $colorGray;
+    text-shadow: none;
+    color: $colorDark;
+}
+.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after, #topbar:before, #topbar:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after, .dl-horizontal dd:after, .container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .btn-toolbar:after, .btn-group-vertical > .btn-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after, .pager:after, .panel-body:after, .modal-footer:after, #topbar:after {
+    clear: both;
+}
+html, body, img, figure {
+    max-width: 100%;
+}
+html, body {
+    // height: 100%;
+    overflow-y: auto;
+}
+img {
+    vertical-align: middle;
+    border: 0;
+    border-style: none;
+}
+body #root #lumisoftauthentication, 
+body #root #lumisoftmaster {
+    font-family: $Roboto;
+    // color: #fff;
+    color: $colorLightGray;
+    background: $colorVeryLightDark;
+}
+
+#lumisoftmaster .page_container {
+    min-height: 100vh;
+    padding-top: 65px;
+    display: block;
+}
+body #root #lumisoftauthentication a, 
+body #root #lumisoftmaster a {
+    // color: #33cabb;
+    // color: #1E90FF;
+    text-decoration: none;
+    background-color: transparent;
+}
+.h1, h1 {
+    font-size: 2.5rem;
+}
+.h3, h3 {
+    font-size: 23px;
+}
+.h4, h4 {
+    font-size: 1.5rem;
+}
+.h5, h5 {
+    font-size: 1.2rem;
+}
+.h6, h6 {
+    font-size: 14px;
+    font-weight: 400;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+}
+b, strong {
+    font-weight: bolder;
+}
+p {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    // margin-block-start: 1em;
+    // margin-block-end: 1em;
+    // margin-inline-start: 0px;
+    // margin-inline-end: 0px;
+}
+
+/***********************************************
+                    BUTTON
+***********************************************/
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+button, select {
+    text-transform: none;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/***********************************************
+                    INPUT
+***********************************************/
+input[type=text], input[type=password], input[type=email], textarea {
+    appearance: none !important;
+}
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    cursor: pointer;
+    line-height: normal;
+}
+
+input[type=checkbox], input[type=radio] {
+    margin: 4px 0 0;
+    padding: 0;
+}
+
+input[type="text"], input[type="password"], input[type="datetime"], input[type="daterange"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    padding: 7px 13px;
+    width: 100%;
+    height: 32px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: $colorGray;
+    background-color: $colorVeryLightDark;
+    background-image: none;
+    border: 1px solid $colorDarker;
+    border-radius: 4px;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+textarea:hover, input[type="text"]:hover, input[type="password"]:hover, input[type="datetime"]:hover, input[type="daterange"]:hover, input[type="datetime-local"]:hover, input[type="date"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover, input[type="number"]:hover, input[type="email"]:hover, input[type="url"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="color"]:hover {
+    border-color: $colorDarkerGray !important;
+}
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="daterange"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus {
+    box-shadow: none !important;
+    border-color: $colorDarkerGray !important;
+    background-color: $colorDarker !important;
+}
+
+.disabled {
+    pointer-events: none;
+    color: rgba(255,255,255, 0.2) !important;
+}

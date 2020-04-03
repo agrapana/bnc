@@ -1,0 +1,358 @@
+@import 'colors';
+@import 'fonts';
+
+/***********************************************
+                    LOGIN
+***********************************************/
+#lumisoftauthentication .loginWrapper {
+    background: #fafafa;
+    background-size: cover;
+    background-image: url(/admin/assets/images/login.jpg);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin: auto;
+    width: 100%;
+    position: relative;
+    min-height: 100%;
+}
+#lumisoftauthentication  .loginAuthContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 95vh;
+}
+
+#lumisoftauthentication .loginWrapper .loginAuthContainer .loginAuthWelcome {
+    flex: 1 1 0%;
+    box-sizing: border-box;
+    padding: 100px 50px 30px 50px;
+}
+#lumisoftauthentication .loginAuthTitle {
+    padding-top: 250px;
+    padding-bottom: 250px;
+}
+#lumisoftauthentication .loginAuthTitle .authLoginLogo {
+    width: 128px;
+    margin-bottom: 32px;
+}
+#lumisoftauthentication .loginAuthTitle .authLoginTitle {
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 1;
+    font-family: $Roboto !important;
+}
+#lumisoftauthentication .authLoginTitle p {
+    color: $colorWhite;
+}
+#lumisoftauthentication .loginAuthTitle .authLoginDescription {
+    padding-top: 16px;
+    font-size: 17px;
+    max-width: 600px;
+    font-family: $Roboto !important;
+    color: $colorLight;
+    font-style: italic;
+}
+#lumisoftauthentication .loginAuthWelcome .loginCopyright {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#lumisoftauthentication .copyright p {
+    font-family: $Roboto !important;
+}
+#lumisoftauthentication .loginAuthWelcome .loginCopyright .privacyLegal {
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#lumisoftauthentication .loginFlexDirectionRow {
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    place-content: stretch flex-start;
+    align-items: stretch;
+}
+#lumisoftauthentication .loginFormWrapper {
+    width: 400px;
+    min-width: 400px;
+    max-width: 400px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
+    background: $colorDark;
+    position: relative;
+    overflow: hidden !important;
+    overflow-anchor: none;
+    transform: translateX(100%);
+    transition: transform 0.2s ease;
+    will-change: transform;
+}
+#lumisoftauthentication .loginFormWrapperOpen {
+    transform: translateX(0) !important;
+}
+#lumisoftauthentication .loginFormInner {
+    padding: 90px 48px 48px;
+}
+#lumisoftauthentication .loginFormInner .authLoginFormLogo {
+    margin: 32px auto;
+    text-align: center;
+}
+#lumisoftauthentication .loginFormInner .authLoginFormTitle {
+    font-size: 21px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+/***********************************************
+                    FORM
+***********************************************/
+#lumisoftauthentication .formWrapper {
+    font-size: 15px;
+    line-height: 15px;
+    color: rgba(0,0,0,.65);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+#lumisoftauthentication .formGroup {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 40px;
+    position: relative;
+}
+#lumisoftauthentication .formGroup .controlLabel {
+    font-weight: normal;
+    color: $colorLight;
+    display: inline-block;
+    max-width: 100%;
+    margin-left: 1px;
+    margin-bottom: 10px;
+    position: relative;
+}
+#lumisoftauthentication .formGroup .formGroupWrapper {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: unset;
+    cursor: pointer;
+    display: inline-block;
+}
+#lumisoftauthentication .formGroup .formGroupWrapper .checkboxWrapper {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    vertical-align: middle;
+    top: -.09em;
+}
+#lumisoftauthentication .formActions {
+    border-top: 1px solid #e4e9f0;
+    padding-top: 2.5rem;
+    margin: 1.53rem 0 0.5rem 0;
+}
+#lumisoftauthentication .form-control {
+    padding-left: 34px;
+}
+#lumisoftauthentication .form-control::-moz-placeholder {
+    color: #9b9b9f;
+    opacity: 1;
+}
+#lumisoftauthentication .form-control:-ms-input-placeholder {
+    color: #9b9b9f;
+    opacity: 1;
+}
+#lumisoftauthentication .form-control::-webkit-input-placeholder {
+    color: #9b9b9f;
+    opacity: 1;
+}
+#lumisoftauthentication label {
+    display: inline-block;
+    margin-bottom: 0;
+    max-width: 100%;
+}
+#lumisoftauthentication .checkbox, .radio {
+    position: relative;
+    display: block;
+}
+#lumisoftauthentication button, input {
+    box-shadow: none;
+    overflow: visible;
+}
+/***********************************************
+                    ICON
+***********************************************/
+#lumisoftauthentication .mobileIconPosition {
+    position: inherit;
+    top: 100%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    line-height: 0;
+    color: rgba(0,0,0,.25);
+    z-index: 3;
+    margin-left: 10px;
+    text-align: center;
+    right: 0;
+    cursor: pointer;
+}
+#lumisoftauthentication .adminloginform .iconPosition {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    line-height: 0;
+    color: $colorDarkGray;
+    z-index: 3;
+    margin-left: 10px;
+    cursor: pointer;
+}
+#lumisoftauthentication .agraicon {
+    display: inline-block;
+    font-style: normal;
+    vertical-align: -.125em;
+    text-align: center;
+    text-transform: none;
+    line-height: 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/***********************************************
+                    BUTTON
+***********************************************/
+#lumisoftauthentication .submitButton {
+    width: 100%;
+    margin: 16px auto;
+    display: block;
+}
+#lumisoftauthentication .submitButtonShadow:not([class*=mat-elevation-z]) {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12) !important;
+}
+#lumisoftauthentication .submitButtonShadow {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 32px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+    transform: translate3d(0,0,0);
+    transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+}
+#lumisoftauthentication .submitButtonShadow.buttonColor {
+    background-color: $colorGreen;
+    color: $colorLightGray;
+}
+#lumisoftauthentication .submitButtonShadow.buttonColor:hover {
+    background-color: $colorLightGreen;
+    color: #fff;
+}
+/***********************************************
+                    INPUT
+***********************************************/
+#lumisoftauthentication select {
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 1px solid #e4e9f0;
+    border-radius: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.2;
+    padding: 5px 4px;
+    box-shadow: none;
+    width: 100%;
+    height: 32px;
+}
+#lumisoftauthentication select:hover {
+    border-color: #aeacb4;
+}
+#lumisoftauthentication select:focus {
+    box-shadow: none;
+    border-color: #bbbac0;
+    background-color: #F8F8F8;
+}
+#lumisoftauthentication .hasError {
+    border-color: $colorRed;
+}
+#lumisoftauthentication .errorLabel {
+    position: absolute;
+    font-size: 15px;
+    font-family: $Roboto;
+    color: $colorRed;
+    margin: 7px 3px 3px 3px;
+}
+#lumisoftauthentication .errorLabel.globalError {
+    padding-top: 7px;
+    padding-bottom: 5px;
+}
+#lumisoftauthentication .successLabel {
+    position: absolute;
+    font-size: 15px;
+    color: $colorGreen;
+    margin: 7px 3px 3px 3px;
+}
+#lumisoftauthentication .successLabel.globalSuccess {
+    padding-top: 7px;
+    padding-bottom: 5px;
+}
+#lumisoftauthentication .closeRed {
+    color: $colorRed;
+}
+/***********************************************
+                RESPONSIVE
+***********************************************/
+@media (max-width: 767.98px) {
+    #lumisoftauthentication .loginFormWrapper {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    #lumisoftauthentication .loginFormInner {
+        padding: 28px !important;
+    }
+    .loginAuthWelcome {
+        display: none !important;
+    }
+    .formGroup {
+        margin-bottom: 20px !important;
+    }
+    .formGroup .controlLabel {
+        font-size: 14px !important;
+        margin-left: 1px !important;
+        margin-bottom: 3px !important;
+    }
+}
+@media (min-width: 768px) {
+    // .authLoginFormLogo .pcHidden {
+    //     display: none;
+    // }
+}

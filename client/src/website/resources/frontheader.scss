@@ -1,0 +1,464 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'grid.scss';
+
+/***********************************************
+                FRONT HEADER
+***********************************************/
+.frontendwebsite.topBar{
+    padding: 3px 25px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    -webkit-transition: margin-left 0.3s ease;
+    transition: margin-left 0.3s ease;
+
+    // width: 100%;
+    // box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.5);
+}
+.frontendwebsite.topBar.transparent {
+    background-color: transparent;
+}
+.frontendwebsite.topBar.white {
+    background-color: #ffffff;
+    -webkit-box-shadow: 4px 0 5px rgba(0,0,0,0.3);
+    box-shadow: 4px 0 5px rgba(0,0,0,0.3);
+}
+.frontendwebsite.topBar.black {
+    background-color: $colorDark;
+}
+.frontendwebsite.topBar.white {
+    background-color: $colorWhite;
+}
+.frontendwebsite .topBarLeft {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.frontendwebsite .topBarRight {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    flex-direction: row-reverse;
+}
+
+header.frontendwebsite .logo {
+    /* font-family: 'Monoton', cursive;
+    color: #ffffff;
+    font-size: 40px;
+    */
+    padding: 0;
+    margin-top: 0;
+    margin-left: 1rem;
+}
+
+header.frontendwebsite .clear {
+    flex: 1;
+}
+
+header.frontendwebsite .toggleButton .toggle_button {
+    display: flex;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+header.frontendwebsite .toggleButton .toggle_button svg{
+    font-size: 24px;
+    color: $colorDark;
+}
+
+header.frontendwebsite .navigation_items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header.frontendwebsite .navigation_items li {
+    // padding: 0 1rem;
+    position: relative;
+    float: left;
+    display: block;
+}
+
+header.frontendwebsite .navigation_items a {
+    color: $colorWhite;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    font-family: $Roboto;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 1rem 1rem 0.6rem 1rem;
+    border-bottom: 3px solid transparent;
+    background-color: transparent !important;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+}
+
+header.frontendwebsite .navigation_items a:hover,
+header.frontendwebsite .navigation_items a:active,
+header.frontendwebsite .navigation_items a.active {
+    color: $colorGreen;
+    // border-bottom-color: #33cabb;
+}
+
+header.frontendwebsite .navigation_items ul li button{
+    color: #fff;
+    outline: none;
+    white-space: nowrap;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-family: $Roboto;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 1rem 1rem 0.6rem 1rem;
+    border-bottom: 3px solid transparent;
+    background-color: transparent !important;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+}
+
+header.frontendwebsite .navigation_items ul li button:hover,
+header.frontendwebsite .navigation_items ul li button:active,
+header.frontendwebsite .navigation_items ul li button.active {
+    color: #f63a2a;
+    // border-bottom-color: #33cabb;
+}
+
+header.frontendwebsite .navigation_items .icon {
+    font-size: 18px;
+}
+header.frontendwebsite .navigation_items .itemContent {
+    align-items: center;
+    display: table-row;
+}
+
+header.frontendwebsite .navigation_items .itemIcon {
+    padding: 7px 3px;
+}
+
+header.frontendwebsite .navigation_items .itemInner {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+    white-space: nowrap;
+    align-items: center;
+    padding: 10px 5px 10px 5px;
+}
+
+/***********************************************
+            FRONT SIDEDRAWER ONE PAGE
+***********************************************/
+#frontendsidedrawer.sideDrawer .sideDrawerLogo {
+    // padding: 15px;
+    padding: 3px;
+    text-align: center;
+    background-color: $colorDark;
+    border-bottom: 1px solid rgba(255,255,255,0.2)
+}
+#frontendsidedrawer.sideDrawer {
+    height: 100%;
+    background: $colorLightDark;
+    box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    max-width: 400px;
+    z-index: 1050;
+    -webkit-transform: translateX(-110%);
+    -moz-transform: translateX(-110%);
+    -ms-transform: translateX(-110%);
+    transform: translateX(-110%);
+    transition: transform 0.2s ease;
+    will-change: transform;
+}
+#frontendsidedrawer.sideDrawer.open {
+    transform: translateX(0);
+    overflow-y: auto;
+    // height: 100%;
+    top: 0%;
+    bottom: 0%;
+    position: fixed;
+    // -webkit-overflow-scrolling: touch;
+}
+#frontendsidedrawer.sideDrawer.open ul {
+    max-height: 50vh;
+    
+}
+#frontendsidedrawer.sideDrawer ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // padding-left: 10px;
+}
+#frontendsidedrawer.sideDrawer a, #frontendsidedrawer.sideDrawer .icon {
+    color: $colorDarkGray;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+#frontendsidedrawer.sideDrawer a:hover,
+#frontendsidedrawer.sideDrawer a:active {
+    color: $colorWhite;
+}
+#frontendsidedrawer.sideDrawer > ul > li > a{
+    border: none;
+    display: block;
+    position: relative;
+    padding: 5px;
+    border-radius: 0;
+    margin: 0;
+    text-align: -webkit-match-parent;
+}
+#frontendsidedrawer.sideDrawer > ul > li > a.active {
+    background-color: $colorDark;
+    border-right: 7px solid $colorGreen;
+}
+#frontendsidedrawer.sideDrawer > ul > li a.active,
+#frontendsidedrawer.sideDrawer > ul > li a.active .icon{
+    color: $colorWhite;
+}
+#frontendsidedrawer.sideDrawer .itemContent {
+    align-items: center;
+    display: table-row;
+}
+#frontendsidedrawer.sideDrawer .itemIcon {
+    padding: 10px 15px;
+    width: 55px;
+}
+#frontendsidedrawer.sideDrawer .itemInner {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+    white-space: nowrap;
+    align-items: center;
+    padding: 10px 15px 10px 10px;
+}
+#frontendsidedrawer.sideDrawer .version {
+    position: absolute;
+    font-size: 0.8rem;
+    font-family: $Roboto;
+    display: block;
+    color: $colorDarkGray;
+    padding: 11px 15px;
+    bottom: 10px;
+    right: 10px;
+}
+
+/***********************************************
+                FRONT SIDEDRAWER
+***********************************************/
+#frontendwebsite .sideDrawer .sideDrawerLogo {
+    // padding: 15px;
+    padding: 3px;
+    text-align: center;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.2)
+}
+#frontendwebsite .sideDrawer {
+    height: 100%;
+    background: #fff;
+    box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    max-width: 400px;
+    z-index: 1050;
+    -webkit-transform: translateX(-110%);
+    -moz-transform: translateX(-110%);
+    -ms-transform: translateX(-110%);
+    transform: translateX(-110%);
+    transition: transform 0.2s ease;
+    will-change: transform;
+}
+#frontendwebsite .sideDrawer.open {
+    transform: translateX(0);
+    overflow-y: auto;
+    // height: 100%;
+    top: 0%;
+    bottom: 0%;
+    position: fixed;
+    // -webkit-overflow-scrolling: touch;
+}
+#frontendwebsite .sideDrawer.open ul {
+    max-height: 50vh;
+    
+}
+#frontendwebsite .sideDrawer ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // padding-left: 10px;
+}
+#frontendwebsite .sideDrawer a, #frontendwebsite .sideDrawer .icon {
+    color: #555;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+#frontendwebsite .sideDrawer a:hover,
+#frontendwebsite .sideDrawer a:active {
+    color: $colorDark;
+}
+#frontendwebsite .sideDrawer > ul > li > a{
+    border: none;
+    display: block;
+    position: relative;
+    padding: 5px;
+    border-radius: 0;
+    margin: 0;
+    text-align: -webkit-match-parent;
+}
+#frontendwebsite .sideDrawer > ul > li > a.active {
+    background-color: #EAF4F4;
+    border-right: 7px solid $colorRed;
+}
+#frontendwebsite .sideDrawer > ul > li a.active,
+#frontendwebsite .sideDrawer > ul > li a.active .icon{
+    color: $colorDark;
+}
+#frontendwebsite .sideDrawer .itemContent {
+    align-items: center;
+    display: table-row;
+}
+#frontendwebsite .sideDrawer .itemIcon {
+    padding: 10px 15px;
+    width: 55px;
+}
+#frontendwebsite .sideDrawer .itemInner {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+    white-space: nowrap;
+    align-items: center;
+    padding: 10px 15px 10px 10px;
+}
+#frontendwebsite .sideDrawer .version {
+    position: absolute;
+    font-size: 0.8rem;
+    font-family: $Roboto;
+    display: block;
+    color: $colorDarkGray;
+    padding: 11px 15px;
+    bottom: 10px;
+    right: 10px;
+}
+/***********************************************
+            FRONT HEADER RESPONSIVE
+***********************************************/
+@media (min-width: 767.99px) and (max-width: 835.98px) {
+    header.frontendwebsite .toggleButton {
+        display: none;
+    }
+}
+@media (min-width: 850px) {
+    header.frontendwebsite .toggleButton {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+
+    header.frontendwebsite .logo {
+        margin-left: 0;
+    }
+    header.frontendwebsite .logo .logo_img.pcHidden {
+        display: none;
+    }
+    header.frontendwebsite .sideDrawer {
+        display: none;
+    }
+    #frontendsidedrawer.sideDrawer {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    header.frontendwebsite .logo .logo_img.mobileHidden, header.frontendwebsite .topBarRight .mobileDisplayNone {
+        display: none;
+    }
+    #frontendsidedrawer .sideDrawerLogo{
+        padding: 7px !important;
+    }
+    #frontendsidedrawer.sideDrawer ul{
+        height: 100%;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+    }
+    #frontendsidedrawer.sideDrawer > ul > li {
+        border-bottom: 1px solid rgba(200, 200, 200, 0.1);
+    }
+    #frontendsidedrawer.sideDrawer > ul > li:last-child {
+        border: 0;
+    }
+    #frontendsidedrawer.sideDrawer > ul > li > button.active {
+        background-color: #181816;
+        border-right: 4px solid #7266ba;
+    }
+    #frontendsidedrawer.sideDrawer > ul > li > button {
+        width: 100%;
+        border: none;
+        display: flex;
+        position: relative;
+        padding: 5px;
+        border-radius: 0;
+        margin: 0;
+        text-align: -webkit-match-parent;
+    }
+    #frontendsidedrawer.sideDrawer .icon, #frontendsidedrawer.sideDrawer button {
+        color: #a7b1c2;
+        text-decoration: none;
+        font-size: 1.2rem;
+        background-color: $colorDark;
+    }
+    #frontendsidedrawer.sideDrawer .itemContent {
+        // align-items: center;
+        display: flex;
+    }
+    #frontendsidedrawer.sideDrawer .itemIcon {
+        padding: 10px 15px;
+        width: 55px;
+    }
+    #frontendsidedrawer.sideDrawer > ul > li button.active, #frontendsidedrawer.sideDrawer > ul > li button.active .icon {
+        color: 
+        #fff;
+    }
+    #frontendsidedrawer svg:not(:root).svg-inline--fa {
+        overflow: visible;
+    }
+    #frontendsidedrawer.sideDrawer .itemInner {
+        display: table-cell;
+        width: 100%;
+        vertical-align: middle;
+        white-space: nowrap;
+        align-items: center;
+        padding: 10px 15px 10px 10px;
+    }
+    #frontendsidedrawer.sideDrawer .itemInner {
+        white-space: nowrap;
+    }
+}

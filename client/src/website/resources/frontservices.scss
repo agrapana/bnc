@@ -1,0 +1,88 @@
+// @import '../../globalresources/colors.scss';
+// @import '../../globalresources/fonts.scss';
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'grid.scss';
+/***********************************************
+                FRONT ABOUT US
+***********************************************/
+#frontservices {
+    position: relative;
+    background-color: $colorLightDark;
+}
+
+#frontservices .frontservicespadding{
+    padding: 80px 0 30px 0;
+}
+
+#frontservices .frontservicespadding .clear {
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    width: 100%;
+    overflow: hidden;
+}
+#frontservices .frontserviceswrapper {
+    display: block;
+    position: relative;
+    // margin-right: 4%;
+    margin-bottom: 50px;
+    float: left;
+}
+#frontservices .frontserviceswrapper .frontservicesinner h3 {
+    font-size: 15px;
+    line-height: 26px;
+    margin-bottom: 10px;
+    color: $colorLight;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#frontservices .frontserviceswrapper .frontservicesinner p {
+    margin-left: -80px;
+    color: $colorLight;
+}
+
+#frontservices .frontserviceswrapper .frontservicesinner {
+    padding-left: 42px;
+    position: relative;
+    padding: 0 0 0 80px;
+}
+
+#frontservices .frontserviceswrapper .frontservicesinner:first-child {
+    margin-top: 0;
+}
+
+#frontservices .frontserviceswrapper .frontservicesinner .frontservicesicon {
+    display: block;
+    position: absolute;
+    width: 28px;
+    top: 0;
+    left: 0;
+    border: none !important;
+    height: auto !important;
+}
+
+#frontservices .frontserviceswrapper .frontservicesinner .frontservicesicon svg {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    // color:#fff;
+    border: none !important;
+    background-color: transparent !important;
+    color: $colorLight;
+    border-radius: 0;
+    font-style: normal;
+    text-align: center;
+    line-height: 1 !important;
+}
+
+@media (min-width: 767.99px) and (max-width: 835.98px) {
+    #frontservices .frontservicespadding {
+        padding: 80px 20px 30px 20px;
+    }
+}

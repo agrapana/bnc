@@ -1,0 +1,698 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'grid.scss';
+
+/***********************************************
+            NEW CSS FOR BNC
+***********************************************/
+body, body #root #frontendwebsite {
+    background-color: $colorDark;
+}
+#frontendwebsite #homepage .slidercontainer {
+    width: 100%;
+    float: left;
+}
+#frontendwebsite #homepage .slidercontainer .featuredslider {
+    margin: 0 auto;
+}
+#frontendwebsite #homepage .slidercontainer .featuredslider .featuredBgImage {
+    min-height: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#frontendwebsite #homepage .slidercontainer .featuredslider .featuredBg {
+    background-repeat: no-repeat!important;
+    background-position: 50%!important;
+}
+
+#frontendwebsite #homepage .slidercontainer .featuredslider .featuredBgImage .contentInner {
+    padding: 0 80px;
+}
+
+#frontendwebsite #homepage .slidercontainer .featuredslider .featuredBgImage .contentInner .featuredAction {
+    position: absolute;
+    top: 65%;
+    left: 8%;
+    padding: 10px;
+    background: rgba(255,255,255,0.7);
+}
+
+#frontendwebsite #homepage .slidercontainer .featuredslider .featuredBgImage .contentInner .featuredAction .tag.title {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+#frontendwebsite #homepage .slidercontainer .featuredslider .featuredBgImage .contentInner .featuredAction .tag {
+    text-transform: uppercase;
+    display: table;
+}
+
+#frontendwebsite #homepage .slidercontainer .featuredslider .featuredBgImage .contentInner .featuredAction .tag.lowTitle {
+    font-size: 25px;
+    font-weight: 300;
+}
+section#homepage {
+    position: relative;
+    overflow: hidden;
+    background-color: $colorVeryLightDark2;
+}
+.frontendwebsite.topBar.before {
+    background-color: $colorWhite;
+    border-bottom: solid 1px rgba(0,0,0,0.2);
+    height: 65px;
+}
+.frontendwebsite.topBar.after {
+    background-color: $colorDark;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    height: 55px;
+}
+#frontendwebsite #homepage .contentwrap {
+    position: relative;
+    padding: 0 !important;
+}
+#frontendwebsite #homepage .contentwrap .section {
+    position: relative;
+    margin: 60px 0;
+    margin-top: 0;
+    padding: 60px 0;
+    overflow: hidden;
+}
+#frontendwebsite #homepage .contentwrap .section.othercolor {
+    background-color: #EAF4F4;
+}
+#frontendwebsite #homepage .contentwrap .sectioncurve::after {
+    height: 50px;
+    background-image: url(/admin/assets/images/curve.svg);
+    background-size: 100% 100%;
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    bottom: 0;
+}
+header.frontendwebsite .navigation_items .brandnavbutton {
+    position: relative;
+    float: left;
+    display: block;
+}
+header.frontendwebsite .navigation_items .brandnavbutton .dropdownsettingmenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: auto !important;
+    bottom: auto;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 0 13px 0 rgba(36,36,41,.07);
+    background-color: $colorWhite;
+    cursor: pointer;
+}
+header.frontendwebsite .navigation_items .brandnavbutton .dropdownsettingmenu.show{
+    display: block;
+    position: absolute;
+    will-change: transform;
+    top: 0;
+    transform: translate3d(-63px, 40px, 0px);
+}
+header.frontendwebsite .navigation_items .brandnavbutton .dropdownitem:first-child {
+   border-bottom: none;
+}
+header.frontendwebsite .navigation_items .brandnavbutton .dropdownitem {
+    display: block;
+    width: 100%;
+    padding: .6rem 1.5rem;
+    clear: both;
+    font-weight: 500;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 1px solid $colorDark;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+header.frontendwebsite .navigation_items .brandnavbutton .dropdownitem a {
+    padding: 0 !important;
+    color: $colorDark;
+}
+header.frontendwebsite .navigation_items .brandnavbutton:hover,
+header.frontendwebsite .navigation_items .brandnavbutton .dropdownitem.active,
+header.frontendwebsite .navigation_items .brandnavbutton .dropdownitem:hover,
+header.frontendwebsite .navigation_items .itemContent2.active {
+    color: #e60013;
+}
+header.frontendwebsite .navigation_items .itemContent2 {
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 1rem 1rem 0.6rem 1rem;
+    border-bottom: 3px solid
+    transparent;
+    background-color:
+    transparent !important;
+    transition: .2s linear;
+    cursor: pointer;
+}
+#homepage .contentwrap .appbutton {
+    background-color: #222222;
+    padding: 14px 18px;
+    font-size: 16px;
+    border-radius: 3px;
+    text-align: center;
+    height: auto;
+    width: 85%;
+    line-height: 2.2;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    outline: 0;
+    white-space: nowrap;
+    margin: 5px 5px 5px 0px;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+#homepage .contentwrap .appbutton svg {
+    width: 34px;
+    font-size: 34px;
+    text-align: left;
+    margin-right: 12px;
+    display: inline-block;
+    font-family: font-icons;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+}
+/***********************************************
+            BODY MAXILUM
+***********************************************/
+.sup {
+    vertical-align: super;
+    font-size: 11px;
+}
+.sup2 {
+    vertical-align: super;
+    font-size: 15px;
+}
+#frontendwebsite #homepage .contentwrap .card {
+    max-width: 820px;
+    // max-height: 462px;
+    // margin-top: -670px;
+    position: relative;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color:#fff;
+    background-clip: border-box;
+    border-radius: .25rem;
+    box-shadow: 0 32px 46px 2px rgba(0,0,0,0.12);
+}
+#frontendwebsite #homepage .contentwrap .card .cardbody {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 3rem;
+}
+#frontendwebsite #homepage .contentwrap .brandcard {
+    position: relative;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color:#fff;
+    background-clip: border-box;
+    border-radius: .25rem;
+    box-shadow: 0 2px 6px 2px rgba(0,0,0,0.2);
+}
+#frontendwebsite #homepage .contentwrap .brandcard .cardbody {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: grid;
+    justify-content: center;
+    padding: 2rem;
+}
+
+
+#frontendwebsite #homepage .contentwrap .headingblock.nobottomborder::after {
+    display: none;
+}
+#frontendwebsite #homepage .contentwrap .headingblock.nobottomborder {
+    border-bottom: none !important;
+}
+#frontendwebsite #homepage .contentwrap .headingblock {
+    margin-bottom: 0;
+}
+#frontendwebsite #homepage .contentwrap .headingblock .beforeheading {
+    display: block;
+    margin: 0 0 7px 0;
+    margin-bottom: 7px;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    color:#999;
+}
+#frontendwebsite #homepage .contentwrap .headingblock h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color:#333;
+}
+#frontendwebsite #homepage .contentwrap .headingblock::after {
+    content: '';
+    display: block;
+    margin-top: 30px;
+    width: 140px;
+    border-top: 2px solid #444;
+}
+#frontendwebsite #homepage .contentwrap .headingblock.center::after {
+    margin: 30px auto 0;
+}
+#frontendwebsite #homepage .contentwrap .headingblock.center {
+    position: relative !important;
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
+#frontendwebsite #homepage .contentwrap .headingblock h2 {
+    font-size: 30px;
+    color: #333;
+    letter-spacing: 0 !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+}
+#frontendwebsite #homepage .contentwrap .headingblock small {
+    letter-spacing: 3px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    color: rgba(0,0,0,.5) !important;
+    font-size: 80%;
+    margin-bottom: 1rem !important;
+}
+#frontendwebsite #homepage .contentwrap .headingblock .filterbutton {
+    border-radius: 3px;
+    padding: 0 20px;
+    font-size: 18px;
+    letter-spacing: 0;
+    height: 42px;
+    line-height: 42px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    outline: 0;
+    white-space: nowrap;
+    margin: 5px;
+    color: #fff;
+    border: none;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
+    font-weight: 400 !important;
+    text-transform: none !important;
+    background: #333;
+}
+
+#frontendwebsite #homepage .contentwrap .buttoncontactwrapper {
+    -ms-flex-pack: end !important;
+    justify-content: flex-end !important;
+    display: inline-flex !important;
+}
+#frontendwebsite #homepage .contentwrap .buttonmobilewrapper {
+    -ms-flex-pack: start !important;
+    justify-content: flex-start !important;
+    display: inline-flex !important;
+}
+#frontendwebsite #homepage .contentwrap .buttoncontactwrapper .buttoncontact {
+    border-radius: 3px;
+    padding: 0 32px;
+    font-size: 18px;
+    letter-spacing: 0;
+    height: 52px;
+    line-height: 52px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    outline: 0;
+    white-space: nowrap;
+    margin: 5px;
+    color: #fff;
+    border: none;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
+    font-weight: 400 !important;
+    text-transform: none !important;
+    background: #25d366;
+}
+#frontendwebsite #homepage .contentwrap .buttoncontactwrapper .buttoncontact .buttonicon,
+#frontendwebsite #homepage .contentwrap .buttonmobilewrapper .buttoncontact .buttonicon {
+    position: absolute;
+    top: 3px;
+}
+#frontendwebsite #homepage .contentwrap .buttoncontactwrapper .buttoncontact .buttonchat,
+#frontendwebsite #homepage .contentwrap .buttonmobilewrapper .buttoncontact .buttonchat {
+    padding-left: 23px;
+}
+#frontendwebsite #homepage .contentwrap .buttoncontactwrapper .buttoncontact.green,
+#frontendwebsite #homepage .contentwrap .buttonmobilewrapper .buttoncontact.green {
+    background: #25d366;
+}
+#frontendwebsite #homepage .contentwrap .buttonmobilewrapper .buttoncontact {
+    border-radius: 3px;
+    padding: 0 32px;
+    font-size: 18px;
+    letter-spacing: 0;
+    height: 52px;
+    line-height: 52px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    outline: 0;
+    white-space: nowrap;
+    margin: 10px 0 0 0;
+    color: #fff;
+    border: none;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
+    font-weight: 400 !important;
+    text-transform: none !important;
+}
+#frontendwebsite #homepage .contentwrap .buttoncontactwrapper .buttoncontact.default,
+#frontendwebsite #homepage .contentwrap .buttonmobilewrapper .buttoncontact.default {
+    background: #333;
+}
+#homepage p:not(.lead) {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-top: 0;
+    margin-bottom: .25rem !important;
+    color: #555;
+}
+
+/***********************************************
+            MAXILUM PRODUCTS
+***********************************************/
+#frontendwebsite #homepage .contentwrap .iproduct {
+    position: relative;
+    float: none;
+    width: 100%;
+    margin: 0 0 30px 0;
+    padding: 0;
+    display: block !important;
+    border: 1px solid #dee2e6 !important;
+    transition: transform .3s ease;
+    cursor: pointer;
+}
+#frontendwebsite #homepage .contentwrap .iproduct .portfolioImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+#frontendwebsite #homepage .contentwrap .iproduct .portfolioImage img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: none;
+}
+#frontendwebsite #homepage .contentwrap .iproduct .portfolioDesc {
+    bottom: 0;
+    padding: 6px 10px 5px;
+    z-index: 3;
+    width: 100% !important;
+    // position: absolute !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    background-color: #EAF4F4;
+}
+#frontendwebsite #homepage .contentwrap .iproduct .portfolioDesc h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 0;
+    padding: 0;
+    color: #343a40;
+}
+#frontendwebsite #homepage .contentwrap .iproduct .portfolioDesc h6 {
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: 400;
+    color: #343a40;
+}
+
+/***********************************************
+            MAXILUM PRODUCTS PAGE
+***********************************************/
+#frontendwebsite #homepage .contentwrap .postcontent {
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    float: right;
+    clear: right;
+    display: block;
+    position: relative;
+    width: 74%;
+}
+#frontendwebsite #homepage .contentwrap .postcontent .portfolio {
+    margin: 0 -15px -15px 0;
+    overflow: hidden;
+    position: relative;
+    // height: 878.7px;
+}
+#frontendwebsite #homepage .contentwrap .filterHidden {
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    background-color: #fff;
+    width: 250px;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    will-change: transform;
+    top: 0;
+}
+#frontendwebsite #homepage .contentwrap .filterHidden.open {
+    transform: translateX(0) !important;
+}
+#frontendwebsite #homepage .contentwrap .sidebar {
+    display: block;
+    position: relative;
+    margin-right: 4%;
+    margin-bottom: 0 !important;
+    float: left;
+    width: 22%;
+}
+#frontendwebsite #homepage .contentwrap .sidebar .widget{
+    position: relative;
+}
+#frontendwebsite #homepage .contentwrap .sidebar .widget:first-child{
+    padding-top: 0;
+    border-top: 0;
+    margin-top: 0;
+}
+#frontendwebsite #homepage .contentwrap .sidebar .widget .filterWrapper .filterTitle h3 {
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+#frontendwebsite #homepage .contentwrap .sidebar .widget .filterWrapper .filterLists li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e5e5;
+}
+#frontendwebsite #homepage .contentwrap .sidebar .widget .filterWrapper .filterLists li input {
+    float: right;
+}
+#frontendwebsite #homepage .contentwrap .sidebar .widget .filterWrapper .filterLists li input[type="checkbox"], #frontendwebsite #homepage .contentwrap .sidebar .widget .filterWrapper .filterLists li input[type="radio"] {
+    box-sizing: border-box;
+    cursor: pointer;
+    line-height: normal;
+    margin: 4px 0 0;
+    padding: 0;
+}
+#frontendwebsite #homepage .contentwrap .sidebar .widget .filterWrapper .filterLists li .filterItem {
+    color: #333;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 10px;
+    display: inline-block;
+    text-transform: capitalize;
+    width: 100%;
+    cursor: pointer;
+}
+/***********************************************
+            FOOTER MAXILUM
+***********************************************/
+#footer {
+    background-color:$colorDark;
+    color:#ccc;
+    border-top: 5px solid rgba(0,0,0,.2);
+    position: relative;
+}
+#footer .copyrights {
+    color:#ccc;
+    text-shadow: 1px 1px 1pxrgba(0,0,0,.1);
+    font-size: 14px;
+    line-height: 1.8;
+    bottom: 0;
+    right: 0;
+}
+#footer .footerwrap {
+    position: relative;
+    padding: 80px 0;
+}
+#homepage .socialiconwrapper,
+#footer .socialiconwrapper {
+    margin-top: 1.5rem;
+}
+#homepage .socialicon,
+#footer .socialicon {
+    width: 32px;
+    height: 32px;
+    line-height: 38px !important;
+    border-color: transparent !important;
+    border-radius: 50%;
+    margin: 0 20px 5px 0;
+    text-shadow: none;
+    // border: 1px solid#aaa;
+    overflow: hidden;
+    cursor: pointer;
+    font-style: normal;
+    text-align: center !important;
+    display: block;
+    float: left;
+    color: #fff !important;
+}
+#homepage .socialicon.facebook,
+#footer .socialicon.facebook {
+    font-size: 18px;
+    background-color: #3b5998 !important;
+}
+#homepage .socialicon.instagram,
+#footer .socialicon.instagram {
+    font-size: 20px;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+#homepage .socialicon.envelope,
+#footer .socialicon.envelope {
+    font-size: 18px;
+    background-color: $colorDark !important;
+}
+#homepage .socialicon.whatsapp,
+#footer .socialicon.whatsapp {
+    font-size: 20px;
+    background-color: #25d366 !important;
+}
+#homepage .socialicon.phone,
+#footer .socialicon.phone {
+    font-size: 15px;
+    background-color: $colorDark !important;
+}
+
+/***********************************************
+            FRONT HEADER RESPONSIVE
+***********************************************/
+@media (max-width: 767.98px) {
+    #frontendwebsite #homepage .contentwrap .filterHidden {
+        height: 100%;
+        box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+    }
+    #frontendwebsite #homepage .contentwrap .filterHidden .sidebarwrapper {
+        width: 100%;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+    #frontendwebsite #homepage .contentwrap .filterHidden .sidebarwrapper .filterWrapper .filterTitle {
+        background-color: #fff;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+    #frontendwebsite #homepage .contentwrap .filterHidden .sidebarwrapper .filterWrapper .filterTitle,
+    #frontendwebsite #homepage .contentwrap .filterHidden .sidebarwrapper .filterWrapper .filterLists {
+        padding: 10px;
+    }
+    #frontendwebsite #homepage .contentwrap .filterHidden .sidebarwrapper .filterWrapper .filterTitle h3 {
+        margin: 0;
+        padding: 0;
+    }
+    #frontendwebsite #homepage .contentwrap .filterHidden .sidebarwrapper .filterWrapper ul {
+        height: 100%;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+    }
+    #frontendwebsite #homepage .contentwrap .filterHidden .sidebarwrapper .filterWrapper ul li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    #frontendwebsite #homepage .contentwrap .filterHidden .sidebarwrapper .filterWrapper ul li .filterItem {
+        color: #333;
+        font-size: 15px;
+        line-height: 1.5;
+        padding: 10px;
+        display: inline-block;
+        text-transform: capitalize;
+        width: 100%;
+        cursor: pointer;
+    }
+    #frontendwebsite #homepage .contentwrap .filterHidden .sidebarwrapper .filterWrapper ul li input {
+        float: right;
+    }
+    #frontendwebsite #homepage .contentwrap .filterHidden .sidebarwrapper .filterWrapper ul li input[type="radio"] {
+        box-sizing: border-box;
+        cursor: pointer;
+        line-height: normal;
+        margin: 4px 0 0;
+        padding: 0;
+    }
+    #frontendwebsite #homepage .contentwrap .postcontent {
+        width: 100%;
+    }
+    #frontendwebsite #homepage .contentwrap .postcontent .portfolio {
+        margin: 0 !important;
+    }
+    #frontendwebsite #homepage .contentwrap .buttonmobilewrapper {
+        margin-bottom: 40px;
+    }
+    #frontendwebsite #homepage .contentwrap .iproduct {
+        margin-bottom: 20px;
+    }
+    #homepage p:not(.lead) {
+        margin: 0 12px;
+    }
+}
