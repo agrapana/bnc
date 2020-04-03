@@ -42,7 +42,7 @@ router.route('/return').get(clientauth, passport.authenticate('steam', { failure
             clientexist.isConnected = true;
             clientexist.save((err, aftersave) => {
                 if (err) return res.json({ success: false, err, message: 'data not saved!' });
-                res.redirect('http://192.168.1.6:3000');
+                res.redirect('https://bnc.web.id');
             })
         })
     }

@@ -23,7 +23,7 @@ const ProfilePage = (props) => {
     const size = useWindowSize();
     const dispatch = useDispatch();
     const isMobile = size.width <= 767.98;
-    const URL = 'http://192.168.1.6:3018/api/steam/auth';
+    const URL = 'https://bnc.web.id/api/steam/auth';
     const defaultURL = 'https://google.com';
     // const isTablet = size.width >= 767.99 && size.width <= 1025.98;
 
