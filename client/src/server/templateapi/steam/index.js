@@ -11,13 +11,13 @@ const { clientauth } = require('../../middleware/clientauth');
 //==================================================================
 //                            NEW API
 //==================================================================
-router.route('/login').get((req, res) => {
-    res.render('index', { user: req.user });
-});
+// router.route('/login').get((req, res) => {
+//     res.render('index', { user: req.user });
+// });
 
-router.route('/account').get(ensureAuthenticated, function (req, res) {
-    res.render('account', { user: req.user });
-});
+// router.route('/account').get(ensureAuthenticated, function (req, res) {
+//     res.render('account', { user: req.user });
+// });
 
 router.route('/logout').get((req, res) => {
     req.logout();
