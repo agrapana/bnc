@@ -15,9 +15,9 @@ import {
 library.add(faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faSearch, faEdit, faTimesCircle, faLockOpen, faAddressCard, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faHandshake, faImages)
 
 
-const DashboardPanel = (props) => {
+const DashboardAdminPanel = (props) => {
 
-    const templateShow = (data, index) => {
+    const templateAdminShow = (data, index) => {
         return (
             <div className="col-md-4 col-xs-12 dashboardlink">
                 <NavLink
@@ -35,15 +35,11 @@ const DashboardPanel = (props) => {
                                 />
                             </div>
                             <h5 className="ministatesubtitle">{
-                                data.name === "Portfolio" ?
-                                    props.allportfolio && props.allportfolio.length > 0 ? props.allportfolio.length : "0"
-                                    : data.name === "Gallery" ?
-                                        props.allgallery && props.allgallery.length > 0 ? props.allgallery.length : "0"
-                                        : data.name === "Slider" ?
-                                            props.allslider && props.allslider.length > 0 ? props.allslider.length : "0"
-                                            : data.name === "Product" ?
-                                                props.allproduct && props.allproduct.length > 0 ? props.allproduct.length : "0"
-                                                : null
+                                data.name === "Admin" ?
+                                    props.alluser && props.alluser.length > 0 ? props.alluser.length : "0"
+                                    : data.name === "Application" ?
+                                        props.allapplication && props.allapplication.length > 0 ? props.allapplication.length : "0"
+                                        : null
                             }</h5>
                         </div>
                     </div>
@@ -60,9 +56,9 @@ const DashboardPanel = (props) => {
                     :
                     <div>
                         {
-                            props.showtemplatepath ?
-                                props.showtemplatepath.map((data, index) => (
-                                    templateShow(data, index)
+                            props.showadminpath ?
+                                props.showadminpath.map((data, index) => (
+                                    templateAdminShow(data, index)
                                 ))
                                 : null
                         }
@@ -73,4 +69,4 @@ const DashboardPanel = (props) => {
     );
 };
 
-export default DashboardPanel;
+export default DashboardAdminPanel;

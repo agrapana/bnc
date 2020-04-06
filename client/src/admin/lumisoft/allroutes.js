@@ -37,7 +37,7 @@ import {
 
 library.add(faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faAddressCard, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faHandshake)
 
-let version = "v4.2.1b"
+let version = "v4.2.2b"
 let mainpath = [
     {
         name: 'Dashboard',
@@ -175,7 +175,7 @@ let subtemplatepath = [
 
 let adminpath = [
     {
-        name: 'Admin Lists',
+        name: 'Admin',
         link: '/admin/master/user',
         component: MasterUser,
         exact: true,
@@ -184,7 +184,7 @@ let adminpath = [
         faicons: faUsers
     },
     {
-        name: 'Application Lists',
+        name: 'Application',
         link: '/admin/master/application',
         component: MasterApplication,
         exact: true,

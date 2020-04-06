@@ -4,24 +4,35 @@ import { useDispatch, useSelector } from 'react-redux';
 import AdminLayout from '../layout/adminpage';
 import PageHeader from '../../../widget/pageheader';
 import DashboardPanel from './panel';
+import AdminPanel from './adminpanel';
+import path from '../../allroutes';
 
 import { useWindowSize } from '../../../widget/windowsize';
 
 import { getAdminUser } from '../../../store/actions/user_action';
 import { getApplication } from '../../../store/actions/application_action';
 import { getPortfolio } from '../../../store/actions/portfolio_action';
+import { getSlider } from '../../../store/actions/slider_action';
 import { getGallery } from '../../../store/actions/gallery_action';
 import { getProduct } from '../../../store/actions/product_action';
 
 import { faHome, faUsers, faImages, faBoxes, faMobile } from '@fortawesome/free-solid-svg-icons';
 
 const DashboardScreen = (props) => {
-    const { userprops, getgallery, getportfolio, getproduct, getapplication } = useSelector(state => ({
+    const {
+        userprops,
+        getgallery,
+        getportfolio,
+        getproduct,
+        getapplication,
+        getslider
+    } = useSelector(state => ({
         userprops: state.user,
         getapplication: state.application,
         getgallery: state.gallery,
         getportfolio: state.portfolio,
-        getproduct: state.product
+        getproduct: state.product,
+        getslider: state.slider
     }));
     const size = useWindowSize();
     const isMobile = size.width <= 767.98;
@@ -47,41 +58,13 @@ const DashboardScreen = (props) => {
         }
     ]);
     const [dontblur, dontblurHandler] = useState(false);
-
-    const [showuser] = useState({
-        show: true,
-        name: 'Users',
-        link: '/admin/master/user',
-        icon: faUsers
-    });
-    const [showapplication] = useState({
-        show: true,
-        name: 'Applications',
-        link: '/admin/master/application',
-        icon: faMobile
-    });
-    const [showgallery] = useState({
-        show: true,
-        name: 'Gallery',
-        link: '/admin/gallery',
-        icon: faImages
-    });
-    const [showportfolio] = useState({
-        show: true,
-        name: 'Portfolio',
-        link: '/admin/portfolio',
-        icon: faImages
-    });
-    const [showproduct] = useState({
-        show: true,
-        name: 'Product',
-        link: '/admin/product',
-        icon: faBoxes
-    });
+    const [templateroutepath] = useState(path.templatepath);
+    const [adminroutepath] = useState(path.adminpath);
 
     const [alluser, alluserHandler] = useState([]);
     const [allapplication, allapplicationHandler] = useState([]);
     const [allgallery, allgalleryHandler] = useState([]);
+    const [allslider, allsliderHandler] = useState([]);
     const [allportfolio, allportfolioHandler] = useState([]);
     const [allproduct, allproductHandler] = useState([]);
 
@@ -90,6 +73,7 @@ const DashboardScreen = (props) => {
         dispatch(getAdminUser());
         dispatch(getApplication());
         dispatch(getPortfolio());
+        dispatch(getSlider());
         dispatch(getGallery());
         dispatch(getProduct(100, 'desc', "createdAt"));
     }, [dispatch])
@@ -113,6 +97,10 @@ const DashboardScreen = (props) => {
         if (getproduct && getproduct.getProduct && getproduct.getProduct.success) {
             let totalproduct = getproduct.getProduct.product.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
             allproductHandler(totalproduct);
+        }
+        if (getslider && getslider.getSlider && getslider.getSlider.success) {
+            let totalslider = getslider.getSlider.sliders.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            allsliderHandler(totalslider);
         }
         loadingtableHandler(false);
     }, [userprops, getgallery, getportfolio, getproduct])
@@ -157,11 +145,14 @@ const DashboardScreen = (props) => {
             let totalportfolio = await allportfolio.payload.portfolios.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
             let allproduct = await dispatch(getProduct());
             let totalproduct = await allproduct.payload.product.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            let allslider = await dispatch(getSlider());
+            let totalslider = await allslider.payload.sliders.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
             alluserHandler(totaluser);
             allapplicationHandler(totalapplication);
             allgalleryHandler(totalgallery);
             allportfolioHandler(totalportfolio);
             allproductHandler(totalproduct);
+            allsliderHandler(totalslider);
             loadingtableHandler(false);
         } catch (error) {
 
@@ -198,17 +189,42 @@ const DashboardScreen = (props) => {
                                 userprops={userprops}
                                 isMobile={isMobile}
                                 loadingtable={loadingtable}
-                                showuser={showuser}
-                                showgallery={showgallery}
-                                showportfolio={showportfolio}
-                                showproduct={showproduct}
-                                showapplication={showapplication}
-                                alluser={alluser}
+                                showtemplatepath={templateroutepath}
                                 allgallery={allgallery}
                                 allportfolio={allportfolio}
                                 allproduct={allproduct}
-                                allapplication={allapplication}
+                                allslider={allslider}
                             />
+                        </div>
+                        <div className="row">
+                            {
+                                userprops.userData && userprops.userData.masteradmin > 0 ?
+                                    <div className="col-md-12 col-xs-12">
+                                        <h4
+                                            style={{
+                                                fontSize: '18px',
+                                                fontWeight: '500',
+                                                margin: 0,
+                                                lineHeight: '30px'
+                                            }}
+                                        >
+                                            MasterAdmin Area
+                                            </h4>
+                                    </div>
+                                    : null
+                            }
+                            {
+                                userprops.userData && userprops.userData.masteradmin > 0 ?
+                                    <AdminPanel
+                                        userprops={userprops}
+                                        isMobile={isMobile}
+                                        loadingtable={loadingtable}
+                                        showadminpath={adminroutepath}
+                                        alluser={alluser}
+                                        allapplication={allapplication}
+                                    />
+                                    : null
+                            }
                         </div>
                     </div>
                 </div>
