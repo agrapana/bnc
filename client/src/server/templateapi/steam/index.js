@@ -7,7 +7,7 @@ const passport = require('passport');
 //                             MODELS
 //==================================================================
 const { Client } = require('../../models/client');
-const { clientauth } = require('../../middleware/clientauth');
+// const { clientauth } = require('../../middleware/clientauth');
 //==================================================================
 //                            NEW API
 //==================================================================
@@ -21,16 +21,16 @@ const { clientauth } = require('../../middleware/clientauth');
 
 router.route('/logout').get((req, res) => {
     req.logout();
-    res.redirect('/api/steam/auth');
+    res.redirect('/auth');
 });
 
-router.route('/auth').get(passport.authenticate('steam', { failureRedirect: '/api/steam/auth' }),
+router.route('/auth').get(passport.authenticate('steam', { failureRedirect: '/auth' }),
     function (req, res) {
-        res.redirect('/api/steam/auth');
+        res.redirect('/auth');
     }
 );
 
-router.route('/return').get(clientauth, passport.authenticate('steam', { failureRedirect: '/api/steam/auth' }),
+router.route('/return').get(passport.authenticate('steam', { failureRedirect: '/auth' }),
     function (req, res) {
         let user = req.user;
         // console.log(user,"<<<<<<<<<<user")
@@ -48,10 +48,10 @@ router.route('/return').get(clientauth, passport.authenticate('steam', { failure
     }
 );
 
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) { return next(); }
-    res.redirect('/api/steam/auth');
-}
+// function ensureAuthenticated(req, res, next) {
+//     if (req.isAuthenticated()) { return next(); }
+//     res.redirect('/auth');
+// }
 //==================================================================
 //                              API
 //==================================================================
