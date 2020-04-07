@@ -7,7 +7,7 @@ const passport = require('passport');
 //                             MODELS
 //==================================================================
 const { Client } = require('../../models/client');
-// const { clientauth } = require('../../middleware/clientauth');
+const { clientauth } = require('../../middleware/clientauth');
 //==================================================================
 //                            NEW API
 //==================================================================
@@ -30,7 +30,7 @@ router.route('/auth').get(passport.authenticate('steam', { failureRedirect: '/au
     }
 );
 
-router.route('/return').get(passport.authenticate('steam', { failureRedirect: '/auth' }),
+router.route('/return').get(clientauth, passport.authenticate('steam', { failureRedirect: '/auth' }),
     function (req, res) {
         let user = req.user;
         // console.log(user,"<<<<<<<<<<user")
