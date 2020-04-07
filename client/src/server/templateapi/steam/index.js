@@ -21,16 +21,16 @@ const { clientauth } = require('../../middleware/clientauth');
 
 router.route('/logout').get((req, res) => {
     req.logout();
-    res.redirect('/auth');
+    res.redirect('/');
 });
 
-router.route('/auth').get(passport.authenticate('steam', { failureRedirect: '/auth' }),
+router.route('/auth').get(passport.authenticate('steam', { failureRedirect: '/' }),
     function (req, res) {
-        res.redirect('/auth');
+        res.redirect('/');
     }
 );
 
-router.route('/return').get(clientauth, passport.authenticate('steam', { failureRedirect: '/auth' }),
+router.route('/return').get(clientauth, passport.authenticate('steam', { failureRedirect: '/' }),
     function (req, res) {
         let user = req.user;
         // console.log(user,"<<<<<<<<<<user")
@@ -42,7 +42,7 @@ router.route('/return').get(clientauth, passport.authenticate('steam', { failure
             clientexist.isConnected = true;
             clientexist.save((err, aftersave) => {
                 if (err) return res.json({ success: false, err, message: 'data not saved!' });
-                res.redirect('https://bnc.web.id');
+                res.redirect('/');
             })
         })
     }

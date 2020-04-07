@@ -26,7 +26,7 @@ passport.deserializeUser(function (obj, done) {
 
 passport.use(new SteamStrategy({
     returnURL: 'https://bnc.web.id/api/steam/return',
-    realm: 'https://bnc.web.id/api/steam/auth',
+    realm: 'https://bnc.web.id/',
     apiKey: process.env.STEAMAPIKEY,
     stateless: true
 },
