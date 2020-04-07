@@ -16,7 +16,7 @@ import { getSlider } from '../../../store/actions/slider_action';
 import { getGallery } from '../../../store/actions/gallery_action';
 import { getProduct } from '../../../store/actions/product_action';
 
-import { faHome, faUsers, faImages, faBoxes, faMobile } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 const DashboardScreen = (props) => {
     const {
@@ -103,7 +103,7 @@ const DashboardScreen = (props) => {
             allsliderHandler(totalslider);
         }
         loadingtableHandler(false);
-    }, [userprops, getgallery, getportfolio, getproduct])
+    }, [userprops, getgallery, getportfolio, getproduct, getapplication, getslider])
 
     const clickHandler = (link) => {
         props.history.push(link);

@@ -1,9 +1,9 @@
 const socket_io = require('socket.io');
 var io = socket_io();
-const { Client } = require('../../server/models/client');
-const changeStream = Client.watch();
+const { Servers } = require('../../server/templatemodels/server');
+const changeStream = Servers.watch();
 changeStream.on('change', (change) => {
-    console.log(change, "!@#$% change client"); // You could parse out the needed info and send only that data. 
+    console.log(change, "!@#$% change server"); // You could parse out the needed info and send only that data. 
     io.emit('changeData', change);
 });
 io.on('connection', function () {

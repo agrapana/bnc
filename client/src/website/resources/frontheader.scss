@@ -77,7 +77,7 @@ header.frontendwebsite .toggleButton .toggle_button {
 }
 header.frontendwebsite .toggleButton .toggle_button svg{
     font-size: 24px;
-    color: $colorDark;
+    color: $colorWhite;
 }
 
 header.frontendwebsite .navigation_items ul {
@@ -273,12 +273,12 @@ header.frontendwebsite .navigation_items .itemInner {
     // padding: 15px;
     padding: 3px;
     text-align: center;
-    background-color: #fff;
-    border-bottom: 1px solid rgba(0,0,0,0.2)
+    background-color: $colorDark;
+    border-bottom: 1px solid rgba(255,255,255,0.2)
 }
 #frontendwebsite .sideDrawer {
     height: 100%;
-    background: #fff;
+    background: $colorDark;
     box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
@@ -315,13 +315,13 @@ header.frontendwebsite .navigation_items .itemInner {
     // padding-left: 10px;
 }
 #frontendwebsite .sideDrawer a, #frontendwebsite .sideDrawer .icon {
-    color: #555;
+    color: $colorDarkGray;
     text-decoration: none;
     font-size: 1.2rem;
 }
 #frontendwebsite .sideDrawer a:hover,
 #frontendwebsite .sideDrawer a:active {
-    color: $colorDark;
+    color: $colorGreen;
 }
 #frontendwebsite .sideDrawer > ul > li > a{
     border: none;
@@ -333,12 +333,12 @@ header.frontendwebsite .navigation_items .itemInner {
     text-align: -webkit-match-parent;
 }
 #frontendwebsite .sideDrawer > ul > li > a.active {
-    background-color: #EAF4F4;
-    border-right: 7px solid $colorRed;
+    background-color: $colorLightDark;
+    border-right: 7px solid $colorGreen;
 }
 #frontendwebsite .sideDrawer > ul > li a.active,
 #frontendwebsite .sideDrawer > ul > li a.active .icon{
-    color: $colorDark;
+    color: $colorWhite;
 }
 #frontendwebsite .sideDrawer .itemContent {
     align-items: center;
@@ -361,7 +361,7 @@ header.frontendwebsite .navigation_items .itemInner {
     font-size: 0.8rem;
     font-family: $Roboto;
     display: block;
-    color: $colorDarkGray;
+    color: $colorWhite;
     padding: 11px 15px;
     bottom: 10px;
     right: 10px;

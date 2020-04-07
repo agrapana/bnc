@@ -25,6 +25,10 @@ import MasterApplication from './masteradminviews/applications';
 import MasterAddApplication from './masteradminviews/applications/addnew';
 import MasterEditApplication from './masteradminviews/applications/edit';
 
+import ServersScreen from './templateviews/server';
+import ServerAddNewScreen from './templateviews/server/addnew';
+import ServerEditdataScreen from './templateviews/server/edit';
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faPhotoVideo, faEdit, faBoxes, faBox } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -37,7 +41,7 @@ import {
 
 library.add(faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faAddressCard, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faHandshake)
 
-let version = "v4.2.2b"
+let version = "v4.2.3b"
 let mainpath = [
     {
         name: 'Dashboard',
@@ -95,6 +99,15 @@ let templatepath = [
         public: true,
         show: true,
         faicons: faPhotoVideo
+    },
+    {
+        name: 'Servers',
+        link: '/admin/servers',
+        component: ServersScreen,
+        exact: true,
+        public: true,
+        show: true,
+        faicons: faListUl
     }
 ]
 
@@ -171,6 +184,24 @@ let subtemplatepath = [
         show: true,
         faicons: faPhotoVideo
     },
+    {
+        name: 'Add Servers',
+        link: '/admin/servers/addnew',
+        component: ServerAddNewScreen,
+        exact: true,
+        public: true,
+        show: true,
+        faicons: faListUl
+    },
+    {
+        name: 'Edit Servers',
+        link: '/admin/servers/editdata',
+        component: ServerEditdataScreen,
+        exact: true,
+        public: true,
+        show: true,
+        faicons: faListUl
+    }
 ]
 
 let adminpath = [

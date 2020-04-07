@@ -1,50 +1,21 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import {
+    useSelector
+    // useDispatch
+} from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
 import DrawerToggle from '../sidedrawer/drawertoggle';
+import { pagelist, account } from './link';
 
 const HeaderSection = (props) => {
     const { clientprops } = useSelector(state => ({
         clientprops: state.client
     }));
-    const history = useHistory();
+    // const history = useHistory();
     const [headerShow, headerShowHandler] = useState(false);
 
-    const [pagelist] = useState([
-        {
-            name: 'Home',
-            linkTo: '/',
-            public: false
-        },
-        {
-            name: 'Profile',
-            linkTo: '/profile',
-            public: false
-        },
-        // {
-        //     name: 'Notification',
-        //     linkTo: '/notification',
-        //     public: false
-        // },
-        // {
-        //     name: 'Contact',
-        //     linkTo: '/contact',
-        //     public: false
-        // }
-    ]);
-    const [account] = useState([
-        {
-            name: 'Login',
-            linkTo: '/login',
-            public: true
-        },
-        {
-            name: 'Logout',
-            linkTo: '/logout',
-            public: false
-        }
-    ]);
+    
 
     const userLink = (item, i) => (
         <li
@@ -63,9 +34,9 @@ const HeaderSection = (props) => {
     const showLinks = (type) => {
         let list = [];
 
-        if(clientprops && clientprops.clientData){
+        if (clientprops && clientprops.clientData) {
             type.forEach((item) => {
-                if(!clientprops.clientData.isAuth){
+                if (!clientprops.clientData.isAuth) {
                     if (item.public === true) {
                         list.push(item)
                     }
@@ -76,7 +47,7 @@ const HeaderSection = (props) => {
                 }
             })
         }
-        
+
         return list.map((item, i) => {
             return userLink(item, i)
         })
@@ -109,9 +80,9 @@ const HeaderSection = (props) => {
                     alignItems: "center"
                 }}>
                     <div className="topBarLeft">
-                        {/* <div className="toggleButton white">
+                        <div className="toggleButton">
                             <DrawerToggle click={props.drawerClickHandler} />
-                        </div> */}
+                        </div>
                         <div className="logo">
                             <a href="/">
                                 <img className="logo_img mobileHidden" src={headerShow ? window.location.origin + "/admin/assets/images/bnclogo_white2.png" : window.location.origin + "/admin/assets/images/bnclogo_white2.png"} alt="" width="160" />

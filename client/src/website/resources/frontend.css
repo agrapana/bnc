@@ -1349,7 +1349,7 @@ header.frontendwebsite .toggleButton .toggle_button {
 
 header.frontendwebsite .toggleButton .toggle_button svg {
   font-size: 24px;
-  color: #222222; }
+  color: #ffffff; }
 
 header.frontendwebsite .navigation_items ul {
   list-style: none;
@@ -1524,12 +1524,12 @@ header.frontendwebsite .navigation_items .itemInner {
 #frontendwebsite .sideDrawer .sideDrawerLogo {
   padding: 3px;
   text-align: center;
-  background-color: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+  background-color: #222222;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
 
 #frontendwebsite .sideDrawer {
   height: 100%;
-  background: #fff;
+  background: #222222;
   box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -1561,13 +1561,13 @@ header.frontendwebsite .navigation_items .itemInner {
   flex-direction: column; }
 
 #frontendwebsite .sideDrawer a, #frontendwebsite .sideDrawer .icon {
-  color: #555;
+  color: #878787;
   text-decoration: none;
   font-size: 1.2rem; }
 
 #frontendwebsite .sideDrawer a:hover,
 #frontendwebsite .sideDrawer a:active {
-  color: #222222; }
+  color: #359144; }
 
 #frontendwebsite .sideDrawer > ul > li > a {
   border: none;
@@ -1579,12 +1579,12 @@ header.frontendwebsite .navigation_items .itemInner {
   text-align: -webkit-match-parent; }
 
 #frontendwebsite .sideDrawer > ul > li > a.active {
-  background-color: #EAF4F4;
-  border-right: 7px solid #e60000; }
+  background-color: #2a2a2a;
+  border-right: 7px solid #359144; }
 
 #frontendwebsite .sideDrawer > ul > li a.active,
 #frontendwebsite .sideDrawer > ul > li a.active .icon {
-  color: #222222; }
+  color: #ffffff; }
 
 #frontendwebsite .sideDrawer .itemContent {
   align-items: center;
@@ -1607,7 +1607,7 @@ header.frontendwebsite .navigation_items .itemInner {
   font-size: 0.8rem;
   font-family: "Roboto", sans-serif;
   display: block;
-  color: #878787;
+  color: #ffffff;
   padding: 11px 15px;
   bottom: 10px;
   right: 10px; }

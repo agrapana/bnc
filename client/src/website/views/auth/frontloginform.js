@@ -190,14 +190,17 @@ const FrontLoginForm = (props) => {
         let dataToSubmit = generateData(formdata, 'login');
         let formIsValid = isFormValid(formdata, 'login');
 
+        let phonenumber = dataToSubmit.phone.replace(/^0+/, '');
+
         let totalDataToSubmit = {
-            ...dataToSubmit,
+            phone: phonenumber,
+            pin: dataToSubmit.pin,
             extension: selectedcountry.country.value
         }
 
         if (formIsValid) {
             // console.log(dataToSubmit)
-            dispatch(loginClient(dataToSubmit)).then(response => {
+            dispatch(loginClient(totalDataToSubmit)).then(response => {
                 if (response.payload.success) {
                     isDoneHandler(true);
                     formSuccessHandling(true);

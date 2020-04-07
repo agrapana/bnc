@@ -1,14 +1,14 @@
 import React from 'react';
 import { useWindowSize } from '../../widget/windowsize';
 import GoogleMap from '../../widget/map';
-import { FaFacebookF, FaInstagram, FaRegEnvelope, FaWhatsapp, FaPhone } from "react-icons/fa";
+// import { FaFacebookF, FaInstagram, FaRegEnvelope, FaWhatsapp, FaPhone } from "react-icons/fa";
 
 
 const ContactPage = () => {
     const size = useWindowSize();
     // console.log(size.height,"<")
     const isMobile = size.width <= 767.98;
-    const isTablet = size.width >= 767.99 && size.width <= 1025.98;
+    // const isTablet = size.width >= 767.99 && size.width <= 1025.98;
 
 
     return (

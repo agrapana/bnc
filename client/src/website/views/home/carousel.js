@@ -48,47 +48,47 @@ const CarouselPage = (props) => {
         ]
     }
 
-    const generateSlides = (data) => (
-        data ?
-            data.map((item, index) => (
-                <div key={index}>
-                    <div
-                        className="featuredBg featuredBgImage"
-                        style={{
-                            background: `url(${item.img})`,
-                            height: props.height
-                        }}
-                    >
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <div className="contentInner">
-                                        <div className="featuredAction">
-                                            <h1 className="tag title" style={{
-                                                marginBottom: 0
-                                            }}>{item.lineOne}</h1>
-                                            <div className="tag lowTitle">{item.lineTwo}</div>
-                                        </div>
-                                        {/* <div>
-                                            <MyButton
-                                                name="button"
-                                                type="button"
-                                                title={item.linkTitle}
-                                                linkTo={item.linkTo}
-                                                addStyles={{
-                                                    margin: '10px 0 0 0'
-                                                }}
-                                            />
-                                        </div> */}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            ))
-            : null
-    )
+    // const generateSlides = (data) => (
+    //     data ?
+    //         data.map((item, index) => (
+    //             <div key={index}>
+    //                 <div
+    //                     className="featuredBg featuredBgImage"
+    //                     style={{
+    //                         background: `url(${item.img})`,
+    //                         height: props.height
+    //                     }}
+    //                 >
+    //                     <div className="container">
+    //                         <div className="row">
+    //                             <div className="col-md-12">
+    //                                 <div className="contentInner">
+    //                                     <div className="featuredAction">
+    //                                         <h1 className="tag title" style={{
+    //                                             marginBottom: 0
+    //                                         }}>{item.lineOne}</h1>
+    //                                         <div className="tag lowTitle">{item.lineTwo}</div>
+    //                                     </div>
+    //                                     {/* <div>
+    //                                         <MyButton
+    //                                             name="button"
+    //                                             type="button"
+    //                                             title={item.linkTitle}
+    //                                             linkTo={item.linkTo}
+    //                                             addStyles={{
+    //                                                 margin: '10px 0 0 0'
+    //                                             }}
+    //                                         />
+    //                                     </div> */}
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         ))
+    //         : null
+    // )
 
     const showImage = (images) => {
         if (images && images.length > 0) {

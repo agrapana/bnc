@@ -129,6 +129,7 @@ const productcolorRouter = require('./client/src/server/templateapi/product/prod
 const productcatRouter = require('./client/src/server/templateapi/product/productcat');
 const productbrandRouter = require('./client/src/server/templateapi/product/productbrand');
 const productsizeRouter = require('./client/src/server/templateapi/product/productsize');
+const serversRouter = require('./client/src/server/templateapi/servers/servers');
 
 //==================================================================
 //                      CUSTOM TEMPLATE ROUTER
@@ -147,7 +148,7 @@ app.use('/api/productcolor', productcolorRouter);
 app.use('/api/productcat', productcatRouter);
 app.use('/api/productbrand', productbrandRouter);
 app.use('/api/productsize', productsizeRouter);
-
+app.use('/api/servers', serversRouter);
 //==================================================================
 //                          CUSTOM API
 //==================================================================

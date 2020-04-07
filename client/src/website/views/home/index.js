@@ -7,18 +7,18 @@ import {
     useDispatch
 } from 'react-redux';
 import Carousel from './carousel';
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
 import { useWindowSize } from '../../widget/windowsize';
 import { getSlider } from '../../../admin/store/actions/slider_action';
 import { loading } from '../../../admin/store/actions/loading_action';
 import { FaAndroid, FaApple } from "react-icons/fa";
 
 const HomePage = () => {
-    const history = useHistory();
+    // const history = useHistory();
     const size = useWindowSize();
     const dispatch = useDispatch();
     const isMobile = size.width <= 767.98;
-    const isTablet = size.width >= 767.99 && size.width <= 1025.98;
+    // const isTablet = size.width >= 767.99 && size.width <= 1025.98;
 
     const [slider, sliderHandler] = useState([]);
     const [
@@ -60,9 +60,9 @@ const HomePage = () => {
         },
     ])
 
-    const gotoPage = (link) => {
-        history.push(link);
-    }
+    // const gotoPage = (link) => {
+    //     history.push(link);
+    // }
 
     useEffect(() => {
         let mounted = true;

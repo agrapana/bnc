@@ -1,30 +1,31 @@
 import React, {
-    useState,
-    useEffect
+    // useState,
+    // useEffect
 } from 'react';
 import {
     useSelector,
-    useDispatch
+    // useDispatch
 } from 'react-redux';
 import moment from 'moment';
-import MyButton from '../../../admin/lumisoft/utils/button';
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
-import { useWindowSize } from '../../widget/windowsize';
-import { steamAuth } from '../../../admin/store/actions/client_action';
-import { getPortfolio } from '../../../admin/store/actions/portfolio_action';
-import { loading } from '../../../admin/store/actions/loading_action';
-import { FaWhatsapp } from "react-icons/fa";
+// import MyButton from '../../../admin/lumisoft/utils/button';
+// import Lightbox from 'react-image-lightbox';
+// import 'react-image-lightbox/style.css';
+// import { useWindowSize } from '../../widget/windowsize';
+// import { steamAuth } from '../../../admin/store/actions/client_action';
+// import { getPortfolio } from '../../../admin/store/actions/portfolio_action';
+// import { loading } from '../../../admin/store/actions/loading_action';
+// import { FaWhatsapp } from "react-icons/fa";
 
 const ProfilePage = (props) => {
     const { clientprops } = useSelector(state => ({
         clientprops: state.client
     }));
-    const size = useWindowSize();
-    const dispatch = useDispatch();
-    const isMobile = size.width <= 767.98;
+    // const size = useWindowSize();
+    // const dispatch = useDispatch();
+    // const isMobile = size.width <= 767.98;
     const URL = 'https://bnc.web.id/api/steam/auth';
-    const defaultURL = 'https://google.com';
+    // const defaultURL = 'https://google.com';
+
     // const isTablet = size.width >= 767.99 && size.width <= 1025.98;
 
     // useEffect(() => {
@@ -51,7 +52,7 @@ const ProfilePage = (props) => {
     //     }
     // }, [dispatch])
 
-    console.log(clientprops, "<<<<<<<<!<!<!<!<")
+    // console.log(clientprops, "<<<<<<<<!<!<!<!<")
 
     return (
         <section id="profilecontent">

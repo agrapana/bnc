@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const SALT_I = 10;
@@ -58,6 +59,42 @@ const clientSchema = mongoose.Schema({
         type: String,
         default: ""
     },
+    headshotpercentage: {
+        type: String,
+        default: ""
+    },
+    totalkill: {
+        type: String,
+        default: ""
+    },
+    totaldeath: {
+        type: String,
+        default: ""
+    },
+    totalassist: {
+        type: String,
+        default: ""
+    },
+    totalmvp: {
+        type: String,
+        default: ""
+    },
+    totalpoint: {
+        type: String,
+        default: ""
+    },
+    totalkilldeath: {
+        type: String,
+        default: ""
+    },
+    totalscore: {
+        type: String,
+        default: ""
+    },
+    totaladr: {
+        type: String,
+        default: ""
+    },
     isAuth: {
         type: Boolean,
         default: false
@@ -105,7 +142,11 @@ const clientSchema = mongoose.Schema({
     codeapproved:{
         type: Array,
         default: []
-    }
+    },
+    friends: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Client'
+    }],
 }, { timestamps: true });
 
 clientSchema.pre('save', function (next) {

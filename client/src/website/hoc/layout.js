@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { 
+    useSelector
+    // useDispatch 
+} from 'react-redux';
 import { useWindowSize } from '../widget/windowsize';
 
 import Header from '../views/header';

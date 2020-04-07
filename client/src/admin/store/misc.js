@@ -10,6 +10,7 @@ export const PRODUCT_SERVER = '/api/product';
 export const PRODUCTCAT_SERVER = '/api/productcat';
 export const PRODUCTBRAND_SERVER = '/api/productbrand';
 export const SLIDER_SERVER = '/api/slider';
+export const SERVERS_SERVER = '/api/servers';
 // export const ORDER_SERVER = '/api/order';
 // export const ONGKIR_SERVER = '/api/ongkir';
 // export const PURCHASE_SERVER = '/api/allpurchase';
