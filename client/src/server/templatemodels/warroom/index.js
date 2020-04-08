@@ -18,9 +18,12 @@ const warroomSchema = mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'Client'
     }],
+    start: {
+        type: String,
+        default: ""
+    },
     status: {
         type: String,
-        maxlength: 100,
         default: ""
     }
 }, { timestamps: true });
