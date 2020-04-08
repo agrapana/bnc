@@ -73,7 +73,7 @@ const ServerScreen = (props) => {
             head: 'IP Address'
         },
         {
-            head: 'Players'
+            head: 'GOTV'
         }
     ]);
     const [alldata, alldataHandler] = useState([]);

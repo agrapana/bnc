@@ -13,8 +13,11 @@ const ServersTable = (props) => {
                 {props.item.ipaddress}
             </td>
             <td>
-                {props.item.players && props.item.players.length > 0 ? props.item.players.length : "Empty"}
+                {props.item.gotv}
             </td>
+            {/* <td>
+                {props.item.players && props.item.players.length > 0 ? props.item.players.length : "Empty"}
+            </td> */}
         </tr>
     );
 };

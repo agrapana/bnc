@@ -129,13 +129,14 @@ const productcolorRouter = require('./client/src/server/templateapi/product/prod
 const productcatRouter = require('./client/src/server/templateapi/product/productcat');
 const productbrandRouter = require('./client/src/server/templateapi/product/productbrand');
 const productsizeRouter = require('./client/src/server/templateapi/product/productsize');
-const serversRouter = require('./client/src/server/templateapi/servers/servers');
 
 //==================================================================
 //                      CUSTOM TEMPLATE ROUTER
 //==================================================================
 const steamRouter = require('./client/src/server/templateapi/steam');
-
+const serversRouter = require('./client/src/server/templateapi/servers/servers');
+const warroomRouter = require('./client/src/server/templateapi/warroom');
+const historywarroomRouter = require('./client/src/server/templateapi/historywarroom');
 //==================================================================
 //                              API
 //==================================================================
@@ -148,12 +149,13 @@ app.use('/api/productcolor', productcolorRouter);
 app.use('/api/productcat', productcatRouter);
 app.use('/api/productbrand', productbrandRouter);
 app.use('/api/productsize', productsizeRouter);
-app.use('/api/servers', serversRouter);
 //==================================================================
 //                          CUSTOM API
 //==================================================================
 app.use('/api/steam', steamRouter);
-
+app.use('/api/servers', serversRouter);
+app.use('/api/warroom', warroomRouter);
+appp.user('/api/historywarroom', historywarroomRouter);
 
 // DEFAULT
 if (process.env.NODE_ENV === 'production') {

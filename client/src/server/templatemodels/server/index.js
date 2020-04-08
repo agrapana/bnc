@@ -18,10 +18,11 @@ const serverSchema = mongoose.Schema({
         maxlength: 100,
         default: ""
     },
-    players: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Client'
-    }],
+    gotv: {
+        type: String,
+        maxlength: 100,
+        default: ""
+    }
 }, { timestamps: true });
 
 const Servers = mongoose.model('Servers', serverSchema);

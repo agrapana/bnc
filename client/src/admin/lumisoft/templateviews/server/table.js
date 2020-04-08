@@ -85,6 +85,22 @@ const ServersTableScreen = (props) => {
             touched: true,
             validationMessage: ''
         },
+        gotv: {
+            element: 'input',
+            title: 'GOTV',
+            value: editformdatastatus ? dataselected.gotv : '',
+            config: {
+                name: 'gotvInput',
+                type: 'text',
+                placeholder: 'Enter gotv'
+            },
+            validation: {
+                required: false
+            },
+            valid: true,
+            touched: true,
+            validationMessage: ''
+        },
     });
 
     const updateForm = (element) => {
@@ -217,6 +233,23 @@ const ServersTableScreen = (props) => {
                     <FormField
                         id={'ipaddress'}
                         formdata={formdata.ipaddress}
+                        change={(element) => updateForm(element)}
+                        myclass={'form-control'}
+                    />
+                </div>
+            </div>
+            <div className="row pb25">
+                <label className="col-md-2 col-xs-12 colFormLabel">{formdata.gotv.title}</label>
+                <div className="col-md-10 col-xs-12">
+                    <div className="iconPosition">
+                        <FontAwesomeIcon
+                            icon={faAlignLeft}
+                            className="icon agraicon"
+                        />
+                    </div>
+                    <FormField
+                        id={'gotv'}
+                        formdata={formdata.gotv}
                         change={(element) => updateForm(element)}
                         myclass={'form-control'}
                     />
