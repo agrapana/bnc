@@ -155,7 +155,7 @@ app.use('/api/productsize', productsizeRouter);
 app.use('/api/steam', steamRouter);
 app.use('/api/servers', serversRouter);
 app.use('/api/warroom', warroomRouter);
-appp.user('/api/historywarroom', historywarroomRouter);
+app.use('/api/historywarroom', historywarroomRouter);
 
 // DEFAULT
 if (process.env.NODE_ENV === 'production') {
