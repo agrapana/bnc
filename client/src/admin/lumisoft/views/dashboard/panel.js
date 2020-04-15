@@ -43,7 +43,10 @@ const DashboardPanel = (props) => {
                                             props.allslider && props.allslider.length > 0 ? props.allslider.length : "0"
                                             : data.name === "Product" ?
                                                 props.allproduct && props.allproduct.length > 0 ? props.allproduct.length : "0"
-                                                : null
+                                                :
+                                                data.name === "Servers" ?
+                                                    props.allservers && props.allservers.length > 0 ? props.allservers.length : "0"
+                                                    : null
                             }</h5>
                         </div>
                     </div>

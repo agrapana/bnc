@@ -145,45 +145,68 @@ const ServersTableScreen = (props) => {
 
         let dataToSubmit2 = generateData(formdata, 'Serversedit');
         let formIsValid2 = isFormValid(formdata, 'Serversedit');
-        let datachange = 0;
-        for (let key1 in dataselected) {
-            if (key1 === "category") {
-                if (dataselected[key1]._id.toString() === dataToSubmit2[key1].toString()) {
-                    datachange = datachange + 1;
-                }
-            } else {
-                if (dataselected[key1] === dataToSubmit2[key1]) {
-                    datachange = datachange + 1;
-                }
-            }
+
+        const totaldataToSubmit = {
+            ...dataToSubmit2,
+            _id: dataselected._id,
         }
-        if (datachange === 3) {
+        if (formIsValid2) {
+            dispatch(updateServers(totaldataToSubmit)).then(response => {
+                if (response.payload.success) {
+                    dispatch(clearUpdateServers());
+                    formSuccessHandler(true);
+                    props.history.push('/admin/servers');
+                } else {
+                    formErrorHandler(true);
+                    props.loadingtableHandler(false);
+                    errorMessageHandler(response.payload.message);
+                }
+            })
+        } else {
             formErrorHandler(true);
             props.loadingtableHandler(false);
-            errorMessageHandler('CHANGE DATA BEFORE SUBMIT!');
-        } else {
-            const totaldataToSubmit = {
-                ...dataToSubmit2,
-                _id: dataselected._id,
-            }
-            if (formIsValid2) {
-                dispatch(updateServers(totaldataToSubmit)).then(response => {
-                    if (response.payload.success) {
-                        dispatch(clearUpdateServers());
-                        formSuccessHandler(true);
-                        props.history.push('/admin/servers');
-                    } else {
-                        formErrorHandler(true);
-                        props.loadingtableHandler(false);
-                        errorMessageHandler(response.payload.message);
-                    }
-                })
-            } else {
-                formErrorHandler(true);
-                props.loadingtableHandler(false);
-                errorMessageHandler('DATA INVALID, PLEASE RECHECK!');
-            }
+            errorMessageHandler('DATA INVALID, PLEASE RECHECK!');
         }
+        
+        // let datachange = 0;
+        // for (let key1 in dataselected) {
+        //     if (key1 === "name" || key1 === "subname" || key1 === "ipaddress" || key1 === "gotv") {
+        //         if (dataselected[key1].toString() === dataToSubmit2[key1].toString()) {
+        //             datachange = datachange + 1;
+        //         }
+        //     } else {
+        //         if (dataselected[key1] === dataToSubmit2[key1]) {
+        //             datachange = datachange + 1;
+        //         }
+        //     }
+        // }
+        // if (datachange === 3) {
+        //     formErrorHandler(true);
+        //     props.loadingtableHandler(false);
+        //     errorMessageHandler('CHANGE DATA BEFORE SUBMIT!');
+        // } else {
+        //     const totaldataToSubmit = {
+        //         ...dataToSubmit2,
+        //         _id: dataselected._id,
+        //     }
+        //     if (formIsValid2) {
+        //         dispatch(updateServers(totaldataToSubmit)).then(response => {
+        //             if (response.payload.success) {
+        //                 dispatch(clearUpdateServers());
+        //                 formSuccessHandler(true);
+        //                 props.history.push('/admin/servers');
+        //             } else {
+        //                 formErrorHandler(true);
+        //                 props.loadingtableHandler(false);
+        //                 errorMessageHandler(response.payload.message);
+        //             }
+        //         })
+        //     } else {
+        //         formErrorHandler(true);
+        //         props.loadingtableHandler(false);
+        //         errorMessageHandler('DATA INVALID, PLEASE RECHECK!');
+        //     }
+        // }
     }
     return (
         <div className="cardBody formstyle">

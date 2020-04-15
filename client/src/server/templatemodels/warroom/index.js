@@ -22,9 +22,17 @@ const warroomSchema = mongoose.Schema({
         type: String,
         default: ""
     },
-    status: {
-        type: String,
-        default: ""
+    isOpen: {
+        type: Boolean,
+        default: true
+    },
+    isProcessing: {
+        type: Boolean,
+        default: false
+    },
+    isClosed: {
+        type: Boolean,
+        default: false
     }
 }, { timestamps: true });
 

@@ -15,6 +15,7 @@ import { getPortfolio } from '../../../store/actions/portfolio_action';
 import { getSlider } from '../../../store/actions/slider_action';
 import { getGallery } from '../../../store/actions/gallery_action';
 import { getProduct } from '../../../store/actions/product_action';
+import { getServers } from '../../../store/actions/server_action';
 
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
@@ -25,14 +26,16 @@ const DashboardScreen = (props) => {
         getportfolio,
         getproduct,
         getapplication,
-        getslider
+        getslider,
+        getservers
     } = useSelector(state => ({
         userprops: state.user,
         getapplication: state.application,
         getgallery: state.gallery,
         getportfolio: state.portfolio,
         getproduct: state.product,
-        getslider: state.slider
+        getslider: state.slider,
+        getservers: state.servers
     }));
     const size = useWindowSize();
     const isMobile = size.width <= 767.98;
@@ -67,6 +70,7 @@ const DashboardScreen = (props) => {
     const [allslider, allsliderHandler] = useState([]);
     const [allportfolio, allportfolioHandler] = useState([]);
     const [allproduct, allproductHandler] = useState([]);
+    const [allservers, allserverHandler] = useState([]);
 
     useEffect(() => {
         loadingtableHandler(true);
@@ -75,6 +79,7 @@ const DashboardScreen = (props) => {
         dispatch(getPortfolio());
         dispatch(getSlider());
         dispatch(getGallery());
+        dispatch(getServers());
         dispatch(getProduct(100, 'desc', "createdAt"));
     }, [dispatch])
     useEffect(() => {
@@ -102,8 +107,12 @@ const DashboardScreen = (props) => {
             let totalslider = getslider.getSlider.sliders.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
             allsliderHandler(totalslider);
         }
+        if (getservers && getservers.getServers && getservers.getServers.success) {
+            let totalserver = getservers.getServers.servers.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            allserverHandler(totalserver);
+        }
         loadingtableHandler(false);
-    }, [userprops, getgallery, getportfolio, getproduct, getapplication, getslider])
+    }, [userprops, getgallery, getportfolio, getproduct, getapplication, getslider, getservers])
 
     const clickHandler = (link) => {
         props.history.push(link);
@@ -147,12 +156,15 @@ const DashboardScreen = (props) => {
             let totalproduct = await allproduct.payload.product.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
             let allslider = await dispatch(getSlider());
             let totalslider = await allslider.payload.sliders.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            let allservers = await dispatch(getServers());
+            let totalservers = await allservers.payload.servers.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
             alluserHandler(totaluser);
             allapplicationHandler(totalapplication);
             allgalleryHandler(totalgallery);
             allportfolioHandler(totalportfolio);
             allproductHandler(totalproduct);
             allsliderHandler(totalslider);
+            allserverHandler(totalservers);
             loadingtableHandler(false);
         } catch (error) {
 
@@ -194,6 +206,7 @@ const DashboardScreen = (props) => {
                                 allportfolio={allportfolio}
                                 allproduct={allproduct}
                                 allslider={allslider}
+                                allservers={allservers}
                             />
                         </div>
                         <div className="row">

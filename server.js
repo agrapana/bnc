@@ -1,11 +1,9 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cloudinary = require('cloudinary');
 const passport = require('passport');
 const session = require('express-session');
-// const server = require('http').createServer(app);
 
 // import express, { static } from 'express'; // use babel next
 // import { json, urlencoded } from 'body-parser';
@@ -47,7 +45,8 @@ passport.use(new SteamStrategy({
 ));
 ///////////////////////////////////////////////////////////////////////////////
 
-
+const app = express();
+// const server = require('http').createServer(app);
 const mongoose = require('mongoose');
 
 
@@ -62,9 +61,12 @@ mongoose.connect(process.env.MONGODB_ATLAS, {
     poolSize: 100
 });
 const connection = mongoose.connection;
-connection.once('open', () => {
+connection.on('open', () => {
     console.log('MongoDB connecting successfull')
 })
+connection.on('error', err => {
+    console.error('Error connecting to mongo', err);
+});
 ///////////////////////////////////////////////////////////////////////////////
 
 // mongoose.connect(process.env.MONGODB_URI, {
@@ -166,6 +168,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const port = process.env.PORT || 3018;
+
 app.listen(port, () => {
     console.log(`Lumisoft Server Running at port: ${port}`)
 });
