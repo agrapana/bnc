@@ -101,6 +101,7 @@ const FrontLoginForm = (props) => {
                 options: [
                     { value: "+62", name: 'INDONESIA' },
                     { value: "+61", name: 'AUSTRALIA' },
+                    { value: "+65", name: 'SINGAPORE' },
                 ],
                 placeholder: 'Choose Country'
             },
