@@ -3,6 +3,7 @@ const router = require('express').Router();
 //                             MODELS
 //==================================================================
 const { Warroom } = require('../../templatemodels/warroom');
+const { Client } = require('../../models/client');
 const { auth } = require('../../middleware/auth');
 const { clientauth } = require('../../middleware/clientauth');
 //======================================================================
@@ -74,25 +75,53 @@ router.route('/updatewarroom').post(clientauth, (req, res) => {
 })
 
 router.route('/joinwarroom').post(clientauth, (req, res) => {
-    Warroom.findOneAndUpdate(
-        { _id: req.query.roomid },
-        {
-            $push: {
-                players: req.query.id
-            }
-        },
-        { new: true }).
-        populate('currentserver').
-        populate('currentadmin').
-        populate('players').
-        exec((err, joinwarroom) => {
-            if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
-            return res.status(200).json({
-                success: true,
-                joinwarroom
+    Client.findOne({ _id: req.query.id }, (err, client) => {
+        if (err) return res.json({ success: false, message: 'UPDATE CLIENT FAILED' });
+        if (client.registeredwarroom) return res.json({ success: false, message: 'YOU ARE REGISTERED AT OTHER SERVER' });
+        Warroom.findOneAndUpdate(
+            { _id: req.query.roomid },
+            {
+                $push: {
+                    players: req.query.id
+                }
+            },
+            { new: true }).
+            populate('currentserver').
+            populate('currentadmin').
+            populate('players').
+            exec((err, joinwarroom) => {
+                if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
+
+                client.registeredwarroom = joinwarroom._id;
+                client.save((err, newclient) => {
+                    if (err) return res.json({ success: false, err, message: "UPDATE CLIENT FAILED" });
+                    return res.status(200).json({
+                        success: true,
+                        joinwarroom,
+                        newclient
+                    })
+                })
+
+                // Client.findOneAndUpdate(
+                //     { _id: req.query.id },
+                //     {
+                //         $set: {
+                //             registeredwarroom: joinwarroom._id
+                //         }
+                //     },
+                //     { new: true }).
+                //     exec((err, newclient) => {
+                //         if (err) return res.json({ success: false, err, message: "UPDATE CLIENT FAILED" });
+                //         return res.status(200).json({
+                //             success: true,
+                //             joinwarroom,
+                //             newclient
+                //         })
+                //     })
             })
-        }
-        );
+
+    })
+
 })
 
 router.route('/cancelwarroom').post(clientauth, (req, res) => {
@@ -109,12 +138,35 @@ router.route('/cancelwarroom').post(clientauth, (req, res) => {
         populate('players').
         exec((err, cancelwarroom) => {
             if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
-            return res.status(200).json({
-                success: true,
-                cancelwarroom
+            Client.findOne({ _id: req.query.id }, (err, client) => {
+                if (err) return res.json({ success: false, message: 'UPDATE CLIENT FAILED' });
+                client.registeredwarroom = undefined;
+                client.save((err, newclient) => {
+                    if (err) return res.json({ success: false, err, message: "UPDATE CLIENT FAILED" });
+                    return res.status(200).json({
+                        success: true,
+                        cancelwarroom,
+                        newclient
+                    })
+                })
             })
-        }
-        );
+            // Client.findOneAndUpdate(
+            //     { _id: req.query.id },
+            //     {
+            //         $set: {
+            //             registeredwarroom: undefined
+            //         }
+            //     },
+            //     { new: true }).
+            //     exec((err, newclient) => {
+            //         if (err) return res.json({ success: false, err, message: "UPDATE CLIENT FAILED" });
+            //         return res.status(200).json({
+            //             success: true,
+            //             cancelwarroom,
+            //             newclient
+            //         })
+            //     })
+        });
 })
 
 router.route('/closewarroom').post(clientauth, (req, res) => {

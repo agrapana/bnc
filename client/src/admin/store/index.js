@@ -11,6 +11,7 @@ import productcat from './reducers/productcat_reducer';
 import productbrand from './reducers/productbrand_reducer';
 import application from './reducers/application_reducer';
 import servers from './reducers/server_reducer';
+import league from './reducers/league_reducer';
 // import role from './general/role_reducer';
 
 
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
     productcat,
     productbrand,
     application,
-    servers
+    servers,
+    league
     // role
 });
 

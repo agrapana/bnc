@@ -43,6 +43,10 @@ const clientSchema = mongoose.Schema({
         type: Array,
         default: []
     },
+    season: {
+        type: Array,
+        default: []
+    },
     token: {
         type: String,
         default: ""
@@ -94,6 +98,14 @@ const clientSchema = mongoose.Schema({
     totaladr: {
         type: String,
         default: ""
+    },
+    registeredwarroom: {
+        type: Schema.Types.ObjectId,
+        ref: 'Warroom'
+    },
+    registeredteam: {
+        type: Schema.Types.ObjectId,
+        ref: 'Team'
     },
     isAuth: {
         type: Boolean,

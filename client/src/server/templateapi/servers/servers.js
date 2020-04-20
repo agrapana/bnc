@@ -6,7 +6,7 @@ const { Servers } = require('../../templatemodels/server');
 const { auth } = require('../../middleware/auth');
 
 //======================================================================
-//                            PRODUCT BRAND
+//                              SERVERS
 //======================================================================
 
 router.route('/addservers').post(auth, (req, res) => {

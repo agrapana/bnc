@@ -1,5 +1,6 @@
 import React from 'react';
 import { useWindowSize } from '../../../widget/windowsize';
+import path from '../../../lumisoft/allroutes';
 import LoginForm from './loginform';
 
 const LoginScreen = (props) => {
@@ -26,7 +27,7 @@ const LoginScreen = (props) => {
                         <div className="loginCopyright">
                             <div className="copyright">
                                 <p>
-                                    © 2019 Lumisoft
+                                    © 2019 Lumisoft ( {path.version} )
 					            </p>
                             </div>
                             <div className="privacyLegal">

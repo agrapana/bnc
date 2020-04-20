@@ -139,6 +139,11 @@ const steamRouter = require('./client/src/server/templateapi/steam');
 const serversRouter = require('./client/src/server/templateapi/servers/servers');
 const warroomRouter = require('./client/src/server/templateapi/warroom');
 const historywarroomRouter = require('./client/src/server/templateapi/historywarroom');
+
+const leagueRouter = require('./client/src/server/templateapi/league/league');
+const teamRouter = require('./client/src/server/templateapi/league/team');
+const scheduleRouter = require('./client/src/server/templateapi/league/schedule');
+const resultRouter = require('./client/src/server/templateapi/league/result');
 //==================================================================
 //                              API
 //==================================================================
@@ -158,6 +163,11 @@ app.use('/api/steam', steamRouter);
 app.use('/api/servers', serversRouter);
 app.use('/api/warroom', warroomRouter);
 app.use('/api/historywarroom', historywarroomRouter);
+
+app.use('/api/league', leagueRouter);
+app.use('/api/team', teamRouter);
+app.use('/api/schedule', scheduleRouter);
+app.use('/api/result', resultRouter);
 
 // DEFAULT
 if (process.env.NODE_ENV === 'production') {

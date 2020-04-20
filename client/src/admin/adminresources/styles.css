@@ -672,6 +672,12 @@ table {
   padding-left: 0 !important; }
 
 /***********************************************
+                PADDING RIGHT
+***********************************************/
+.pr0 {
+  padding-right: 0 !important; }
+
+/***********************************************
                 PADDING BOTTOM
 ***********************************************/
 .pb0 {
@@ -3104,6 +3110,22 @@ th {
   color: #359144;
   text-transform: uppercase;
   left: 0; }
+
+#dropzoneforiconposition .rdtPicker {
+  background: #222222;
+  padding: 0px; }
+
+#dropzoneforiconposition .rdtPicker th.rdtSwitch, .rdtPicker .dow, .rdtDay {
+  padding: 5px !important; }
+
+#dropzoneforiconposition .rdtPicker td.rdtMonth, .rdtPicker td.rdtYear {
+  padding: 16px 10px 16px 10px !important; }
+
+#dropzoneforiconposition .rdtTimeToggle {
+  padding: 2px; }
+
+#dropzoneforiconposition .rdtCounter .rdtCount {
+  height: 26%; }
 
 #dropzoneforiconposition2 textarea {
   -webkit-box-sizing: border-box;

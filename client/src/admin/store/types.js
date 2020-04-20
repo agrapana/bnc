@@ -80,6 +80,25 @@ export const GET_GALLERY_BY_ID = 'get_gallery_by_id';
 export const UPDATE_GALLERY = 'update_gallery';
 export const CLEAR_UPDATE_GALLERY = 'clear_update_gallery';
 /////////////////////////////////////////////////////////////////////
+////////////////////////////// LEAGUE ///////////////////////////////
+/////////////////////////////////////////////////////////////////////
+export const ADD_LEAGUE = 'add_league';
+export const CLEAR_LEAGUE = 'clear_league';
+export const GET_LEAGUE = 'get_league';
+export const GET_LEAGUE_BY_ID = 'get_league_by_id';
+export const UPDATE_LEAGUE = 'update_league';
+export const CLEAR_UPDATE_LEAGUE = 'clear_update_league';
+export const UPDATE_LEAGUE_TEAM = 'update_league_team';
+export const CLEAR_UPDATE_LEAGUE_TEAM = 'clear_update_league_team';
+export const UPDATE_LEAGUE_SCHEDULE = 'update_league_schedule';
+export const CLEAR_UPDATE_LEAGUE_SCHEDULE = 'clear_update_league_schedule';
+
+export const ADD_TEAM = 'add_team';
+export const CLEAR_ADD_TEAM = 'clear_add_team';
+export const GET_TEAMS = 'get_teams';
+export const UPDATE_TEAM = 'update_team';
+export const CLEAR_UPDATE_TEAM = 'clear_update_team';
+/////////////////////////////////////////////////////////////////////
 ////////////////////////////// SLIDER ///////////////////////////////
 /////////////////////////////////////////////////////////////////////
 export const ADD_SLIDER = 'add_slider';

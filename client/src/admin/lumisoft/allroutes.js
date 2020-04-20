@@ -29,8 +29,15 @@ import ServersScreen from './templateviews/server';
 import ServerAddNewScreen from './templateviews/server/addnew';
 import ServerEditdataScreen from './templateviews/server/edit';
 
+import MasterLeague from './templateviews/league';
+import MasterAddLeague from './templateviews/league/addnew';
+import MasterEditLeague from './templateviews/league/edit';
+
+import MasterLeagueTeams from './templateviews/teams';
+import MasterLeagueTeamsEdit from './templateviews/teams/edit';
+
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faPhotoVideo, faEdit, faBoxes, faBox } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faPhotoVideo, faEdit, faBoxes, faBox, faGlassCheers } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandshake } from '@fortawesome/free-regular-svg-icons';
 import { 
@@ -39,9 +46,9 @@ import {
     faAddressCard 
 } from '@fortawesome/free-regular-svg-icons';
 
-library.add(faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faAddressCard, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faHandshake)
+library.add(faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faAddressCard, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faHandshake, faGlassCheers)
 
-let version = "v4.2.6b"
+let version = "v4.3.0b"
 let mainpath = [
     {
         name: 'Dashboard',
@@ -222,10 +229,37 @@ let adminpath = [
         public: true,
         show: true,
         faicons: faBoxes
+    },
+    {
+        name: 'League',
+        link: '/admin/master/league',
+        component: MasterLeague,
+        exact: true,
+        public: true,
+        show: true,
+        faicons: faGlassCheers
+    },
+    {
+        name: 'Teams',
+        link: '/admin/master/teams',
+        component: MasterLeagueTeams,
+        exact: true,
+        public: true,
+        show: true,
+        faicons: faUsers
     }
 ]
 
 let subadminpath = [
+    {
+        name: 'Edit Teams',
+        link: '/admin/master/teams/editdata',
+        component: MasterLeagueTeamsEdit,
+        exact: true,
+        public: true,
+        show: true,
+        faicons: faEdit
+    },
     {
         name: 'Add User',
         link: '/admin/master/user/addnew',
@@ -257,6 +291,24 @@ let subadminpath = [
         name: 'Edit Application',
         link: '/admin/master/application/editdata',
         component: MasterEditApplication,
+        exact: true,
+        public: true,
+        show: true,
+        faicons: faEdit
+    },
+    {
+        name: 'Add League',
+        link: '/admin/master/league/addnew',
+        component: MasterAddLeague,
+        exact: true,
+        public: true,
+        show: true,
+        faicons: faBox
+    },
+    {
+        name: 'Edit League',
+        link: '/admin/master/league/editdata',
+        component: MasterEditLeague,
         exact: true,
         public: true,
         show: true,
