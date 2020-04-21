@@ -11,7 +11,7 @@ import Carousel from './carousel';
 import { useWindowSize } from '../../widget/windowsize';
 import { getSlider } from '../../../admin/store/actions/slider_action';
 import { loading } from '../../../admin/store/actions/loading_action';
-import { FaAndroid, FaApple } from "react-icons/fa";
+import { FaAndroid, FaApple, FaDropbox } from "react-icons/fa";
 
 const HomePage = () => {
     // const history = useHistory();
@@ -123,28 +123,21 @@ const HomePage = () => {
                                         <div style={{ marginTop: '50px', clear: 'both', fontSize: '0', height: '0', lineHeight: '0', width: '100%', overflow: 'hidden', display: 'block' }}></div>
                                         <h3
                                             style={{ color: '#eee', fontSize: '24px', lineHeight: '1.5', margin: '0 0 30px' }}
-                                        >Grab it now in Mobile</h3>
+                                        >Grab it now!!</h3>
                                         <p>
-                                            <button
+                                            <a
+                                                href="https://www.dropbox.com/s/bzc7x2lr2rtktly/bncv4-3-0b.apk?dl=0"
                                                 className="appbutton"
+                                                rel="noopener noreferrer"
+                                                target="_blank"
                                             >
-                                                <FaApple />
+                                                <FaDropbox />
                                                 <div
                                                     style={{ fontSize: '16px', marginLeft: '5px' }}
                                                 >
-                                                    APP STORE
+                                                    DROPBOX
                                                 </div>
-                                            </button>
-                                            <button
-                                                className="appbutton"
-                                            >
-                                                <FaAndroid />
-                                                <div
-                                                    style={{ fontSize: '16px', marginLeft: '5px' }}
-                                                >
-                                                    Google Play
-                                                </div>
-                                            </button>
+                                            </a>
                                         </p>
                                     </div>
                                     <div className="col-md-6 col-xs-12">
