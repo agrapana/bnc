@@ -17,8 +17,11 @@ export const ADMIN_INSTALLATION = 'admin_installation';
 /////////////////////////////////////////////////////////////////////
 export const AUTH_CLIENT = 'auth_client';
 export const LOGIN_CLIENT = 'login_client';
+export const VERIFY_PHONE = 'verify_phone';
+export const CONFIRM_PHONE_NUMBER = 'confirm_phone_number';
 export const LOGOUT_CLIENT = 'logout_client';
 export const STEAM_AUTH = 'steam_auth';
+export const NAME_PIN = 'name_pin';
 /////////////////////////////////////////////////////////////////////
 ///////////////////////////// SERVERS ///////////////////////////////
 /////////////////////////////////////////////////////////////////////

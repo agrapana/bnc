@@ -2,6 +2,9 @@ import axios from 'axios';
 import {
     AUTH_CLIENT,
     LOGIN_CLIENT,
+    VERIFY_PHONE,
+    CONFIRM_PHONE_NUMBER,
+    NAME_PIN,
     LOGOUT_CLIENT,
     STEAM_AUTH
 } from '../types';
@@ -13,6 +16,36 @@ export function clientauth() {
 
     return {
         type: AUTH_CLIENT,
+        payload: request
+    }
+}
+
+export function verifyPhone(dataToSubmit) {
+    const request = axios.post(`${CLIENT_SERVER}/verifyphone`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: VERIFY_PHONE,
+        payload: request
+    }
+}
+
+export function confirmPhoneNumber(dataToSubmit, token) {
+    const request = axios.post(`${CLIENT_SERVER}/confirmphonenumber/${token}`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: CONFIRM_PHONE_NUMBER,
+        payload: request
+    }
+}
+
+export function NamePin(dataToSubmit,token) {
+    const request = axios.post(`${CLIENT_SERVER}/namepin?token=${token}`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: NAME_PIN,
         payload: request
     }
 }

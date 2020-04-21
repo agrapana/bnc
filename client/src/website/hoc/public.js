@@ -6,6 +6,9 @@ import Layout from './layout';
 import Auth from './auth';
 
 import LoginPage from '../views/auth/login';
+import RegisterPage from '../views/auth/register';
+import VerifyPhonePage from '../views/auth/verifyphone';
+import NamePinPage from '../views/auth/namepin';
 import LogoutPage from '../views/auth/logout';
 
 import NotificationPage from '../views/notification';
@@ -19,6 +22,9 @@ const PublicLayout = () => {
         <Layout>
             <Switch>
                 <Route path="/login" exact component={Auth(LoginPage, false)} />
+                <Route path="/register" exact component={Auth(RegisterPage, false)} />
+                <Route path="/verifyphone" exact component={Auth(VerifyPhonePage, false)} />
+                <Route path="/namepin" exact component={Auth(NamePinPage, false)} />
                 <Route path="/logout" exact component={Auth(LogoutPage, true)} />
                 <Route path="/notification" exact component={Auth(NotificationPage, true)} />
                 <Route path="/contact" exact component={Auth(ContactPage, true)} />

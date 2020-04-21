@@ -23,6 +23,12 @@ export default function (ComposedClass, reload, adminRoute) {
                     if (reload) {
                         props.history.push('/login')
                     }
+                } else if(client.isAuth && !client.isNamePin) {
+                    if (reload) {
+                        props.history.push('/namepin', {
+                            thisclient: client
+                        });
+                    }
                 } else {
                     if (reload === false) {
                         props.history.push('/')

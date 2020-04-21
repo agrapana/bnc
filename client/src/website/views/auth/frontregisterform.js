@@ -23,12 +23,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FormField from '../../../admin/lumisoft/utils/form/formfield';
 import MyButton from '../../../admin/lumisoft/utils/button';
 import { update, generateData, isFormValid } from '../../../admin/lumisoft/utils/form/formactions';
-import { loginClient } from '../../../admin/store/actions/client_action';
-
+import { verifyPhone } from '../../../admin/store/actions/client_action';
+import { loading } from '../../../admin/store/actions/loading_action';
+// import Loadingscreen from '../../views/loadingscreen';
 
 library.add(faLock, faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faEnvelope, faChevronLeft)
 
-const FrontLoginForm = (props) => {
+const FrontRegisterForm = (props) => {
     const useOutsideAlerter = (ref) => {
         /**
          * Alert if clicked on outside of element
@@ -55,6 +56,7 @@ const FrontLoginForm = (props) => {
     const dispatch = useDispatch();
     const [formError, formErrorHandling] = useState(false);
     const [formSuccess, formSuccessHandling] = useState(false);
+    const [loadingwebsite, loadingwebsiteHandler] = useState(false);
     const [errorMessage, errorMessageHandling] = useState('');
     const [formdata, formdataHandling] = useState({
         phone: {
@@ -68,22 +70,6 @@ const FrontLoginForm = (props) => {
             validation: {
                 required: true,
                 phone: true
-            },
-            valid: false,
-            touched: false,
-            validationMessage: ''
-        },
-        pin: {
-            element: 'input',
-            value: '',
-            config: {
-                name: 'pinInput',
-                type: 'password',
-                placeholder: 'Enter your pin'
-            },
-            validation: {
-                required: true,
-                number: true
             },
             valid: false,
             touched: false,
@@ -116,13 +102,13 @@ const FrontLoginForm = (props) => {
     const [searchpublishmode, searchpublishmodeHandler] = useState(false);
     const [dontblurpublish, dontblurpublishHandler] = useState(false);
 
-    const [isDone, isDoneHandler] = useState(false);
+    // const [isDone, isDoneHandler] = useState(false);
 
-    useEffect(() => {
-        if (isDone) {
-            props.history.push('/profile');
-        }
-    }, [isDone, props.history])
+    // useEffect(() => {
+    //     if (isDone) {
+    //         props.history.push('/verifyphone');
+    //     }
+    // }, [isDone, props.history])
 
     const updateForm = (element) => {
         const newFormdata = update(element, formdata, 'login');
@@ -188,23 +174,33 @@ const FrontLoginForm = (props) => {
         event.preventDefault();
         event.stopPropagation();
 
-        let dataToSubmit = generateData(formdata, 'login');
-        let formIsValid = isFormValid(formdata, 'login');
+        let dataToSubmit = generateData(formdata, 'register');
+        let formIsValid = isFormValid(formdata, 'register');
 
         let phonenumber = dataToSubmit.phone.replace(/^0+/, '');
 
         let totalDataToSubmit = {
             phone: phonenumber,
-            pin: dataToSubmit.pin,
             extension: selectedcountry.country.value
         }
 
         if (formIsValid) {
             // console.log(dataToSubmit)
-            dispatch(loginClient(totalDataToSubmit)).then(response => {
+            dispatch(verifyPhone(totalDataToSubmit)).then(response => {
                 if (response.payload.success) {
-                    isDoneHandler(true);
+                    // isDoneHandler(true);
                     formSuccessHandling(true);
+                    let phone = response.payload.doc.phone;
+                    let token = response.payload.tokendoc.token;
+                    let extension = response.payload.doc.extension;
+                    setTimeout(() => {
+                        props.history.push('/verifyphone', {
+                            thisclient: phone,
+                            clientToken: token,
+                            thisextension: extension
+                        });
+                    }, 2000)
+
                 } else {
                     formErrorHandling(true);
                     errorMessageHandling(response.payload.message);
@@ -216,11 +212,6 @@ const FrontLoginForm = (props) => {
         }
 
     }
-
-    const gotoRegisterPage = () => {
-        props.history.push('/register')
-    }
-
 
     return (
         <div>
@@ -247,74 +238,57 @@ const FrontLoginForm = (props) => {
                     </div>
                 </div>
                 <div className="formGroup">
-                    <label className="controlLabel">PIN</label>
+                    <label className="colFormLabel">{selectedcountry.country.title}</label>
                     <div className="formWrapper">
                         <div className="iconPosition">
                             <FontAwesomeIcon
-                                icon={faLock}
+                                icon={faSortAlphaDown}
                                 className="icon agraicon"
                             />
                         </div>
-                        <FormField
-                            id={'pin'}
-                            formdata={formdata.pin}
-                            change={(element) => updateForm(element)}
-                            myclass={'form-control'}
-                        />
-                    </div>
-                </div>
-                <div className="formGroup">
-                        <label className="colFormLabel">{selectedcountry.country.title}</label>
-                        <div className="formWrapper">
-                            <div className="iconPosition">
-                                <FontAwesomeIcon
-                                    icon={faSortAlphaDown}
-                                    className="icon agraicon"
-                                />
-                            </div>
-                            {
-                                searchpublishmode ?
-                                    <div ref={wrapperRef}>
-                                        <div
-                                            onBlur={dontblurpublish ? null : hidepublishmenu}
-                                            tabIndex={0}
-                                        >
-                                            <input
-                                                disabled
-                                                autoCapitalize="none"
-                                                autoComplete="off"
-                                                autoCorrect="off"
-                                                className="tableSearch"
-                                                type="text"
-                                                name={selectedcountry.country.title}
-                                                placeholder={selectedcountry.country.title}
-                                                title={selectedcountry.country.config.placeholder}
-                                                value={selectedcountry.country.value === "+62" ? "INDONESIA" : "AUSTRALIA"}
-                                            // onChange={(event) => handleChange(event)}
-                                            // autoFocus={true}
-                                            />
+                        {
+                            searchpublishmode ?
+                                <div ref={wrapperRef}>
+                                    <div
+                                        onBlur={dontblurpublish ? null : hidepublishmenu}
+                                        tabIndex={0}
+                                    >
+                                        <input
+                                            disabled
+                                            autoCapitalize="none"
+                                            autoComplete="off"
+                                            autoCorrect="off"
+                                            className="tableSearch"
+                                            type="text"
+                                            name={selectedcountry.country.title}
+                                            placeholder={selectedcountry.country.title}
+                                            title={selectedcountry.country.config.placeholder}
+                                            value={selectedcountry.country.value === "+62" ? "INDONESIA" : "AUSTRALIA"}
+                                        // onChange={(event) => handleChange(event)}
+                                        // autoFocus={true}
+                                        />
 
-                                        </div>
-                                        <ul
-                                            className="dropdownmenu listgroup profilemenu"
-                                            onMouseEnter={onMouseEnterPublish}
-                                            onMouseLeave={onMouseLeavePublish}
-                                        >
-                                            {chooseTrueFalse(selectedcountry.country.config.options, 'country')}
-                                        </ul>
                                     </div>
+                                    <ul
+                                        className="dropdownmenu listgroup profilemenu"
+                                        onMouseEnter={onMouseEnterPublish}
+                                        onMouseLeave={onMouseLeavePublish}
+                                    >
+                                        {chooseTrueFalse(selectedcountry.country.config.options, 'country')}
+                                    </ul>
+                                </div>
 
 
-                                    :
-                                    <FormField
-                                        id={'country'}
-                                        formdata={selectedcountry.country}
-                                        options={selectedcountry.country.config.options}
-                                        change={searchFormPublish}
-                                        myclass="inputbutton form-control"
-                                    />
-                            }
-                        </div>
+                                :
+                                <FormField
+                                    id={'country'}
+                                    formdata={selectedcountry.country}
+                                    options={selectedcountry.country.config.options}
+                                    change={searchFormPublish}
+                                    myclass="inputbutton form-control"
+                                />
+                        }
+                    </div>
                 </div>
                 {
                     formError ?
@@ -327,7 +301,7 @@ const FrontLoginForm = (props) => {
                     formSuccess ?
                         <div className="successLabel globalSuccess">
                             SUCCESS, PLEASE WAIT...
-                        </div>
+                            </div>
                         : null
                 }
                 <div className="formActions">
@@ -335,20 +309,14 @@ const FrontLoginForm = (props) => {
                         name="login"
                         classname="submitButton submitButtonShadow buttonColor"
                         type="submit"
-                        title="LOGIN"
-                    />
-                    <div style={{ textAlign: 'center', color: '#ffffff', marginTop: 7, marginBottom: 7 }}> or </div>
-                    <MyButton
-                        name="newbutton"
-                        classname="submitButton submitButtonShadow buttonColor"
-                        type="submit"
-                        title="REGISTER"
-                        runAction={() => gotoRegisterPage()}
+                        title="SUBMIT"
                     />
                 </div>
             </form>
         </div>
     );
+
+
 }
 
-export default FrontLoginForm;
+export default FrontRegisterForm;
