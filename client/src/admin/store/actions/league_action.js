@@ -8,6 +8,8 @@ import {
     CLEAR_UPDATE_LEAGUE,
     UPDATE_LEAGUE_TEAM,
     CLEAR_UPDATE_LEAGUE_TEAM,
+    JOIN_TEAM_LEAGUE,
+    CANCEL_TEAM_LEAGUE,
     UPDATE_LEAGUE_SCHEDULE,
     CLEAR_UPDATE_LEAGUE_SCHEDULE,
     ADD_TEAM,
@@ -96,6 +98,26 @@ export function clearUpdateTeam() {
     }
 }
 
+export function joinTeamLeague(teamid) {
+    const request = axios.post(`${TEAM_SERVER}/jointeamleague?teamid=${teamid}`)
+        .then(response => response.data);
+
+    return {
+        type: JOIN_TEAM_LEAGUE,
+        payload: request
+    }
+}
+
+export function cancelTeamLeague(teamid) {
+    const request = axios.post(`${TEAM_SERVER}/cancelteamleague?teamid=${teamid}`)
+        .then(response => response.data);
+
+    return {
+        type: CANCEL_TEAM_LEAGUE,
+        payload: request
+    }
+}
+
 export function addLeague(dataToSubmit) {
     const request = axios.post(`${LEAGUE_SERVER}/addleague`, dataToSubmit)
         .then(response => response.data);
@@ -141,10 +163,8 @@ export function getLeague() {
 }
 
 export function getLeagueByid(id) {
-    const request = axios.get(`${LEAGUE_SERVER}/getleaguebyid?id=${id}&type=single`)
-        .then(response => {
-            return response.data[0]
-        })
+    const request = axios.get(`${LEAGUE_SERVER}/getleaguebyid?clientid=${id}`)
+        .then(response => response.data)
 
     return {
         type: GET_LEAGUE_BY_ID,

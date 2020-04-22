@@ -101,6 +101,8 @@ export const CLEAR_ADD_TEAM = 'clear_add_team';
 export const GET_TEAMS = 'get_teams';
 export const UPDATE_TEAM = 'update_team';
 export const CLEAR_UPDATE_TEAM = 'clear_update_team';
+export const JOIN_TEAM_LEAGUE = 'join_team_league';
+export const CANCEL_TEAM_LEAGUE = 'cancel_team_league';
 /////////////////////////////////////////////////////////////////////
 ////////////////////////////// SLIDER ///////////////////////////////
 /////////////////////////////////////////////////////////////////////

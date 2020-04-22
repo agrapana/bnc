@@ -79,14 +79,15 @@ router.route('/updateteam').post(auth, (req, res) => {
 })
 
 router.route('/jointeamleague').post(clientauth, (req, res) => {
-    Client.findOne({ _id: req.query.id }, (err, client) => {
-        if (err) return res.json({ success: false, message: 'UPDATE CLIENT FAILED' });
+    let clientid = req.query.id  ? req.query.id : req.client._id;
+    Client.findOne({ _id: clientid }, (err, client) => {
+        if (err) return res.json({ success: false, err, message: 'CLIENT NOT FOUND' });
         if (client.registeredteam) return res.json({ success: false, message: 'YOU ARE REGISTERED AT OTHER SERVER' });
         Team.findOneAndUpdate(
             { _id: req.query.teamid },
             {
                 $push: {
-                    players: req.query.id
+                    players: clientid
                 }
             },
             { new: true }).
@@ -109,13 +110,14 @@ router.route('/jointeamleague').post(clientauth, (req, res) => {
 })
 
 router.route('/cancelteamleague').post(clientauth, (req, res) => {
-    Client.findOne({ _id: req.query.id }, (err, client) => {
-        if (err) return res.json({ success: false, message: 'UPDATE CLIENT FAILED' });
+    let clientid = req.query.id  ? req.query.id : req.client._id;
+    Client.findOne({ _id: clientid }, (err, client) => {
+        if (err) return res.json({ success: false, err, message: 'CLIENT NOT FOUND' });
         Team.findOneAndUpdate(
             { _id: req.query.teamid },
             {
                 $pull: {
-                    players: req.query.id
+                    players: clientid
                 }
             },
             { new: true }).

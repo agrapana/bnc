@@ -9,6 +9,11 @@ export let pagelist = [
         linkTo: '/profile',
         public: false
     },
+    {
+        name: 'League',
+        linkTo: '/league',
+        public: false
+    },
     // {
     //     name: 'Notification',
     //     linkTo: '/notification',

@@ -7,6 +7,8 @@ import {
     CLEAR_UPDATE_LEAGUE,
     UPDATE_LEAGUE_TEAM,
     CLEAR_UPDATE_LEAGUE_TEAM,
+    JOIN_TEAM_LEAGUE,
+    CANCEL_TEAM_LEAGUE,
     UPDATE_LEAGUE_SCHEDULE,
     CLEAR_UPDATE_LEAGUE_SCHEDULE,
     ADD_TEAM,
@@ -42,6 +44,16 @@ export default function (state = {}, action) {
             return {
                 ...state,
                 updateTeam: action.payload
+            }
+        case JOIN_TEAM_LEAGUE:
+            return {
+                ...state,
+                jointeamleague: action.payload
+            }
+        case CANCEL_TEAM_LEAGUE:
+            return {
+                ...state,
+                cancelteamleague: action.payload
             }
         case UPDATE_LEAGUE_TEAM:
             return {

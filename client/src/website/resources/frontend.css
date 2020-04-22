@@ -373,6 +373,100 @@ header.frontendwebsite .navigation_items .itemContent2 {
   text-transform: none; }
 
 /***********************************************
+            BNC LEAGUE
+***********************************************/
+#frontendwebsite #homepage #headpage {
+  position: relative;
+  margin-top: 56px;
+  padding: 50px 0 !important;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #eee; }
+
+#frontendwebsite #homepage #headpage h1 {
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #333;
+  font-size: 28px;
+  text-transform: uppercase; }
+
+#frontendwebsite #homepage #headpage span {
+  display: block;
+  margin-top: 10px;
+  font-weight: 300;
+  color: #777;
+  font-size: 18px; }
+
+#frontendwebsite #homepage #leaguebody {
+  position: relative;
+  overflow: hidden; }
+
+#frontendwebsite #homepage #leaguebody .leaguedesc {
+  color: #ffffff;
+  padding: 20px;
+  margin: 15px;
+  background-color: #222222;
+  border-radius: 10px; }
+
+#frontendwebsite #homepage #leaguebody .leaguedesc span {
+  display: block;
+  color: #888;
+  margin-top: 6px;
+  font-size: 14px; }
+
+#frontendwebsite #homepage #leaguebody .leaguedesc .nextButton {
+  border-radius: 4px;
+  background-color: #359144;
+  width: 70px;
+  margin: 10px 0;
+  padding: 4px 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  cursor: pointer; }
+
+#frontendwebsite #homepage #leaguebody .leaguecard {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #222222;
+  background-clip: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  border-radius: .25rem;
+  color: #fff;
+  margin-bottom: 10px; }
+
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+  justify-content: space-between;
+  display: flex; }
+
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader .leaguecardHeaderIcon {
+  cursor: pointer; }
+
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardBody {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  font-size: 14px; }
+
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardBody .leagueList {
+  padding-left: 0;
+  list-style-type: none; }
+
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardBody .leagueList li {
+  margin: 5px 0;
+  position: relative; }
+
+/***********************************************
             BODY MAXILUM
 ***********************************************/
 .sup {

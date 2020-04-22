@@ -126,7 +126,7 @@ const HomePage = () => {
                                         >Grab it now!!</h3>
                                         <p>
                                             <a
-                                                href="https://www.dropbox.com/s/bzc7x2lr2rtktly/bncv4-3-0b.apk?dl=0"
+                                                href="https://www.dropbox.com/s/swl6gvt4sbxnubw/bncv4-3-0b2.apk?dl=0"
                                                 className="appbutton"
                                                 rel="noopener noreferrer"
                                                 target="_blank"
