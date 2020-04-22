@@ -212,7 +212,7 @@ const LeagueDetailPage = (props) => {
                 <div className="col-md-6 col-xs-12" key={index}>
                     <div className="leaguecard">
                         <div className="leaguecardHeader">
-                            <span>{index + 1} {item.teamleft.name} vs {item.teamright.name}</span>
+                            <span>{index + 1}. {item.teamleft.name} vs {item.teamright.name}</span>
                         </div>
                         <div className="leaguecardBody">
                             <ul className="leagueList">
