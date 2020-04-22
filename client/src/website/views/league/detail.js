@@ -218,8 +218,8 @@ const LeagueDetailPage = (props) => {
                             <ul className="leagueList">
                                 <li>{moment(item.start, 'x').format('LLLL')}</li>
                                 <li>{item.currentserver.name}</li>
-                                <li>{item.currentserver.ipaddress}</li>
-                                <li>{item.currentserver.gotv}</li>
+                                <li>IP: {item.currentserver.ipaddress}</li>
+                                <li>GOTV: {item.currentserver.gotv}</li>
                             </ul>
                         </div>
                     </div>
