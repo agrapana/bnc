@@ -20,8 +20,8 @@ import {
 library.add(faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faAddressCard, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faHandshake)
 
 
-const EditTeam = (props) => {
-    const [pagename] = useState('Edit Teams');
+const EditSchedule = (props) => {
+    const [pagename] = useState('Edit Schedules');
     const [pageTitle] = useState('Please edit the information below');
     const [loadingtable, loadingtableHandler] = useState(false);
     const [addnew] = useState(false);
@@ -36,8 +36,8 @@ const EditTeam = (props) => {
             faicons: faHome
         },
         {
-            name: 'Teams',
-            linkTo: '/admin/master/teams/editdata',
+            name: 'Schedules',
+            linkTo: '/admin/master/schedules/editdata',
             public: true
         },
         {
@@ -102,4 +102,4 @@ const EditTeam = (props) => {
     );
 };
 
-export default EditTeam;
+export default EditSchedule;

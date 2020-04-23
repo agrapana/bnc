@@ -16,9 +16,12 @@ import {
     CLEAR_ADD_TEAM,
     GET_TEAMS,
     UPDATE_TEAM,
-    CLEAR_UPDATE_TEAM
+    CLEAR_UPDATE_TEAM,
+    GET_SCHEDULE,
+    UPDATE_SCHEDULE,
+    CLEAR_UPDATE_SCHEDULE
 } from '../types';
-import { LEAGUE_SERVER, TEAM_SERVER } from '../misc';
+import { LEAGUE_SERVER, TEAM_SERVER, SCHEDULE_SERVER } from '../misc';
 
 export function updateLeagueSchedule(dataToSubmit) {
     const request = axios.post(`${LEAGUE_SERVER}/updateleagueschedule`, dataToSubmit)
@@ -94,6 +97,33 @@ export function updateTeam(dataToSubmit) {
 export function clearUpdateTeam() {
     return {
         type: CLEAR_UPDATE_TEAM,
+        payload: ''
+    }
+}
+
+export function getSchedules() {
+    const request = axios.get(`${SCHEDULE_SERVER}/getschedule`)
+        .then(response => response.data);
+
+    return {
+        type: GET_SCHEDULE,
+        payload: request
+    }
+}
+
+export function updateSchedule(dataToSubmit, id) {
+    const request = axios.post(`${SCHEDULE_SERVER}/updateschedule?id=${id}`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: UPDATE_SCHEDULE,
+        payload: request
+    }
+}
+
+export function clearUpdateSchedule() {
+    return {
+        type: CLEAR_UPDATE_SCHEDULE,
         payload: ''
     }
 }

@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import TableMedia from '../../../widget/tablemedia';
 import AdminLayout from '../../views/layout/adminpage';
 import PageHeader from '../../../widget/pageheader';
-import TeamsTable from './teamsTable';
+import SchedulesTable from './schedulesTable';
 
 import { useWindowSize } from '../../../widget/windowsize';
-import { getTeams } from '../../../store/actions/league_action';
+import { getSchedules } from '../../../store/actions/league_action';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed } from '@fortawesome/free-solid-svg-icons';
@@ -21,7 +21,7 @@ import {
 library.add(faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faAddressCard, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faHandshake)
 
 
-const TeamsScreen = (props) => {
+const ScheduleScreen = (props) => {
     const { userprops, getalldata } = useSelector(state => ({
         userprops: state.user,
         getalldata: state.league
@@ -30,7 +30,7 @@ const TeamsScreen = (props) => {
     const isMobile = size.width <= 767.98;
     const dispatch = useDispatch();
     const [loadingtable, loadingtableHandler] = useState(false);
-    const [pagename] = useState('Team List');
+    const [pagename] = useState('Schedule List');
     const [addnew] = useState(false);
     const [refresh] = useState(true);
     const [uploadfile] = useState(false);
@@ -46,8 +46,8 @@ const TeamsScreen = (props) => {
             faicons: faHome
         },
         {
-            name: 'Teams',
-            linkTo: '/admin/master/teams',
+            name: 'Schedules',
+            linkTo: '/admin/master/schedules',
             public: true
         },
         {
@@ -61,13 +61,22 @@ const TeamsScreen = (props) => {
     const [pageSize] = useState(10);
     const [dontblur, dontblurHandler] = useState(false);
 
-    const [tablename] = useState('Team');
+    const [tablename] = useState('Schedule');
     const [tablemenu] = useState([
         {
-            head: 'Name'
+            head: 'Start'
         },
         {
-            head: 'Total Players'
+            head: 'Team Left'
+        },
+        {
+            head: 'Team Right'
+        },
+        {
+            head: 'Server name'
+        },
+        {
+            head: 'Server ipaddress'
         }
     ]);
     const [alldata, alldataHandler] = useState([]);
@@ -76,11 +85,11 @@ const TeamsScreen = (props) => {
     const [mydata, mydataHandler] = useState([]);
     useEffect(() => {
         loadingtableHandler(true);
-        dispatch(getTeams());
+        dispatch(getSchedules());
     }, [dispatch])
     useEffect(() => {
-        if (getalldata && getalldata.getTeams && getalldata.getTeams.success) {
-            let totaldata = getalldata.getTeams.teams.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        if (getalldata && getalldata.getSchedules && getalldata.getSchedules.success) {
+            let totaldata = getalldata.getSchedules.schedules.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
             alldataHandler(totaldata);
         }
     }, [getalldata])
@@ -89,7 +98,7 @@ const TeamsScreen = (props) => {
             var mydata = [];
             var resultsdata = [];
             var offset = (currentPage - 1) * pageSize;
-            resultsdata = alldata.map((item, index) => <TeamsTable key={index} item={item} index={index} />)
+            resultsdata = alldata.map((item, index) => <SchedulesTable key={index} item={item} index={index} />)
             mydata = resultsdata.slice(offset, offset + pageSize);
             mydataHandler(mydata);
             dataCountHandler(resultsdata.length);
@@ -102,9 +111,11 @@ const TeamsScreen = (props) => {
         var resultsdata = [];
         var offset = (currentPage - 1) * pageSize;
         if (alldata) {
-            results = alldata.filter(data =>
-                (data.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1))
-            resultsdata = results.map((item, index) => <TeamsTable item={item} index={index} key={index} editData={editData} />)
+            results = alldata.filter(data => (
+                data.teamleft.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1 ||
+                data.teamright.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1
+            ))
+            resultsdata = results.map((item, index) => <SchedulesTable item={item} index={index} key={index} editData={editData} />)
             var semuadata = [...resultsdata];
             var mydatas = semuadata.slice(offset, offset + pageSize);
             mydataHandler(mydatas);
@@ -147,13 +158,13 @@ const TeamsScreen = (props) => {
     const onRefreshHandler = async () => {
         try {
             loadingtableHandler(true);
-            let alldatas = await dispatch(getTeams());
-            let totaldata = await alldatas.payload.teams.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            let alldatas = await dispatch(getSchedules());
+            let totaldata = await alldatas.payload.schedules.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
             var mydata = [];
             var resultsdata = [];
             var offset = (currentPage - 1) * pageSize;
             alldataHandler(totaldata);
-            resultsdata = totaldata.map((item, index) => <TeamsTable key={index} item={item} index={index} />)
+            resultsdata = totaldata.map((item, index) => <SchedulesTable key={index} item={item} index={index} />)
             mydata = resultsdata.slice(offset, offset + pageSize);
             mydataHandler(mydata);
             dataCountHandler(resultsdata.length);
@@ -183,7 +194,7 @@ const TeamsScreen = (props) => {
 
     const editDataHandler = () => {
         props.history.push({
-            pathname: '/admin/master/teams/editdata',
+            pathname: '/admin/master/schedules/editdata',
             state: {
                 dataselected: selected,
                 editformdata: true
@@ -220,7 +231,7 @@ const TeamsScreen = (props) => {
                             />
                         </div>
                         <div className="row">
-                            <TableMedia 
+                            <TableMedia
                                 userprops={userprops}
                                 isMobile={isMobile}
                                 loadingtable={loadingtable}
@@ -246,4 +257,4 @@ const TeamsScreen = (props) => {
     )
 }
 
-export default TeamsScreen;
+export default ScheduleScreen;

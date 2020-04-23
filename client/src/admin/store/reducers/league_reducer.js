@@ -15,7 +15,10 @@ import {
     CLEAR_ADD_TEAM,
     GET_TEAMS,
     UPDATE_TEAM,
-    CLEAR_UPDATE_TEAM
+    CLEAR_UPDATE_TEAM,
+    GET_SCHEDULE,
+    UPDATE_SCHEDULE,
+    CLEAR_UPDATE_SCHEDULE
 } from '../types';
 
 export default function (state = {}, action) {
@@ -44,6 +47,21 @@ export default function (state = {}, action) {
             return {
                 ...state,
                 updateTeam: action.payload
+            }
+        case GET_SCHEDULE:
+            return {
+                ...state,
+                getSchedules: action.payload
+            }
+        case UPDATE_SCHEDULE:
+            return {
+                ...state,
+                updateSchedule: action.payload
+            }
+        case CLEAR_UPDATE_SCHEDULE:
+            return {
+                ...state,
+                updateSchedule: action.payload
             }
         case JOIN_TEAM_LEAGUE:
             return {

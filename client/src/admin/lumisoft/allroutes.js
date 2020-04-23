@@ -36,6 +36,9 @@ import MasterEditLeague from './templateviews/league/edit';
 import MasterLeagueTeams from './templateviews/teams';
 import MasterLeagueTeamsEdit from './templateviews/teams/edit';
 
+import MasterLeagueSchedules from './templateviews/schedule';
+import MasterLeagueSchedulesEdit from'./templateviews/schedule/edit';
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faPhotoVideo, faEdit, faBoxes, faBox, faGlassCheers } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -48,7 +51,7 @@ import {
 
 library.add(faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faAddressCard, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faHandshake, faGlassCheers)
 
-let version = "v4.3.3b"
+let version = "v4.3.4b"
 let mainpath = [
     {
         name: 'Dashboard',
@@ -247,10 +250,28 @@ let adminpath = [
         public: true,
         show: true,
         faicons: faUsers
+    },
+    {
+        name: 'Schedules',
+        link: '/admin/master/schedules',
+        component: MasterLeagueSchedules,
+        exact: true,
+        public: true,
+        show: true,
+        faicons: faUsers
     }
 ]
 
 let subadminpath = [
+    {
+        name: 'Edit Schedules',
+        link: '/admin/master/schedules/editdata',
+        component: MasterLeagueSchedulesEdit,
+        exact: true,
+        public: true,
+        show: true,
+        faicons: faEdit
+    },
     {
         name: 'Edit Teams',
         link: '/admin/master/teams/editdata',

@@ -31,6 +31,8 @@ router.route('/getschedule').get((req, res) => {
         find().
         populate('currentserver').
         populate('results').
+        populate('teamleft').
+        populate('teamright').
         sort([[sortBy, order]]).
         exec((err, schedules) => {
             if (err) return res.json({ success: false, err, message: "GET DATA FAILED" });
@@ -50,6 +52,8 @@ router.route('/getschedulebyid').get((req, res) => {
         findOne({ _id: req.query.clientid }).
         populate('currentserver').
         populate('results').
+        populate('teamleft').
+        populate('teamright').
         sort([[sortBy, order]]).
         exec((err, schedulebyid) => {
             if (err) return res.json({ success: false, err, message: "GET DATA FAILED" });
@@ -62,7 +66,7 @@ router.route('/getschedulebyid').get((req, res) => {
 
 router.route('/updateschedule').post(auth, (req, res) => {
     Schedule.findOneAndUpdate(
-        { _id: req.body._id },
+        { _id: req.query.id },
         {
             $set: req.body
         },

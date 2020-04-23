@@ -103,6 +103,10 @@ export const UPDATE_TEAM = 'update_team';
 export const CLEAR_UPDATE_TEAM = 'clear_update_team';
 export const JOIN_TEAM_LEAGUE = 'join_team_league';
 export const CANCEL_TEAM_LEAGUE = 'cancel_team_league';
+
+export const GET_SCHEDULE = 'get_schedule';
+export const UPDATE_SCHEDULE = 'update_schedule';
+export const CLEAR_UPDATE_SCHEDULE = 'clear_update_schedule';
 /////////////////////////////////////////////////////////////////////
 ////////////////////////////// SLIDER ///////////////////////////////
 /////////////////////////////////////////////////////////////////////
