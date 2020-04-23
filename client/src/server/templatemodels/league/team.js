@@ -9,7 +9,11 @@ const teamSchema = mongoose.Schema({
     players: [{
         type: Schema.Types.ObjectId,
         ref: 'Client'
-    }]
+    }],
+    isActive: {
+        type: Boolean,
+        default: true
+    },
 }, { timestamps: true });
 
 const Team = mongoose.model('Team', teamSchema);
