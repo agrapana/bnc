@@ -210,7 +210,7 @@ const LeagueDetailPage = (props) => {
     const _showschedule = (data) => {
         if (data) {
             return data.map((item, index) => (
-                <div className="col-md-6 col-xs-12" key={index}>
+                <div className="col-md-3 col-xs-12" key={index}>
                     <div className="leaguecard">
                         <div className="leaguecardHeader">
                             <span>{index + 1}. {item.teamleft.name} vs {item.teamright.name}</span>
@@ -309,21 +309,15 @@ const LeagueDetailPage = (props) => {
                                         }}>Team Lists</h3>
                                         {_showteams(selectedLeague)}
                                     </div>
-                                    {
-                                        selectedLeague.isOpen === true && selectedLeague.isProcessing === false ?
-                                            mydata && mydata.registeredteam ?
-                                                <div className="col-md-12 col-xs-12 p0">
-                                                    <h3 style={{
-                                                        fontSize: '16px',
-                                                        color: '#ffffff',
-                                                        marginTop: '25px',
-                                                        backgroundColor: '#222222',
-                                                        padding: '15px'
-                                                    }}>Schedule Lists</h3>
-                                                    {_showschedule(selectedLeague && selectedLeague.schedule)}
-                                                </div>
-                                                : null
-                                            :
+                                </div>
+                                <div className="col-md-6 col-xs-12 p0">
+                                    <div className="leaguedesc">
+                                        {_showinfo(selectedLeague && selectedLeague.rules)}
+                                    </div>
+                                </div>
+                                {
+                                    selectedLeague.isOpen === true && selectedLeague.isProcessing === false ?
+                                        mydata && mydata.registeredteam ?
                                             <div className="col-md-12 col-xs-12 p0">
                                                 <h3 style={{
                                                     fontSize: '16px',
@@ -334,13 +328,19 @@ const LeagueDetailPage = (props) => {
                                                 }}>Schedule Lists</h3>
                                                 {_showschedule(selectedLeague && selectedLeague.schedule)}
                                             </div>
-                                    }
-                                </div>
-                                <div className="col-md-6 col-xs-12 p0">
-                                    <div className="leaguedesc">
-                                        {_showinfo(selectedLeague && selectedLeague.rules)}
-                                    </div>
-                                </div>
+                                            : null
+                                        :
+                                        <div className="col-md-12 col-xs-12 p0">
+                                            <h3 style={{
+                                                fontSize: '16px',
+                                                color: '#ffffff',
+                                                marginTop: '25px',
+                                                backgroundColor: '#222222',
+                                                padding: '15px'
+                                            }}>Schedule Lists</h3>
+                                            {_showschedule(selectedLeague && selectedLeague.schedule)}
+                                        </div>
+                                }
                                 {
                                     selectedLeague.isOpen === true && selectedLeague.isProcessing === true ?
                                         <div className="col-md-12 col-xs-12 p0">
