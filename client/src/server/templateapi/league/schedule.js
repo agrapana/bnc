@@ -31,8 +31,37 @@ router.route('/getschedule').get((req, res) => {
         find().
         populate('currentserver').
         populate('results').
-        populate('teamleft').
-        populate('teamright').
+        populate({
+            path: 'teamleft',
+            populate: {
+                path: 'players',
+                model: 'Client'
+            }
+        }).
+        populate({
+            path: 'teamright',
+            populate: {
+                path: 'players',
+                model: 'Client'
+            }
+        }).
+        populate({
+            path: 'league',
+            populate: [
+                {
+                    path: 'currentadmin',
+                    model: 'Client'
+                },
+                {
+                    path: 'teams',
+                    populate: {
+                        path: 'players',
+                        model: 'Client'
+
+                    }
+                }
+            ]
+        }).
         sort([[sortBy, order]]).
         exec((err, schedules) => {
             if (err) return res.json({ success: false, err, message: "GET DATA FAILED" });
@@ -52,8 +81,20 @@ router.route('/getschedulebyid').get((req, res) => {
         findOne({ _id: req.query.clientid }).
         populate('currentserver').
         populate('results').
-        populate('teamleft').
-        populate('teamright').
+        populate({
+            path: 'teamleft',
+            populate: {
+                path: 'players',
+                model: 'Client'
+            }
+        }).
+        populate({
+            path: 'teamright',
+            populate: {
+                path: 'players',
+                model: 'Client'
+            }
+        }).
         sort([[sortBy, order]]).
         exec((err, schedulebyid) => {
             if (err) return res.json({ success: false, err, message: "GET DATA FAILED" });

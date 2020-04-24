@@ -79,19 +79,14 @@ const EditSchedule = (props) => {
                                             <div className="lds-ripple"><div></div><div></div></div>
                                         </div>
                                         :
-                                        <div className="card">
-                                            <div className="cardTitle verticalCenter">
-                                                <span>Please edit the information below</span>
-                                            </div>
-                                            <Table
-                                                {...props}
-                                                dataselected={dataselected}
-                                                editformdatastatus={editformdatastatus}
-                                                loadingtableHandler={loadingtableHandler}
-                                                pageTitle={pageTitle}
-                                                postadditionaldata={false}
-                                            />
-                                        </div>
+                                        <Table
+                                            {...props}
+                                            dataselected={dataselected}
+                                            editformdatastatus={editformdatastatus}
+                                            loadingtableHandler={loadingtableHandler}
+                                            pageTitle={pageTitle}
+                                            postadditionaldata={false}
+                                        />
                                 }
                             </div>
                         </div>

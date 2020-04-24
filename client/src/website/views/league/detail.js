@@ -10,6 +10,7 @@ import { useHistory } from 'react-router';
 import { useParams } from 'react-router-dom';
 import { useWindowSize } from '../../widget/windowsize';
 import { getLeagueByid, joinTeamLeague, cancelTeamLeague } from '../../../admin/store/actions/league_action';
+import { convertToRupiah } from '../../../admin/lumisoft/utils/form/formactions'
 import { clientauth } from '../../../admin/store/actions/client_action';
 import { loading } from '../../../admin/store/actions/loading_action';
 import moment from 'moment';
@@ -244,14 +245,23 @@ const LeagueDetailPage = (props) => {
                             <div className="row">
                                 <div className="col-md-6 col-xs-12 p0">
                                     <div className="leaguedesc">
-                                        <div>Start: {moment(selectedLeague.start, 'x').format('LLLL')}</div>
+                                        <div>Start : {moment(selectedLeague.start, 'x').format('LLLL')}</div>
                                         <div>
-                                            Status:&nbsp;
+                                            Status :&nbsp;
                                                 {
                                                 selectedLeague.isOpen && !selectedLeague.isProcessing ? "Open" :
                                                     selectedLeague.isOpen && selectedLeague.isProcessing ? "Processing" :
                                                         selectedLeague.isClosed ? "Closed" : null
                                             }
+                                        </div>
+                                        <div style={{ marginTop: '20px' }}>
+                                            Registration :
+                                            <ul>
+                                                <li>Bank : {selectedLeague.bank}</li>
+                                                <li>Rekening : {selectedLeague.accountnumber}</li>
+                                                <li>A/N : {selectedLeague.accountname}</li>
+                                                <li>@ : Rp. {convertToRupiah(parseInt(selectedLeague.amount))},-</li>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div className="col-md-12 col-xs-12 p0">

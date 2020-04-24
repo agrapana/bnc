@@ -107,6 +107,12 @@ export const CANCEL_TEAM_LEAGUE = 'cancel_team_league';
 export const GET_SCHEDULE = 'get_schedule';
 export const UPDATE_SCHEDULE = 'update_schedule';
 export const CLEAR_UPDATE_SCHEDULE = 'clear_update_schedule';
+
+export const ADD_RESULT = 'add_result';
+export const CLEAR_ADD_RESULT = 'clear_add_result';
+export const UPDATE_RESULT = 'update_result';
+export const CLEAR_UPDATE_RESULT = 'clear_update_result';
+export const GET_RESULTS = 'get_results';
 /////////////////////////////////////////////////////////////////////
 ////////////////////////////// SLIDER ///////////////////////////////
 /////////////////////////////////////////////////////////////////////

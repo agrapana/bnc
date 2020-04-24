@@ -178,7 +178,8 @@ router.route('/updateleagueschedule').post(auth, (req, res) => {
         currentserver: req.body.currentserver,
         start: req.body.start,
         teamleft: req.body.teamleft,
-        teamright: req.body.teamright
+        teamright: req.body.teamright,
+        league: req.body._id
     });
 
     schedule.save((err, doc) => {

@@ -1,19 +1,10 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
 const resultSchema = mongoose.Schema({
     map: {
         type: String,
         maxlength: 100,
         default: ""
-    },
-    team1: {
-        type: Schema.Types.ObjectId,
-        ref: 'Team'
-    },
-    team2: {
-        type: Schema.Types.ObjectId,
-        ref: 'Team'
     },
     results:{
         type: Array,

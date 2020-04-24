@@ -19,9 +19,53 @@ import {
     CLEAR_UPDATE_TEAM,
     GET_SCHEDULE,
     UPDATE_SCHEDULE,
-    CLEAR_UPDATE_SCHEDULE
+    CLEAR_UPDATE_SCHEDULE,
+    ADD_RESULT,
+    CLEAR_ADD_RESULT,
+    UPDATE_RESULT,
+    CLEAR_UPDATE_RESULT,
+    GET_RESULTS
 } from '../types';
-import { LEAGUE_SERVER, TEAM_SERVER, SCHEDULE_SERVER } from '../misc';
+import { 
+    LEAGUE_SERVER, 
+    TEAM_SERVER, 
+    SCHEDULE_SERVER,
+    RESULT_SERVER
+} from '../misc';
+
+export function addResult(dataToSubmit, id) {
+    const request = axios.post(`${RESULT_SERVER}/addresult?id=${id}`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: ADD_RESULT,
+        payload: request
+    }
+}
+
+export function clearAddResult() {
+    return {
+        type: CLEAR_ADD_RESULT,
+        payload: ''
+    }
+}
+
+export function updateResult(dataToSubmit, id, type, resultid) {
+    const request = axios.post(`${RESULT_SERVER}/updateresult?id=${id}&type=${type}&resultid=${resultid}`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: UPDATE_RESULT,
+        payload: request
+    }
+}
+
+export function clearUpdateResult() {
+    return {
+        type: CLEAR_UPDATE_RESULT,
+        payload: ''
+    }
+}
 
 export function updateLeagueSchedule(dataToSubmit) {
     const request = axios.post(`${LEAGUE_SERVER}/updateleagueschedule`, dataToSubmit)

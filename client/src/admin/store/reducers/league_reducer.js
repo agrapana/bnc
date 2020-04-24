@@ -18,11 +18,41 @@ import {
     CLEAR_UPDATE_TEAM,
     GET_SCHEDULE,
     UPDATE_SCHEDULE,
-    CLEAR_UPDATE_SCHEDULE
+    CLEAR_UPDATE_SCHEDULE,
+    ADD_RESULT,
+    CLEAR_ADD_RESULT,
+    UPDATE_RESULT,
+    CLEAR_UPDATE_RESULT,
+    GET_RESULTS
 } from '../types';
 
 export default function (state = {}, action) {
     switch (action.type) {
+        case ADD_RESULT:
+            return {
+                ...state,
+                addResult: action.payload
+            }
+        case CLEAR_ADD_RESULT:
+            return {
+                ...state,
+                addResult: action.payload
+            }
+        case UPDATE_RESULT:
+            return {
+                ...state,
+                updateResult: action.payload
+            }
+        case CLEAR_UPDATE_RESULT:
+            return {
+                ...state,
+                updateResult: action.payload
+            }
+        case GET_RESULTS:
+            return {
+                ...state,
+                getResults: action.payload
+            }
         case ADD_TEAM:
             return {
                 ...state,

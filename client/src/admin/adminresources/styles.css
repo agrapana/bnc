@@ -3011,6 +3011,32 @@ th {
     width: 100%; } }
 
 /***********************************************
+                    BNC
+***********************************************/
+#lumisoftmaster .leagueteam {
+  margin: 7px 0; }
+
+#lumisoftmaster .leaguemap,
+#lumisoftmaster .leagueteamleft {
+  margin-bottom: 25px; }
+
+#lumisoftmaster .leagueteam span {
+  font-size: 20px;
+  font-weight: 600; }
+
+#lumisoftmaster .scheduleplayerlists {
+  flex-direction: row;
+  display: flex;
+  margin: 7px 0; }
+
+#lumisoftmaster .scheduleplayerlists li {
+  background-color: #111111;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  cursor: pointer; }
+
+/***********************************************
                     DROPZONE
 ***********************************************/
 #dropzone.dropzone {

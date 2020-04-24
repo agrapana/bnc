@@ -14,6 +14,7 @@ export const SERVERS_SERVER = '/api/servers';
 export const LEAGUE_SERVER = '/api/league';
 export const TEAM_SERVER = '/api/team';
 export const SCHEDULE_SERVER = '/api/schedule';
+export const RESULT_SERVER = '/api/result';
 // export const ORDER_SERVER = '/api/order';
 // export const ONGKIR_SERVER = '/api/ongkir';
 // export const PURCHASE_SERVER = '/api/allpurchase';

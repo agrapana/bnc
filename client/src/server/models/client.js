@@ -155,6 +155,10 @@ const clientSchema = mongoose.Schema({
         type: Array,
         default: []
     },
+    results:{
+        type: Array,
+        default: []
+    },
     friends: [{
         type: Schema.Types.ObjectId,
         ref: 'Client'

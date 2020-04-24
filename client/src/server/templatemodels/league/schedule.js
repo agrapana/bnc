@@ -25,6 +25,10 @@ const scheduleSchema = mongoose.Schema({
     isActive: {
         type: Boolean,
         default: true
+    },
+    league: {
+        type: Schema.Types.ObjectId,
+        ref: 'League'
     }
 }, { timestamps: true });
 
