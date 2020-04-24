@@ -985,7 +985,7 @@ const SchedulesTableScreen = (props) => {
                                                 {
                                                     item.results[0].teamleft.players.length ?
                                                         <div className="tableResponsiveSm">
-                                                            <table class="table">
+                                                            <table className="table">
                                                                 {
                                                                     <thead>
                                                                         <tr>
@@ -999,20 +999,21 @@ const SchedulesTableScreen = (props) => {
                                                                         </tr>
                                                                     </thead>
                                                                 }
-                                                                {
-                                                                    item.results[0].teamleft.players.sort((a, b) => b.score - a.score).map((player, i) => (
-                                                                        <tr className="image">
-                                                                            <td>{player.name}</td>
-                                                                            <td>{player.steamname}</td>
-                                                                            <td>{player.kill}</td>
-                                                                            <td>{player.death}</td>
-                                                                            <td>{player.assist}</td>
-                                                                            <td>{player.mvp}</td>
-                                                                            <td>{player.score}</td>
-                                                                        </tr>
-                                                                    ))
-                                                                }
-
+                                                                <tbody>
+                                                                    {
+                                                                        item.results[0].teamleft.players.sort((a, b) => b.score - a.score).map((player, i) => (
+                                                                            <tr className="image" key={i}>
+                                                                                <td>{player.name}</td>
+                                                                                <td>{player.steamname}</td>
+                                                                                <td>{player.kill}</td>
+                                                                                <td>{player.death}</td>
+                                                                                <td>{player.assist}</td>
+                                                                                <td>{player.mvp}</td>
+                                                                                <td>{player.score}</td>
+                                                                            </tr>
+                                                                        ))
+                                                                    }
+                                                                </tbody>
                                                             </table>
                                                         </div>
                                                         : null
@@ -1036,7 +1037,7 @@ const SchedulesTableScreen = (props) => {
                                                 {
                                                     item.results[0].teamright.players.length ?
                                                         <div className="tableResponsiveSm">
-                                                            <table class="table">
+                                                            <table className="table">
                                                                 {
                                                                     <thead>
                                                                         <tr>
@@ -1050,20 +1051,21 @@ const SchedulesTableScreen = (props) => {
                                                                         </tr>
                                                                     </thead>
                                                                 }
-                                                                {
-                                                                    item.results[0].teamright.players.sort((a, b) => b.score - a.score).map((player, i) => (
-                                                                        <tr className="image">
-                                                                            <td>{player.name}</td>
-                                                                            <td>{player.steamname}</td>
-                                                                            <td>{player.kill}</td>
-                                                                            <td>{player.death}</td>
-                                                                            <td>{player.assist}</td>
-                                                                            <td>{player.mvp}</td>
-                                                                            <td>{player.score}</td>
-                                                                        </tr>
-                                                                    ))
-                                                                }
-
+                                                                <tbody>
+                                                                    {
+                                                                        item.results[0].teamright.players.sort((a, b) => b.score - a.score).map((player, i) => (
+                                                                            <tr className="image" key={i}>
+                                                                                <td>{player.name}</td>
+                                                                                <td>{player.steamname}</td>
+                                                                                <td>{player.kill}</td>
+                                                                                <td>{player.death}</td>
+                                                                                <td>{player.assist}</td>
+                                                                                <td>{player.mvp}</td>
+                                                                                <td>{player.score}</td>
+                                                                            </tr>
+                                                                        ))
+                                                                    }
+                                                                </tbody>
                                                             </table>
                                                         </div>
                                                         : null

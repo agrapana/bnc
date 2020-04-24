@@ -13,6 +13,8 @@ import LogoutPage from '../views/auth/logout';
 
 import LeaguePage from '../views/league';
 import LeagueDetailPage from '../views/league/detail';
+import LeagueResultDetailPage from '../views/league/resultdetail';
+
 import NotificationPage from '../views/notification';
 import ContactPage from '../views/contact';
 import ProfilePage from '../views/profile';
@@ -30,6 +32,7 @@ const PublicLayout = () => {
                 <Route path="/logout" exact component={Auth(LogoutPage, true)} />
                 <Route path="/league" exact component={Auth(LeaguePage, true)} />
                 <Route path="/league/:id" exact component={Auth(LeagueDetailPage, true)} />
+                <Route path="/league/resultdetail/:id" exact component={Auth(LeagueResultDetailPage, true)} />
                 <Route path="/notification" exact component={Auth(NotificationPage, true)} />
                 <Route path="/contact" exact component={Auth(ContactPage, true)} />
                 <Route path="/profile" exact component={Auth(ProfilePage, true)} />

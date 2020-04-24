@@ -46,8 +46,6 @@ router.route('/getresult').get((req, res) => {
 
     Result.
         find().
-        populate('team1').
-        populate('team2').
         sort([[sortBy, order]]).
         exec((err, results) => {
             if (err) return res.json({ success: false, err, message: "GET DATA FAILED" });
@@ -65,8 +63,6 @@ router.route('/getresultbyid').get((req, res) => {
 
     Result.
         findOne({ _id: req.query.clientid }).
-        populate('team1').
-        populate('team2').
         sort([[sortBy, order]]).
         exec((err, resultbyid) => {
             if (err) return res.json({ success: false, err, message: "GET DATA FAILED" });

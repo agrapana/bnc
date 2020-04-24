@@ -14,7 +14,7 @@ import { convertToRupiah } from '../../../admin/lumisoft/utils/form/formactions'
 import { clientauth } from '../../../admin/store/actions/client_action';
 import { loading } from '../../../admin/store/actions/loading_action';
 import moment from 'moment';
-import { FaAndroid, FaApple, FaDropbox, FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+import { FaAndroid, FaApple, FaDropbox, FaSignInAlt, FaSignOutAlt, FaChevronRight } from "react-icons/fa";
 
 const LeagueDetailPage = (props) => {
     const history = useHistory();
@@ -52,12 +52,12 @@ const LeagueDetailPage = (props) => {
                         selectedLeagueHandler(selectedleague.payload.leaguebyid);
                         mydataHandler(mydata.payload);
                         dispatch(loading(false));
-                    }else {
+                    } else {
                         setTimeout(() => {
                             history.push('/profile');
                         }, 1000)
                     }
-                } 
+                }
 
             } catch (error) {
 
@@ -192,7 +192,7 @@ const LeagueDetailPage = (props) => {
                                         {
                                             item.players && item.players.length > 0 ?
                                                 item.players.map((player, index2) => (
-                                                    <li>{index2 + 1}. {player.name}</li>
+                                                    <li key={index2}>{index2 + 1}. {player.name}</li>
                                                 ))
                                                 : "Player Empty"
                                         }
@@ -228,6 +228,41 @@ const LeagueDetailPage = (props) => {
                 </div>
             ))
         }
+    }
+
+    const _showresults = (data) => {
+        if (data) {
+            return data.map((item, index) => (
+                <div className="col-md-3 col-xs-12" key={index}>
+                    <div className="leaguecard">
+                        <div className="leaguecardHeader">
+                            <span>{index + 1}. {item.teamleft.name} vs {item.teamright.name}</span>
+                            {
+                                item.results.length > 0 ?
+                                    <span
+                                        className="leaguecardHeaderIcon2"
+                                        onClick={() => _gotoResultDetail(item)}
+                                    >
+                                        <FaChevronRight />
+                                    </span>
+                                    : null
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+            ))
+        }
+    }
+
+    const _gotoResultDetail = (data) => {
+        history.push({
+            pathname: `/league/resultdetail/${data._id}`,
+            state: {
+                leagueid: selectedLeague._id
+            }
+        })
     }
 
     return (
@@ -300,13 +335,26 @@ const LeagueDetailPage = (props) => {
                                                 {_showschedule(selectedLeague && selectedLeague.schedule)}
                                             </div>
                                     }
-
                                 </div>
                                 <div className="col-md-6 col-xs-12 p0">
                                     <div className="leaguedesc">
                                         {_showinfo(selectedLeague && selectedLeague.rules)}
                                     </div>
                                 </div>
+                                {
+                                    selectedLeague.isOpen === true && selectedLeague.isProcessing === true ?
+                                        <div className="col-md-12 col-xs-12 p0">
+                                            <h3 style={{
+                                                fontSize: '16px',
+                                                color: '#ffffff',
+                                                marginTop: '25px',
+                                                backgroundColor: '#222222',
+                                                padding: '15px'
+                                            }}>Results Details</h3>
+                                            {_showresults(selectedLeague && selectedLeague.schedule)}
+                                        </div>
+                                        : null
+                                }
                             </div>
                         </div>
                     </div>

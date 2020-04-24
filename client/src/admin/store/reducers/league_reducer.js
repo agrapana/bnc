@@ -17,6 +17,7 @@ import {
     UPDATE_TEAM,
     CLEAR_UPDATE_TEAM,
     GET_SCHEDULE,
+    GET_SCHEDULE_BY_ID,
     UPDATE_SCHEDULE,
     CLEAR_UPDATE_SCHEDULE,
     ADD_RESULT,
@@ -28,6 +29,11 @@ import {
 
 export default function (state = {}, action) {
     switch (action.type) {
+        case GET_SCHEDULE_BY_ID:
+            return {
+                ...state,
+                getScheduleByid: action.payload
+            }
         case ADD_RESULT:
             return {
                 ...state,

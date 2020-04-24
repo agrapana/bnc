@@ -18,6 +18,7 @@ import {
     UPDATE_TEAM,
     CLEAR_UPDATE_TEAM,
     GET_SCHEDULE,
+    GET_SCHEDULE_BY_ID,
     UPDATE_SCHEDULE,
     CLEAR_UPDATE_SCHEDULE,
     ADD_RESULT,
@@ -32,6 +33,16 @@ import {
     SCHEDULE_SERVER,
     RESULT_SERVER
 } from '../misc';
+
+export function getScheduleByid(id) {
+    const request = axios.get(`${SCHEDULE_SERVER}/getschedulebyid?clientid=${id}`)
+        .then(response => response.data)
+
+    return {
+        type: GET_SCHEDULE_BY_ID,
+        payload: request
+    }
+}
 
 export function addResult(dataToSubmit, id) {
     const request = axios.post(`${RESULT_SERVER}/addresult?id=${id}`, dataToSubmit)

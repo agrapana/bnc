@@ -105,6 +105,7 @@ export const JOIN_TEAM_LEAGUE = 'join_team_league';
 export const CANCEL_TEAM_LEAGUE = 'cancel_team_league';
 
 export const GET_SCHEDULE = 'get_schedule';
+export const GET_SCHEDULE_BY_ID = 'get_schedule_by_id';
 export const UPDATE_SCHEDULE = 'update_schedule';
 export const CLEAR_UPDATE_SCHEDULE = 'clear_update_schedule';
 
@@ -113,6 +114,7 @@ export const CLEAR_ADD_RESULT = 'clear_add_result';
 export const UPDATE_RESULT = 'update_result';
 export const CLEAR_UPDATE_RESULT = 'clear_update_result';
 export const GET_RESULTS = 'get_results';
+export const GET_RESULTS_BY_ID = 'get_results_by_id';
 /////////////////////////////////////////////////////////////////////
 ////////////////////////////// SLIDER ///////////////////////////////
 /////////////////////////////////////////////////////////////////////
