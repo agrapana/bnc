@@ -249,6 +249,9 @@ const LeagueDetailPage = (props) => {
                             }
 
                         </div>
+                        <div className="leaguecardBody">
+                            <span>{moment(item.start, 'x').format('LLLL')}</span>
+                        </div>
                     </div>
 
                 </div>
