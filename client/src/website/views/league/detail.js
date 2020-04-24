@@ -211,7 +211,10 @@ const LeagueDetailPage = (props) => {
         if (data) {
             return data.map((item, index) => (
                 <div className="col-md-3 col-xs-12" key={index}>
-                    <div className="leaguecard">
+                    <div 
+                        className="leaguecard"
+                        style={Date.now() < item.start ? { backgroundColor: '#222222'}: { backgroundColor: '#359144' }}
+                    >
                         <div className="leaguecardHeader">
                             <span>{index + 1}. {item.teamleft.name} vs {item.teamright.name}</span>
                         </div>
