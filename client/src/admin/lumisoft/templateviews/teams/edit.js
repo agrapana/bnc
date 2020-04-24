@@ -37,7 +37,7 @@ const EditTeam = (props) => {
         },
         {
             name: 'Teams',
-            linkTo: '/admin/master/teams/editdata',
+            linkTo: '/admin/master/teams',
             public: true
         },
         {

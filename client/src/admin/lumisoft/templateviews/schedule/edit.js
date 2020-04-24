@@ -37,7 +37,7 @@ const EditSchedule = (props) => {
         },
         {
             name: 'Schedules',
-            linkTo: '/admin/master/schedules/editdata',
+            linkTo: '/admin/master/schedules',
             public: true
         },
         {
