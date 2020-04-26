@@ -141,10 +141,39 @@ const LeagueDetailPage = (props) => {
         })
     }
 
+    const _showbagan = (data) => (
+        <div>
+            <div className="col-md-6 col-xs-12">
+                <div className="leaguecard">
+                    <div className="leaguecardHeader">Group 1</div>
+                    <div className="leaguecardBody">
+                        <ul className="leagueList">
+                            <li>Team 2 (3 Point)</li>
+                            <li>Team 4 (0 Point)</li>
+                            <li>Team 5 (3 Point)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div className="col-md-6 col-xs-12">
+                <div className="leaguecard">
+                    <div className="leaguecardHeader">Group 2</div>
+                    <div className="leaguecardBody">
+                        <ul className="leagueList">
+                            <li>Team 3 (6 Point)</li>
+                            <li>Team 6 (0 Point)</li>
+                            <li>Team 1 (0 Point)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+
     const _showteams = (data) => {
         if (data && data.teams) {
             return data && data.teams.map((item, index) => (
-                <div className="col-md-6 col-xs-12" key={index}>
+                <div className="col-md-3 col-xs-12" key={index}>
                     <div className="leaguecard">
                         <div className="leaguecardHeader">
                             <span>{item.name}</span>
@@ -211,9 +240,9 @@ const LeagueDetailPage = (props) => {
         if (data) {
             return data.map((item, index) => (
                 <div className="col-md-3 col-xs-12" key={index}>
-                    <div 
+                    <div
                         className="leaguecard"
-                        style={Date.now() < item.start ? { backgroundColor: '#222222'}: { backgroundColor: '#359144' }}
+                        style={Date.now() < item.start ? { backgroundColor: '#222222' } : { backgroundColor: '#359144' }}
                     >
                         <div className="leaguecardHeader">
                             <span>{index + 1}. {item.teamleft.name} vs {item.teamright.name}</span>
@@ -253,7 +282,25 @@ const LeagueDetailPage = (props) => {
 
                         </div>
                         <div className="leaguecardBody">
-                            <span>{moment(item.start, 'x').format('LLLL')}</span>
+                            <span style={{ marginBottom: '10px', display: 'block' }}>{moment(item.start, 'x').format('LLLL')}</span>
+                            {
+                                item.results.length > 0 ?
+                                    item.results.map((result, i) => (
+                                        <div key={i}>
+                                            <div style={{ marginBottom: '10px' }}>
+                                                <div>Map: {result.map}</div>
+                                                {result && result.results.map((team, teami) => (
+                                                    <div key={teami}>
+                                                        <div><span style={team.teamleft.score === '16' ? { fontWeight: 600, color: 'rgb(53, 145, 68)' } : null}>{team.teamleft.name}</span> {team.teamleft.score}</div>
+                                                        <div><span style={team.teamright.score === '16' ? { fontWeight: 600, color: 'rgb(53, 145, 68)' } : null}>{team.teamright.name}</span> {team.teamright.score}</div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))
+
+                                    : null
+                            }
                         </div>
                     </div>
 
@@ -306,20 +353,23 @@ const LeagueDetailPage = (props) => {
                                         </div>
                                     </div>
                                     <div className="col-md-12 col-xs-12 p0">
-                                        <h3 style={{
-                                            fontSize: '16px',
-                                            color: '#ffffff',
-                                            marginTop: '25px',
-                                            backgroundColor: '#222222',
-                                            padding: '15px'
-                                        }}>Team Lists</h3>
-                                        {_showteams(selectedLeague)}
+                                        {_showbagan(selectedLeague)}
                                     </div>
                                 </div>
                                 <div className="col-md-6 col-xs-12 p0">
                                     <div className="leaguedesc">
                                         {_showinfo(selectedLeague && selectedLeague.rules)}
                                     </div>
+                                </div>
+                                <div className="col-md-12 col-xs-12 p0">
+                                    <h3 style={{
+                                        fontSize: '16px',
+                                        color: '#ffffff',
+                                        marginTop: '25px',
+                                        backgroundColor: '#222222',
+                                        padding: '15px'
+                                    }}>Team Lists</h3>
+                                    {_showteams(selectedLeague)}
                                 </div>
                                 {
                                     selectedLeague.isOpen === true && selectedLeague.isProcessing === false ?

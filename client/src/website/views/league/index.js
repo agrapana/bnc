@@ -91,7 +91,7 @@ const LeaguePage = (props) => {
                     </div>
                 </div>
             ))
-            : <div style={{color: '#ffffff', textTransform:'uppercase'}}>Register your steam profile to access this page!</div>
+            : <div style={{ color: '#ffffff', textTransform: 'uppercase' }}>Please wait, Now Loading... or<br />Register your steam profile to access this page!</div>
     )
 
     const gotoThisLeague = (data) => {

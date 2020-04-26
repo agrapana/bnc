@@ -51,7 +51,7 @@ import {
 
 library.add(faHome, faSignInAlt, faListUl, faCartArrowDown, faUser, faBell, faHeart, faSignOutAlt, faCogs, faUsers, faMoneyBillWave, faShippingFast, faEnvelopeOpenText, faTachometerAlt, faChessQueen, faShoppingCart, faExchangeAlt, faAddressCard, faMapPin, faClock, faMapMarkedAlt, faDollyFlatbed, faHandshake, faGlassCheers)
 
-let version = "v4.3.6b"
+let version = "v4.3.7b"
 let mainpath = [
     {
         name: 'Dashboard',
