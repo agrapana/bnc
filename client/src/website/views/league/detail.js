@@ -149,8 +149,8 @@ const LeagueDetailPage = (props) => {
                     <div className="leaguecardBody">
                         <ul className="leagueList">
                             <li>Team 2 (3 Point)</li>
-                            <li>Team 4 (0 Point)</li>
-                            <li>Team 5 (3 Point)</li>
+                            <li style={{ fontWeight: 600, color: '#888888' }}>Team 4 (0 Point)</li>
+                            <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 5 (6 Point)</li>
                         </ul>
                     </div>
                 </div>
@@ -160,9 +160,9 @@ const LeagueDetailPage = (props) => {
                     <div className="leaguecardHeader">Group 2</div>
                     <div className="leaguecardBody">
                         <ul className="leagueList">
-                            <li>Team 3 (6 Point)</li>
-                            <li>Team 6 (0 Point)</li>
-                            <li>Team 1 (0 Point)</li>
+                            <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 3 (6 Point)</li>
+                            <li style={{ fontWeight: 600, color: '#888888' }}>Team 6 (0 Point)</li>
+                            <li>Team 1 (3 Point)</li>
                         </ul>
                     </div>
                 </div>
