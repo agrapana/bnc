@@ -73,8 +73,78 @@ router.route('/getresultbyid').get((req, res) => {
         })
 });
 
+router.route('/getstatisticteamleftbyid').get((req, res) => {
+
+    Result.aggregate([
+        {
+            "$match": {
+                "results.teamleft.players._id": "5ea02f280be21c7434748e4c"
+            }
+        },
+        { "$unwind": "$results" },
+        { "$unwind": "$results.teamleft.players" },
+        {
+            "$match": {
+                "results.teamleft.players._id": "5ea02f280be21c7434748e4c"
+            }
+        },
+        {
+            "$group": {
+                "_id": "$_id",
+                "total": {
+                    "$sum": {
+                        '$convert': { 'input': '$results.teamleft.players.kill', 'to': 'int' }
+                        // '$toInt': "results.teamleft.players.kill"
+                    }
+                }
+            }
+        },
+    ]).exec((err, statistic) => {
+        if (err) return res.json({ success: false, err, message: "GET DATA FAILED" });
+        res.status(200).json({
+            success: true,
+            statistic
+        });
+    })
+});
+
+router.route('/getstatisticteamrightbyid').get((req, res) => {
+
+    Result.aggregate([
+        {
+            "$match": {
+                "results.teamright.players._id": "5ea02f280be21c7434748e4c"
+            }
+        },
+        { "$unwind": "$results" },
+        { "$unwind": "$results.teamright.players" },
+        {
+            "$match": {
+                "results.teamright.players._id": "5ea02f280be21c7434748e4c"
+            }
+        },
+        {
+            "$group": {
+                "_id": "$_id",
+                "total": {
+                    "$sum": {
+                        '$convert': { 'input': '$results.teamright.players.kill', 'to': 'int' }
+                        // '$toInt': "results.teamright.players.kill"
+                    }
+                }
+            }
+        },
+    ]).exec((err, statistic) => {
+        if (err) return res.json({ success: false, err, message: "GET DATA FAILED" });
+        res.status(200).json({
+            success: true,
+            statistic
+        });
+    })
+});
+
 router.route('/updateresult').post(auth, (req, res) => {
-    if(req.query.type === "teamleft") {
+    if (req.query.type === "teamleft") {
         Result.findOneAndUpdate(
             { _id: req.query.resultid },
             {
@@ -138,7 +208,7 @@ router.route('/updateresult').post(auth, (req, res) => {
     //                 })
     //             })
     //         }
-            
+
     //     }
     // )
 })
