@@ -141,6 +141,60 @@ const LeagueDetailPage = (props) => {
         })
     }
 
+    const _showfinal = (data) => (
+        <div>
+            <div className="col-md-6 col-xs-12">
+                <div className="leaguecard">
+                    <div className="leaguecardHeader">3rd Place</div>
+                    <div className="leaguecardBody">
+                        <ul className="leagueList">
+                            <li>Team 1</li>
+                            <li>Team 3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div className="col-md-6 col-xs-12">
+                <div className="leaguecard">
+                    <div className="leaguecardHeader">Grand Final</div>
+                    <div className="leaguecardBody">
+                        <ul className="leagueList">
+                            <li>Team 5</li>
+                            <li>Team 2</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+
+    const _showsemifinal = (data) => (
+        <div>
+            <div className="col-md-6 col-xs-12">
+                <div className="leaguecard">
+                    <div className="leaguecardHeader">Semifinal 1</div>
+                    <div className="leaguecardBody">
+                        <ul className="leagueList">
+                            <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 2 (WIN)</li>
+                            <li style={{ fontWeight: 600, color: '#888888' }}>Team 3 (LOSE)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div className="col-md-6 col-xs-12">
+                <div className="leaguecard">
+                    <div className="leaguecardHeader">Semifinal 2</div>
+                    <div className="leaguecardBody">
+                        <ul className="leagueList">
+                            <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 5 (WIN)</li>
+                            <li style={{ fontWeight: 600, color: '#888888' }}>Team 1 (LOSE)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+
     const _showbagan = (data) => (
         <div>
             <div className="col-md-6 col-xs-12">
@@ -354,6 +408,12 @@ const LeagueDetailPage = (props) => {
                                     </div>
                                     <div className="col-md-12 col-xs-12 p0">
                                         {_showbagan(selectedLeague)}
+                                    </div>
+                                    <div className="col-md-12 col-xs-12 p0">
+                                        {_showsemifinal(selectedLeague)}
+                                    </div>
+                                    <div className="col-md-12 col-xs-12 p0">
+                                        {_showfinal(selectedLeague)}
                                     </div>
                                 </div>
                                 <div className="col-md-6 col-xs-12 p0">

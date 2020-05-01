@@ -60,7 +60,6 @@ router.route('/clientauth').get(clientauth, (req, res) => {
         profile: req.client.profile,
         masteradmin: req.client.masteradmin,
         details: req.client.details,
-        notifications: req.client.notifications,
         createdAt: req.client.createdAt
     })
 })
