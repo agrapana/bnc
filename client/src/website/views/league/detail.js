@@ -148,8 +148,8 @@ const LeagueDetailPage = (props) => {
                     <div className="leaguecardHeader">3rd Place</div>
                     <div className="leaguecardBody">
                         <ul className="leagueList">
-                            <li>Team 1</li>
-                            <li>Team 3</li>
+                            <li style={{ fontWeight: 600, color: '#888888' }}>Team 1</li>
+                            <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 3 (3rd Champion)</li>
                         </ul>
                     </div>
                 </div>
@@ -159,8 +159,8 @@ const LeagueDetailPage = (props) => {
                     <div className="leaguecardHeader">Grand Final</div>
                     <div className="leaguecardBody">
                         <ul className="leagueList">
-                            <li>Team 5</li>
-                            <li>Team 2</li>
+                            <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 5 (1st Champion)</li>
+                            <li style={{ fontWeight: 600, color: '#888888' }}>Team 2 (2nd Champion)</li>
                         </ul>
                     </div>
                 </div>
