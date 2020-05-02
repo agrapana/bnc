@@ -6,9 +6,20 @@ import {
     CONFIRM_PHONE_NUMBER,
     NAME_PIN,
     LOGOUT_CLIENT,
-    STEAM_AUTH
+    STEAM_AUTH,
+    LOGOUT_FROM_THIS_CLIENT
 } from '../types';
 import { CLIENT_SERVER } from '../misc';
+
+export function logoutTeamLeague() {
+    const request = axios.post(`${CLIENT_SERVER}/logoutfromthisteam`)
+        .then(response => response.data);
+
+    return {
+        type: LOGOUT_FROM_THIS_CLIENT,
+        payload: request
+    }
+}
 
 export function clientauth() {
     const request = axios.get(`${CLIENT_SERVER}/clientauth`)
@@ -40,7 +51,7 @@ export function confirmPhoneNumber(dataToSubmit, token) {
     }
 }
 
-export function NamePin(dataToSubmit,token) {
+export function NamePin(dataToSubmit, token) {
     const request = axios.post(`${CLIENT_SERVER}/namepin?token=${token}`, dataToSubmit)
         .then(response => response.data);
 

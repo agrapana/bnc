@@ -1,25 +1,21 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const teamSchema = mongoose.Schema({
+const groupSchema = mongoose.Schema({
     name: {
         type: String,
         maxlength: 100
     },
-    players: [{
+    teams: [{
         type: Schema.Types.ObjectId,
-        ref: 'Client'
+        ref: 'Team'
     }],
-    point: {
-        type: Number,
-        maxlength: 255
-    },
     isActive: {
         type: Boolean,
         default: true
     },
 }, { timestamps: true });
 
-const Team = mongoose.model('Team', teamSchema);
+const Group = mongoose.model('Group', groupSchema);
 
-module.exports = { Team };
+module.exports = { Group };

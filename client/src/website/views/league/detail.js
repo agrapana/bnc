@@ -10,6 +10,7 @@ import { useHistory } from 'react-router';
 import { useParams } from 'react-router-dom';
 import { useWindowSize } from '../../widget/windowsize';
 import { getLeagueByid, joinTeamLeague, cancelTeamLeague } from '../../../admin/store/actions/league_action';
+import { logoutTeamLeague } from '../../../admin/store/actions/client_action';
 import { convertToRupiah } from '../../../admin/lumisoft/utils/form/formactions'
 import { clientauth } from '../../../admin/store/actions/client_action';
 import { loading } from '../../../admin/store/actions/loading_action';
@@ -128,6 +129,19 @@ const LeagueDetailPage = (props) => {
         })
     }
 
+    const _logoutFromThisTeam = () => {
+        dispatch(loading(true));
+        dispatch(logoutTeamLeague()).then(response => {
+            if (response.payload.success) {
+                getNewData();
+                dispatch(loading(false));
+            } else {
+                alert("Please try again!");
+                dispatch(loading(false));
+            }
+        })
+    }
+
     const _joinThisTeam = (team) => {
         dispatch(loading(true));
         dispatch(joinTeamLeague(team._id)).then(response => {
@@ -141,93 +155,138 @@ const LeagueDetailPage = (props) => {
         })
     }
 
-    const _showfinal = (data) => (
-        <div>
-            <div className="col-md-6 col-xs-12">
-                <div className="leaguecard">
-                    <div className="leaguecardHeader">3rd Place</div>
-                    <div className="leaguecardBody">
-                        <ul className="leagueList">
-                            <li style={{ fontWeight: 600, color: '#888888' }}>Team 1</li>
-                            <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 3 (3rd Champion)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div className="col-md-6 col-xs-12">
-                <div className="leaguecard">
-                    <div className="leaguecardHeader">Grand Final</div>
-                    <div className="leaguecardBody">
-                        <ul className="leagueList">
-                            <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 5 (1st Champion)</li>
-                            <li style={{ fontWeight: 600, color: '#888888' }}>Team 2 (2nd Champion)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
+    // const _showfinal = (data) => (
+    //     <div>
+    //         <div className="col-md-6 col-xs-12">
+    //             <div className="leaguecard">
+    //                 <div className="leaguecardHeader">3rd Place</div>
+    //                 <div className="leaguecardBody">
+    //                     <ul className="leagueList">
+    //                         <li style={{ fontWeight: 600, color: '#888888' }}>Team 1</li>
+    //                         <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 3 (3rd Champion)</li>
+    //                     </ul>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //         <div className="col-md-6 col-xs-12">
+    //             <div className="leaguecard">
+    //                 <div className="leaguecardHeader">Grand Final</div>
+    //                 <div className="leaguecardBody">
+    //                     <ul className="leagueList">
+    //                         <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 5 (1st Champion)</li>
+    //                         <li style={{ fontWeight: 600, color: '#888888' }}>Team 2 (2nd Champion)</li>
+    //                     </ul>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     </div>
+    // )
 
     const _showsemifinal = (data) => (
         <div>
-            <div className="col-md-6 col-xs-12">
-                <div className="leaguecard">
-                    <div className="leaguecardHeader">Semifinal 1</div>
-                    <div className="leaguecardBody">
-                        <ul className="leagueList">
-                            <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 2 (WIN)</li>
-                            <li style={{ fontWeight: 600, color: '#888888' }}>Team 3 (LOSE)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div className="col-md-6 col-xs-12">
-                <div className="leaguecard">
-                    <div className="leaguecardHeader">Semifinal 2</div>
-                    <div className="leaguecardBody">
-                        <ul className="leagueList">
-                            <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 5 (WIN)</li>
-                            <li style={{ fontWeight: 600, color: '#888888' }}>Team 1 (LOSE)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            {
+                data.semifinal && data.semifinal.length > 0 ?
+                    data.semifinal.map((item, index) => (
+                        <div className="col-md-6 col-xs-12" key={index}>
+                            <div className="leaguecard">
+                                <div className="leaguecardHeader">{item.name}</div>
+                                <div className="leaguecardBody">
+                                    <ul className="leagueList">
+                                        <li>{item.teamleft[0].name}</li>
+                                        <li>{item.teamright[0].name}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                    : null
+            }
         </div>
     )
 
     const _showbagan = (data) => (
         <div>
-            <div className="col-md-6 col-xs-12">
-                <div className="leaguecard">
-                    <div className="leaguecardHeader">Group 1</div>
-                    <div className="leaguecardBody">
-                        <ul className="leagueList">
-                            <li>Team 2 (3 Point)</li>
-                            <li style={{ fontWeight: 600, color: '#888888' }}>Team 4 (0 Point)</li>
-                            <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 5 (6 Point)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div className="col-md-6 col-xs-12">
-                <div className="leaguecard">
-                    <div className="leaguecardHeader">Group 2</div>
-                    <div className="leaguecardBody">
-                        <ul className="leagueList">
-                            <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 3 (6 Point)</li>
-                            <li style={{ fontWeight: 600, color: '#888888' }}>Team 6 (0 Point)</li>
-                            <li>Team 1 (3 Point)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            {
+                data.group && data.group.length > 0 ?
+                    data.group.map((item, index) => (
+                        <div className="col-md-6 col-xs-12" key={index}>
+                            <div className="leaguecard">
+                                <div className="leaguecardHeader">{item.name}</div>
+                                <div className="leaguecardBody">
+                                    <ul className="leagueList">
+                                        {
+                                            item.teams && item.teams.length > 0 ?
+                                                item.teams.map((team, i) => (
+                                                    <li key={i}>{team.name} ({team.point ? team.point : 0} Point)</li>
+                                                ))
+                                                : null
+                                        }
+
+                                        {/* <li style={{ fontWeight: 600, color: '#888888' }}>Team 4 (0 Point)</li>
+                                        <li style={{ fontWeight: 600, color: 'rgb(53, 145, 68)' }}>Team 5 (6 Point)</li> */}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                    : null
+            }
         </div>
     )
+
+    const _showteamstologout = (data) => {
+        if (data && data.teams) {
+            return data && data.teams.map((item, index) => (
+                <div className="col-md-3 col-xs-12" key={index} style={{ minHeight: '236px' }}>
+                    <div className="leaguecard">
+                        <div className="leaguecardHeader">
+                            <span>{item.name}</span>
+                            {
+                                data.isOpen === false && data.isProcessing === false && data.isClosed === true ?
+                                    mydata && mydata.registeredteam ?
+                                        mydata && mydata.registeredteam === item._id ?
+                                            <span
+                                                className="leaguecardHeaderIcon"
+                                                onClick={() => _logoutFromThisTeam()}
+                                            >
+                                                <FaSignOutAlt />
+                                            </span>
+
+                                            : null
+                                        : null
+                                    : null
+                            }
+
+                        </div>
+                        {
+                            data.isOpen === false && data.isProcessing === false && data.isClosed === true ?
+                                mydata && mydata.registeredteam ?
+                                    <div className="leaguecardBody">
+                                        <ul className="leagueList">
+                                            {
+                                                item.players && item.players.length > 0 ?
+                                                    item.players.map((player, index2) => (
+                                                        <li key={index2}>{index2 + 1}. {player.name}</li>
+                                                    ))
+                                                    : "Player Empty"
+                                            }
+                                        </ul>
+                                    </div>
+                                    : null
+                                : null
+                        }
+
+                    </div>
+
+                </div>
+            ))
+        }
+    }
 
     const _showteams = (data) => {
         if (data && data.teams) {
             return data && data.teams.map((item, index) => (
-                <div className="col-md-3 col-xs-12" key={index}>
+                <div className="col-md-3 col-xs-12" key={index} style={{ minHeight: '236px' }}>
                     <div className="leaguecard">
                         <div className="leaguecardHeader">
                             <span>{item.name}</span>
@@ -262,7 +321,7 @@ const LeagueDetailPage = (props) => {
                                             {
                                                 item.players && item.players.length > 0 ?
                                                     item.players.map((player, index2) => (
-                                                        <li>{index2 + 1}. {player.name}</li>
+                                                        <li key={index2}>{index2 + 1}. {player.name}</li>
                                                     ))
                                                     : "Player Empty"
                                             }
@@ -293,7 +352,7 @@ const LeagueDetailPage = (props) => {
     const _showschedule = (data) => {
         if (data) {
             return data.map((item, index) => (
-                <div className="col-md-3 col-xs-12" key={index}>
+                <div className="col-md-3 col-xs-12" key={index} style={{ minHeight: '200px' }}>
                     <div
                         className="leaguecard"
                         style={Date.now() < item.start ? { backgroundColor: '#222222' } : { backgroundColor: '#359144' }}
@@ -319,7 +378,7 @@ const LeagueDetailPage = (props) => {
     const _showresults = (data) => {
         if (data) {
             return data.map((item, index) => (
-                <div className="col-md-3 col-xs-12" key={index}>
+                <div className="col-md-3 col-xs-12" key={index} style={{ minHeight: '352px' }}>
                     <div className="leaguecard">
                         <div className="leaguecardHeader">
                             <span>{index + 1}. {item.teamleft.name} vs {item.teamright.name}</span>
@@ -381,71 +440,12 @@ const LeagueDetailPage = (props) => {
                         <span>{selectedLeague ? selectedLeague.info : null}</span>
                     </div>
                 </div>
-                <div id="leaguebody" className="section" style={{ margin: 0 }}>
-                    <div className="contentwrap" style={{ transform: "none" }}>
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-6 col-xs-12 p0">
-                                    <div className="leaguedesc">
-                                        <div>Start : {moment(selectedLeague.start, 'x').format('LLLL')}</div>
-                                        <div>
-                                            Status :&nbsp;
-                                                {
-                                                selectedLeague.isOpen && !selectedLeague.isProcessing ? "Open" :
-                                                    selectedLeague.isOpen && selectedLeague.isProcessing ? "Processing" :
-                                                        selectedLeague.isClosed ? "Closed" : null
-                                            }
-                                        </div>
-                                        <div style={{ marginTop: '20px' }}>
-                                            Registration :
-                                            <ul>
-                                                <li>Bank : {selectedLeague.bank}</li>
-                                                <li>Rekening : {selectedLeague.accountnumber}</li>
-                                                <li>A/N : {selectedLeague.accountname}</li>
-                                                <li>@ : Rp. {convertToRupiah(parseInt(selectedLeague.amount))},-</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-12 col-xs-12 p0">
-                                        {_showbagan(selectedLeague)}
-                                    </div>
-                                    <div className="col-md-12 col-xs-12 p0">
-                                        {_showsemifinal(selectedLeague)}
-                                    </div>
-                                    <div className="col-md-12 col-xs-12 p0">
-                                        {_showfinal(selectedLeague)}
-                                    </div>
-                                </div>
-                                <div className="col-md-6 col-xs-12 p0">
-                                    <div className="leaguedesc">
-                                        {_showinfo(selectedLeague && selectedLeague.rules)}
-                                    </div>
-                                </div>
-                                <div className="col-md-12 col-xs-12 p0">
-                                    <h3 style={{
-                                        fontSize: '16px',
-                                        color: '#ffffff',
-                                        marginTop: '25px',
-                                        backgroundColor: '#222222',
-                                        padding: '15px'
-                                    }}>Team Lists</h3>
-                                    {_showteams(selectedLeague)}
-                                </div>
-                                {
-                                    selectedLeague.isOpen === true && selectedLeague.isProcessing === false ?
-                                        mydata && mydata.registeredteam ?
-                                            <div className="col-md-12 col-xs-12 p0">
-                                                <h3 style={{
-                                                    fontSize: '16px',
-                                                    color: '#ffffff',
-                                                    marginTop: '25px',
-                                                    backgroundColor: '#222222',
-                                                    padding: '15px'
-                                                }}>Schedule Lists</h3>
-                                                {_showschedule(selectedLeague && selectedLeague.schedule)}
-                                            </div>
-                                            : null
-                                        :
+                {
+                    selectedLeague.isOpen === false && selectedLeague.isProcessing === false && selectedLeague.isClosed === true && mydata && mydata.registeredteam ?
+                        <div id="signout" className="section" style={{ margin: 0 }}>
+                            <div className="contentwrap" style={{ transform: "none" }}>
+                                <div className="container">
+                                    <div className="row">
                                         <div className="col-md-12 col-xs-12 p0">
                                             <h3 style={{
                                                 fontSize: '16px',
@@ -453,12 +453,111 @@ const LeagueDetailPage = (props) => {
                                                 marginTop: '25px',
                                                 backgroundColor: '#222222',
                                                 padding: '15px'
-                                            }}>Schedule Lists</h3>
-                                            {_showschedule(selectedLeague && selectedLeague.schedule)}
+                                            }}>Please sign out from your previous team</h3>
+                                            {_showteamstologout(selectedLeague)}
                                         </div>
-                                }
-                                {
-                                    selectedLeague.isOpen === true && selectedLeague.isProcessing === true ?
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        :
+                        <div id="leaguebody" className="section" style={{ margin: 0 }}>
+                            <div className="contentwrap" style={{ transform: "none" }}>
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-md-6 col-xs-12 p0">
+                                            {
+                                                selectedLeague.first ?
+                                                    <div className="leaguedesc">
+                                                        <div>1st CHAMPION : {selectedLeague.first && selectedLeague.first.name}</div>
+                                                    </div>
+                                                    : null
+                                            }
+                                            {
+                                                selectedLeague.second ?
+                                                    <div className="leaguedesc">
+                                                        <div>2nd CHAMPION : {selectedLeague.second && selectedLeague.second.name}</div>
+                                                    </div>
+                                                    : null
+                                            }
+                                            {
+                                                selectedLeague.third ?
+                                                    <div className="leaguedesc">
+                                                        <div>3rd CHAMPION : {selectedLeague.third && selectedLeague.third.name}</div>
+                                                    </div>
+                                                    : null
+                                            }
+                                            <div className="leaguedesc">
+                                                <div>Start : {moment(selectedLeague.start, 'x').format('LLLL')}</div>
+                                                <div>
+                                                    Status :&nbsp;
+                                                {
+                                                        selectedLeague.isOpen && !selectedLeague.isProcessing ? "Open" :
+                                                            selectedLeague.isOpen && selectedLeague.isProcessing ? "Processing" :
+                                                                selectedLeague.isClosed ? "Closed" : null
+                                                    }
+                                                </div>
+                                                <div style={{ marginTop: '20px' }}>
+                                                    Registration :
+                                            <ul>
+                                                        <li>Bank : {selectedLeague.bank}</li>
+                                                        <li>Rekening : {selectedLeague.accountnumber}</li>
+                                                        <li>A/N : {selectedLeague.accountname}</li>
+                                                        <li>@ : Rp. {convertToRupiah(parseInt(selectedLeague.amount))},-</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-12 col-xs-12 p0">
+                                                {_showbagan(selectedLeague)}
+                                            </div>
+                                            <div className="col-md-12 col-xs-12 p0">
+                                                {_showsemifinal(selectedLeague)}
+                                            </div>
+                                            {/* <div className="col-md-12 col-xs-12 p0">
+                                        {_showfinal(selectedLeague)}
+                                    </div> */}
+                                        </div>
+                                        <div className="col-md-6 col-xs-12 p0">
+                                            <div className="leaguedesc">
+                                                {_showinfo(selectedLeague && selectedLeague.rules)}
+                                            </div>
+                                        </div>
+                                        <div className="col-md-12 col-xs-12 p0">
+                                            <h3 style={{
+                                                fontSize: '16px',
+                                                color: '#ffffff',
+                                                marginTop: '25px',
+                                                backgroundColor: '#222222',
+                                                padding: '15px'
+                                            }}>Team Lists</h3>
+                                            {_showteams(selectedLeague)}
+                                        </div>
+                                        {
+                                            selectedLeague.isOpen === true && selectedLeague.isProcessing === false ?
+                                                mydata && mydata.registeredteam !== "" ?
+                                                    <div className="col-md-12 col-xs-12 p0">
+                                                        <h3 style={{
+                                                            fontSize: '16px',
+                                                            color: '#ffffff',
+                                                            marginTop: '25px',
+                                                            backgroundColor: '#222222',
+                                                            padding: '15px'
+                                                        }}>Schedule Lists</h3>
+                                                        {_showschedule(selectedLeague && selectedLeague.schedule)}
+                                                    </div>
+                                                    : null
+                                                :
+                                                <div className="col-md-12 col-xs-12 p0">
+                                                    <h3 style={{
+                                                        fontSize: '16px',
+                                                        color: '#ffffff',
+                                                        marginTop: '25px',
+                                                        backgroundColor: '#222222',
+                                                        padding: '15px'
+                                                    }}>Schedule Lists</h3>
+                                                    {_showschedule(selectedLeague && selectedLeague.schedule)}
+                                                </div>
+                                        }
                                         <div className="col-md-12 col-xs-12 p0">
                                             <h3 style={{
                                                 fontSize: '16px',
@@ -469,12 +568,12 @@ const LeagueDetailPage = (props) => {
                                             }}>Results Details</h3>
                                             {_showresults(selectedLeague && selectedLeague.schedule)}
                                         </div>
-                                        : null
-                                }
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                }
+
             </div>
         </section>
     );

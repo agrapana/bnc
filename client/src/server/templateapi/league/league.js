@@ -41,6 +41,17 @@ router.route('/getleague').get((req, res) => {
     League.
         find().
         populate('currentadmin').
+        populate('semifinal').
+        populate('first').
+        populate('second').
+        populate('third').
+        populate({
+            path: 'group',
+            populate: {
+                path: 'teams',
+                model: 'Team'
+            }
+        }).
         populate({
             path: 'teams',
             populate: {
@@ -87,6 +98,17 @@ router.route('/getleaguebyid').get((req, res) => {
     League.
         findOne({ _id: req.query.clientid }).
         populate('currentadmin').
+        populate('semifinal').
+        populate('first').
+        populate('second').
+        populate('third').
+        populate({
+            path: 'group',
+            populate: {
+                path: 'teams',
+                model: 'Team'
+            }
+        }).
         populate({
             path: 'teams',
             populate: {
@@ -125,11 +147,142 @@ router.route('/getleaguebyid').get((req, res) => {
         })
 });
 
+router.route('/setfirst').post(auth, (req, res) => {
+    League.findOne({ _id: req.query.id }, (err, data) => {
+        if (err) return res.json({ success: false, err, message: "LEAGUE NOT EXIST!" });
+        data.first = req.body.first;
+        data.save((err, doc) => {
+            if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
+            return res.status(200).json({
+                success: true,
+                doc
+            })
+        })
+    })
+    // League.findOneAndUpdate(
+    //     { _id: req.query._id },
+    //     {
+    //         $set: {
+    //             first: req.body.first
+    //         }
+    //     },
+    //     { new: true },
+    //     (err, doc) => {
+    //         if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
+    //         return res.status(200).json({
+    //             success: true,
+    //             doc
+    //         })
+    //     }
+    // );
+})
+
+router.route('/setsecond').post(auth, (req, res) => {
+    League.findOne({ _id: req.query.id }, (err, data) => {
+        if (err) return res.json({ success: false, err, message: "LEAGUE NOT EXIST!" });
+        data.second = req.body.second;
+        data.save((err, doc) => {
+            if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
+            return res.status(200).json({
+                success: true,
+                doc
+            })
+        })
+    })
+    // League.findOneAndUpdate(
+    //     { _id: req.query._id },
+    //     {
+    //         $set: {
+    //             second: req.body.second
+    //         }
+    //     },
+    //     { new: true },
+    //     (err, doc) => {
+    //         if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
+    //         return res.status(200).json({
+    //             success: true,
+    //             doc
+    //         })
+    //     }
+    // );
+})
+
+router.route('/setthird').post(auth, (req, res) => {
+    League.findOne({ _id: req.query.id }, (err, data) => {
+        if (err) return res.json({ success: false, err, message: "LEAGUE NOT EXIST!" });
+        data.third = req.body.third;
+        data.save((err, doc) => {
+            if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
+            return res.status(200).json({
+                success: true,
+                doc
+            })
+        })
+    })
+    // League.findOneAndUpdate(
+    //     { _id: req.query._id },
+    //     {
+    //         $set: {
+    //             third: req.body.third
+    //         }
+    //     },
+    //     { new: true },
+    //     (err, doc) => {
+    //         if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
+    //         return res.status(200).json({
+    //             success: true,
+    //             doc
+    //         })
+    //     }
+    // );
+})
+
+
 router.route('/updateleague').post(auth, (req, res) => {
     League.findOneAndUpdate(
         { _id: req.body._id },
         {
             $set: req.body
+        },
+        { new: true },
+        (err, doc) => {
+            if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
+            return res.status(200).json({
+                success: true,
+                doc
+            })
+        }
+    );
+})
+
+router.route('/gotoprocess').post(auth, (req, res) => {
+    League.findOneAndUpdate(
+        { _id: req.query.id },
+        {
+            $set: {
+                isProcessing: true
+            }
+        },
+        { new: true },
+        (err, doc) => {
+            if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
+            return res.status(200).json({
+                success: true,
+                doc
+            })
+        }
+    );
+})
+
+router.route('/closeleague').post(auth, (req, res) => {
+    League.findOneAndUpdate(
+        { _id: req.query.id },
+        {
+            $set: {
+                isOpen: false,
+                isProcessing: false,
+                isClosed: true
+            }
         },
         { new: true },
         (err, doc) => {

@@ -3,23 +3,36 @@ const router = require('express').Router();
 //==================================================================
 //                             MODELS
 //==================================================================
-const { Team } = require('../../templatemodels/league/team');
-const { Client } = require('../../models/client');
+const { League } = require('../../templatemodels/league');
+const { Semifinal } = require('../../templatemodels/league/semifinal');
 const { auth } = require('../../middleware/auth');
 const { clientauth } = require('../../middleware/clientauth');
 //==================================================================
 //                              API
 //==================================================================
 
-router.route('/addteam').post(auth, (req, res) => {
-    const team = new Team(req.body);
+router.route('/addsemifinal').post(auth, (req, res) => {
+    const semifinal = new Semifinal(req.body);
 
-    team.save((err, doc) => {
+    semifinal.save((err, doc) => {
         if (err) return res.json({ success: false, err, message: "ADD FAILED" });
-        res.status(200).json({
-            success: true,
-            doc
-        })
+        League.findOneAndUpdate(
+            { _id: req.query.id },
+            {
+                $push: {
+                    semifinal: doc._id
+                }
+            },
+            { new: true },
+            (err, leaguedata) => {
+                if (err) return res.json({ success: false, err, message: "ADD TO LEAGUE FAILED" });
+                return res.status(200).json({
+                    success: true,
+                    doc,
+                    league: leaguedata
+                })
+            }
+        )
     });
 })
 
@@ -66,25 +79,6 @@ router.route('/updateteam').post(auth, (req, res) => {
         { _id: req.body._id },
         {
             $set: req.body
-        },
-        { new: true },
-        (err, doc) => {
-            if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
-            return res.status(200).json({
-                success: true,
-                doc
-            })
-        }
-    );
-})
-
-router.route('/updateteampoint').post(auth, (req, res) => {
-    Team.findOneAndUpdate(
-        { _id: req.query.id },
-        {
-            $set: {
-                point: req.body.point
-            }
         },
         { new: true },
         (err, doc) => {

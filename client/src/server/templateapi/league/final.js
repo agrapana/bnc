@@ -3,8 +3,7 @@ const router = require('express').Router();
 //==================================================================
 //                             MODELS
 //==================================================================
-const { Team } = require('../../templatemodels/league/team');
-const { Client } = require('../../models/client');
+const { Final } = require('../../templatemodels/league/final');
 const { auth } = require('../../middleware/auth');
 const { clientauth } = require('../../middleware/clientauth');
 //==================================================================
@@ -66,25 +65,6 @@ router.route('/updateteam').post(auth, (req, res) => {
         { _id: req.body._id },
         {
             $set: req.body
-        },
-        { new: true },
-        (err, doc) => {
-            if (err) return res.json({ success: false, err, message: "UPDATE FAILED" });
-            return res.status(200).json({
-                success: true,
-                doc
-            })
-        }
-    );
-})
-
-router.route('/updateteampoint').post(auth, (req, res) => {
-    Team.findOneAndUpdate(
-        { _id: req.query.id },
-        {
-            $set: {
-                point: req.body.point
-            }
         },
         { new: true },
         (err, doc) => {

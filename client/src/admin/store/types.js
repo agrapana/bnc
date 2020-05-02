@@ -22,6 +22,7 @@ export const CONFIRM_PHONE_NUMBER = 'confirm_phone_number';
 export const LOGOUT_CLIENT = 'logout_client';
 export const STEAM_AUTH = 'steam_auth';
 export const NAME_PIN = 'name_pin';
+export const LOGOUT_FROM_THIS_CLIENT = 'logout_from_this_client';
 /////////////////////////////////////////////////////////////////////
 ///////////////////////////// SERVERS ///////////////////////////////
 /////////////////////////////////////////////////////////////////////
@@ -63,15 +64,12 @@ export const UPDATE_PRODUCT = 'update_product';
 export const UPDATE_ADDITIONAL_PRODUCT = 'update_additional_product';
 export const CLEAR_UPDATE_PRODUCT = 'clear_update_product';
 export const CLEAR_UPDATE_ADDITIONAL_PRODUCT = 'clear_update_additional_product';
-
 export const GET_PRODUCTCAT = 'get_productcat';
 export const ADD_PRODUCTCAT = 'add_productcat';
 export const CLEAR_PRODUCTCAT = 'clear_productcat';
-
 export const GET_PRODUCTBRAND = 'get_productbrand';
 export const ADD_PRODUCTBRAND = 'add_productbrand';
 export const CLEAR_PRODUCTBRAND = 'clear_productbrand';
-
 export const GET_PRODUCT_BRAND_AND_LIMIT = 'get_product_brand_and_limit';
 /////////////////////////////////////////////////////////////////////
 ////////////////////////////// GALLERY //////////////////////////////
@@ -95,26 +93,36 @@ export const UPDATE_LEAGUE_TEAM = 'update_league_team';
 export const CLEAR_UPDATE_LEAGUE_TEAM = 'clear_update_league_team';
 export const UPDATE_LEAGUE_SCHEDULE = 'update_league_schedule';
 export const CLEAR_UPDATE_LEAGUE_SCHEDULE = 'clear_update_league_schedule';
-
 export const ADD_TEAM = 'add_team';
 export const CLEAR_ADD_TEAM = 'clear_add_team';
 export const GET_TEAMS = 'get_teams';
 export const UPDATE_TEAM = 'update_team';
+export const UPDATE_TEAM_POINT = 'update_team_point';
 export const CLEAR_UPDATE_TEAM = 'clear_update_team';
+export const CLEAR_UPDATE_TEAM_POINT = 'clear_update_team_point';
 export const JOIN_TEAM_LEAGUE = 'join_team_league';
 export const CANCEL_TEAM_LEAGUE = 'cancel_team_league';
-
+export const SET_FIRST = 'set_first';
+export const SET_SECOND = 'set_second';
+export const SET_THIRD = 'set_third';
+export const GO_TO_PROCESS = 'go_to_process';
+export const CLOSE_LEAGUE = 'close_league';
 export const GET_SCHEDULE = 'get_schedule';
 export const GET_SCHEDULE_BY_ID = 'get_schedule_by_id';
 export const UPDATE_SCHEDULE = 'update_schedule';
 export const CLEAR_UPDATE_SCHEDULE = 'clear_update_schedule';
-
+export const ADD_SEMIFINAL = 'add_semifinal';
+export const CLEAR_ADD_SEMIFINAL = 'clear_add_semifinal';
 export const ADD_RESULT = 'add_result';
 export const CLEAR_ADD_RESULT = 'clear_add_result';
 export const UPDATE_RESULT = 'update_result';
 export const CLEAR_UPDATE_RESULT = 'clear_update_result';
 export const GET_RESULTS = 'get_results';
 export const GET_RESULTS_BY_ID = 'get_results_by_id';
+export const ADD_GROUP = 'add_group';
+export const CLEAR_ADD_GROUP = 'clear_add_group';
+export const GET_GROUPS = 'get_groups';
+export const PUSH_TEAM_TO_GROUP = 'push_team_to_group';
 /////////////////////////////////////////////////////////////////////
 ////////////////////////////// SLIDER ///////////////////////////////
 /////////////////////////////////////////////////////////////////////

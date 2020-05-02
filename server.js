@@ -142,6 +142,9 @@ const historywarroomRouter = require('./client/src/server/templateapi/historywar
 
 const leagueRouter = require('./client/src/server/templateapi/league/league');
 const teamRouter = require('./client/src/server/templateapi/league/team');
+const groupRouter = require('./client/src/server/templateapi/league/group');
+const semifinalRouter = require('./client/src/server/templateapi/league/semifinal');
+const finalRouter = require('./client/src/server/templateapi/league/final');
 const scheduleRouter = require('./client/src/server/templateapi/league/schedule');
 const resultRouter = require('./client/src/server/templateapi/league/result');
 //==================================================================
@@ -166,6 +169,9 @@ app.use('/api/historywarroom', historywarroomRouter);
 
 app.use('/api/league', leagueRouter);
 app.use('/api/team', teamRouter);
+app.use('/api/group', groupRouter);
+app.use('/api/semifinal', semifinalRouter);
+app.use('/api/final', finalRouter);
 app.use('/api/schedule', scheduleRouter);
 app.use('/api/result', resultRouter);
 

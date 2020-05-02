@@ -16,6 +16,8 @@ import {
     CLEAR_ADD_TEAM,
     GET_TEAMS,
     UPDATE_TEAM,
+    UPDATE_TEAM_POINT,
+    CLEAR_UPDATE_TEAM_POINT,
     CLEAR_UPDATE_TEAM,
     GET_SCHEDULE,
     GET_SCHEDULE_BY_ID,
@@ -25,14 +27,131 @@ import {
     CLEAR_ADD_RESULT,
     UPDATE_RESULT,
     CLEAR_UPDATE_RESULT,
-    GET_RESULTS
+    GET_RESULTS,
+    ADD_GROUP,
+    CLEAR_ADD_GROUP,
+    GET_GROUPS,
+    PUSH_TEAM_TO_GROUP,
+    ADD_SEMIFINAL,
+    CLEAR_ADD_SEMIFINAL,
+    SET_FIRST,
+    SET_SECOND,
+    SET_THIRD,
+    GO_TO_PROCESS,
+    CLOSE_LEAGUE
 } from '../types';
-import { 
-    LEAGUE_SERVER, 
-    TEAM_SERVER, 
+import {
+    LEAGUE_SERVER,
+    TEAM_SERVER,
     SCHEDULE_SERVER,
-    RESULT_SERVER
+    RESULT_SERVER,
+    GROUP_SERVER,
+    SEMIFINAL_SERVER
 } from '../misc';
+
+export function goToProcess(id) {
+    const request = axios.post(`${LEAGUE_SERVER}/gotoprocess?id=${id}`)
+        .then(response => response.data);
+
+    return {
+        type: GO_TO_PROCESS,
+        payload: request
+    }
+}
+
+export function closeLeague(id) {
+    const request = axios.post(`${LEAGUE_SERVER}/closeleague?id=${id}`)
+        .then(response => response.data);
+
+    return {
+        type: CLOSE_LEAGUE,
+        payload: request
+    }
+}
+
+export function setFirst(dataToSubmit, id) {
+    const request = axios.post(`${LEAGUE_SERVER}/setfirst?id=${id}`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: SET_FIRST,
+        payload: request
+    }
+}
+
+export function setSecond(dataToSubmit, id) {
+    const request = axios.post(`${LEAGUE_SERVER}/setsecond?id=${id}`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: SET_SECOND,
+        payload: request
+    }
+}
+
+export function setThird(dataToSubmit, id) {
+    const request = axios.post(`${LEAGUE_SERVER}/setthird?id=${id}`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: SET_THIRD,
+        payload: request
+    }
+}
+
+export function addSemifinal(dataToSubmit, id) {
+    const request = axios.post(`${SEMIFINAL_SERVER}/addsemifinal?id=${id}`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: ADD_SEMIFINAL,
+        payload: request
+    }
+}
+
+export function clearAddSemifinal() {
+    return {
+        type: CLEAR_ADD_SEMIFINAL,
+        payload: ''
+    }
+}
+
+export function pushTeamToGroup(dataToSubmit, id) {
+    const request = axios.post(`${GROUP_SERVER}/pushteamtogroup?id=${id}`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: PUSH_TEAM_TO_GROUP,
+        payload: request
+    }
+}
+
+export function addGroup(dataToSubmit, id) {
+    const request = axios.post(`${GROUP_SERVER}/addgroup?id=${id}`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: ADD_GROUP,
+        payload: request
+    }
+}
+
+export function clearAddGroup() {
+    return {
+        type: CLEAR_ADD_GROUP,
+        payload: ''
+    }
+}
+
+export function getGroups() {
+    const request = axios.get(`${GROUP_SERVER}/getgroups`)
+        .then(response => response.data);
+
+    return {
+        type: GET_GROUPS,
+        payload: request
+    }
+}
 
 export function getScheduleByid(id) {
     const request = axios.get(`${SCHEDULE_SERVER}/getschedulebyid?clientid=${id}`)
@@ -149,9 +268,26 @@ export function updateTeam(dataToSubmit) {
     }
 }
 
+export function updateTeamPoint(dataToSubmit, id) {
+    const request = axios.post(`${TEAM_SERVER}/updateteampoint?id=${id}`, dataToSubmit)
+        .then(response => response.data);
+
+    return {
+        type: UPDATE_TEAM_POINT,
+        payload: request
+    }
+}
+
 export function clearUpdateTeam() {
     return {
         type: CLEAR_UPDATE_TEAM,
+        payload: ''
+    }
+}
+
+export function clearUpdateTeamPoint() {
+    return {
+        type: CLEAR_UPDATE_TEAM_POINT,
         payload: ''
     }
 }

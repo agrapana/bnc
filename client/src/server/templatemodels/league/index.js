@@ -18,6 +18,50 @@ const leagueSchema = mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'Schedule'
     }],
+    group: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Group'
+    }],
+    semifinal: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Semifinal'
+    }],
+    final: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Final'
+    }],
+    first: {
+        type: Schema.Types.ObjectId,
+        ref: 'Team'
+    },
+    second: {
+        type: Schema.Types.ObjectId,
+        ref: 'Team'
+    },
+    third: {
+        type: Schema.Types.ObjectId,
+        ref: 'Team'
+    },
+    historyteams: {
+        type: Array,
+        default: []
+    },
+    historyschedule: {
+        type: Array,
+        default: []
+    },
+    historygroup: {
+        type: Array,
+        default: []
+    },
+    historysemifinal: {
+        type: Array,
+        default: []
+    },
+    historyfinal: {
+        type: Array,
+        default: []
+    },
     accountnumber: {
         type: String,
         default: ""

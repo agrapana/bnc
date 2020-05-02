@@ -10,6 +10,13 @@
     position: absolute;
     right: 0;
 }
+#lumisoftmaster .categoryButtonWrapperSingleButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+}
 #lumisoftmaster .deleteButtonWrapper {
     display: flex;
     align-items: flex-start;
@@ -48,7 +55,8 @@
 #lumisoftmaster .formstyle .noicon {
     padding: 7px 13px 7px 10px !important;
 }
-#lumisoftmaster .categoryButtonWrapper .categoryButton {
+#lumisoftmaster .categoryButtonWrapper .categoryButton,
+#lumisoftmaster .categoryButtonWrapperSingleButton .categoryButton {
     box-sizing: border-box;
     position: relative;
     -webkit-user-select: none;
@@ -71,7 +79,8 @@
     transform: translate3d(0, 0, 0);
     transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-#lumisoftmaster .categoryButtonWrapper .categoryButton.buttonColor {
+#lumisoftmaster .categoryButtonWrapper .categoryButton.buttonColor,
+#lumisoftmaster .categoryButtonWrapperSingleButton .categoryButton.buttonColor {
     background-color:#111111;
     color:#d3d3d3;
 }

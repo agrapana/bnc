@@ -5,11 +5,17 @@ import {
     CONFIRM_PHONE_NUMBER,
     NAME_PIN,
     LOGOUT_CLIENT,
-    STEAM_AUTH
+    STEAM_AUTH,
+    LOGOUT_FROM_THIS_CLIENT
 } from '../types';
 
 export default function (state = {}, action) {
     switch (action.type) {
+        case LOGOUT_FROM_THIS_CLIENT:
+            return {
+                ...state,
+                logoutFromThisClient: action.payload
+            }
         case AUTH_CLIENT:
             return {
                 ...state,

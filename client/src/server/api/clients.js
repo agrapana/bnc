@@ -106,6 +106,21 @@ router.route('/logout').get(clientauth, (req, res) => {
     )
 })
 
+router.route('/logoutfromthisteam').post(clientauth, (req, res) => {
+    Client.findOne({ '_id': req.client._id }, (err, clientexist) => {
+        if (err) return res.json({ success: false, err, message: 'please relogin!' });
+        clientexist.registeredteam = undefined;
+        clientexist.save((err, aftersave) => {
+            if (err) return res.json({ success: false, err, message: 'data not saved!' });
+            return res.status(200).json({
+                success: true,
+                aftersave
+            })
+        })
+    })
+
+})
+
 router.route('/namepin').post((req, res) => {
     Client.findOne({ 'token': req.query.token }, (err, clientexist) => {
         if (err) return res.json({ success: false, err, message: 'please relogin!' });

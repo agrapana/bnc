@@ -399,20 +399,24 @@ header.frontendwebsite .navigation_items .itemContent2 {
   color: #777;
   font-size: 18px; }
 
-#frontendwebsite #homepage #leaguebody {
+#frontendwebsite #homepage #leaguebody,
+#frontendwebsite #homepage #signout {
   position: relative;
   overflow: hidden; }
 
-#frontendwebsite #homepage #leaguebody .formSubmitButtonWithBack {
+#frontendwebsite #homepage #leaguebody .formSubmitButtonWithBack,
+#frontendwebsite #homepage #signout .formSubmitButtonWithBack {
   width: 100%;
   display: flex;
   justify-content: end; }
 
-#frontendwebsite #homepage #leaguebody .formbackButton {
+#frontendwebsite #homepage #leaguebody .formbackButton,
+#frontendwebsite #homepage #signout .formbackButton {
   background-color: #359144;
   color: #d3d3d3; }
 
-#frontendwebsite #homepage #leaguebody .formbackButton.formsubmitButtonShadow {
+#frontendwebsite #homepage #leaguebody .formbackButton.formsubmitButtonShadow,
+#frontendwebsite #homepage #signout .formbackButton.formsubmitButtonShadow {
   box-sizing: border-box;
   position: relative;
   -webkit-user-select: none;
@@ -435,23 +439,27 @@ header.frontendwebsite .navigation_items .itemContent2 {
   transform: translate3d(0, 0, 0);
   transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1); }
 
-#frontendwebsite #homepage #leaguebody .formbackButton.formsubmitButtonShadow:not([class*="mat-elevation-z"]) {
+#frontendwebsite #homepage #leaguebody .formbackButton.formsubmitButtonShadow:not([class*="mat-elevation-z"]),
+#frontendwebsite #homepage #signout .formbackButton.formsubmitButtonShadow:not([class*="mat-elevation-z"]) {
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
-#frontendwebsite #homepage #leaguebody .leaguedesc {
+#frontendwebsite #homepage #leaguebody .leaguedesc,
+#frontendwebsite #homepage #signout .leaguedesc {
   color: #ffffff;
   padding: 20px;
   margin: 15px;
   background-color: #222222;
   border-radius: 10px; }
 
-#frontendwebsite #homepage #leaguebody .leaguedesc span {
+#frontendwebsite #homepage #leaguebody .leaguedesc span,
+#frontendwebsite #homepage #signout .leaguedesc span {
   display: block;
   color: #888;
   margin-top: 6px;
   font-size: 14px; }
 
-#frontendwebsite #homepage #leaguebody .leaguedesc .nextButton {
+#frontendwebsite #homepage #leaguebody .leaguedesc .nextButton,
+#frontendwebsite #homepage #signout .leaguedesc .nextButton {
   border-radius: 4px;
   background-color: #359144;
   width: 70px;
@@ -462,7 +470,8 @@ header.frontendwebsite .navigation_items .itemContent2 {
   display: flex;
   cursor: pointer; }
 
-#frontendwebsite #homepage #leaguebody .leaguecard {
+#frontendwebsite #homepage #leaguebody .leaguecard,
+#frontendwebsite #homepage #signout .leaguecard {
   position: relative;
   display: -ms-flexbox;
   display: flex;
@@ -477,45 +486,53 @@ header.frontendwebsite .navigation_items .itemContent2 {
   color: #fff;
   margin-bottom: 10px; }
 
-#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader {
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader,
+#frontendwebsite #homepage #signout .leaguecard .leaguecardHeader {
   padding: .75rem 1.25rem;
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.125);
   justify-content: space-between;
   display: flex; }
 
-#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader2 {
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader2,
+#frontendwebsite #homepage #signout .leaguecard .leaguecardHeader2 {
   padding: .75rem 1.25rem;
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.125);
   justify-content: flex-start;
   display: flex; }
 
-#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader2 span {
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader2 span,
+#frontendwebsite #homepage #signout .leaguecard .leaguecardHeader2 span {
   margin-left: 15px;
   font-size: 16px;
   font-weight: 600; }
 
-#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader .leaguecardHeaderIcon {
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader .leaguecardHeaderIcon,
+#frontendwebsite #homepage #signout .leaguecard .leaguecardHeader .leaguecardHeaderIcon {
   cursor: pointer; }
 
-#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader .leaguecardHeaderIcon2 {
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader .leaguecardHeaderIcon2,
+#frontendwebsite #homepage #signout .leaguecard .leaguecardHeader .leaguecardHeaderIcon2 {
   cursor: pointer;
   position: absolute;
   right: 15px;
   top: 15px; }
 
-#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardBody {
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardBody,
+#frontendwebsite #homepage #signout .leaguecard .leaguecardBody {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
   font-size: 14px; }
 
-#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardBody .leagueList {
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardBody .leagueList,
+#frontendwebsite #homepage #signout .leaguecard .leaguecardBody .leagueList {
   padding-left: 0;
   list-style-type: none; }
 
-#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardBody .leagueList li {
+#frontendwebsite #homepage #leaguebody .leaguecard .leaguecardBody .leagueList li,
+#frontendwebsite #homepage #signout .leaguecard .leaguecardBody .leagueList li {
   margin: 5px 0;
   position: relative; }
 
