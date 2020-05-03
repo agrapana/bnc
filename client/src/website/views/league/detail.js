@@ -35,7 +35,7 @@ const LeagueDetailPage = (props) => {
     ] = useState(size.height);
     const [selectedLeague, selectedLeagueHandler] = useState({});
     const [mydata, mydataHandler] = useState();
-    const [iamexist, iamexistHandler] = useState();
+    const [iamexist, iamexistHandler] = useState(false);
     // const gotoPage = (link) => {
     //     history.push(link);
     // }
@@ -50,11 +50,13 @@ const LeagueDetailPage = (props) => {
                 let selectedleague = await dispatch(getLeagueByid(id), { signal: abortController.signal });
                 let mydata = await dispatch(clientauth(), { signal: abortController.signal });
                 if (mounted && selectedleague.payload.success && mydata.payload) {
-                    let obj = selectedleague.payload.leaguebyid && selectedleague.payload.leaguebyid.teams;
-                    let myteamid = mydata.payload && mydata.payload.registeredteam;
-                    let exist = await obj.some(r => r._id.toString() === myteamid.toString())
                     if (mydata.payload.steamid && mydata.payload.steamname) {
-                        iamexistHandler(exist);
+                        if(mydata.payload.registeredteam){
+                            let obj = selectedleague.payload.leaguebyid && selectedleague.payload.leaguebyid.teams;
+                            let myteamid = mydata.payload && mydata.payload.registeredteam;
+                            let exist = await obj.some(r => r._id.toString() === myteamid.toString());
+                            iamexistHandler(exist);
+                        }
                         selectedLeagueHandler(selectedleague.payload.leaguebyid);
                         mydataHandler(mydata.payload);
                         dispatch(loading(false));
