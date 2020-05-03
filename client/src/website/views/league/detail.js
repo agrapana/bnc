@@ -35,6 +35,7 @@ const LeagueDetailPage = (props) => {
     ] = useState(size.height);
     const [selectedLeague, selectedLeagueHandler] = useState({});
     const [mydata, mydataHandler] = useState();
+    const [iamexist, iamexistHandler] = useState();
     // const gotoPage = (link) => {
     //     history.push(link);
     // }
@@ -49,7 +50,11 @@ const LeagueDetailPage = (props) => {
                 let selectedleague = await dispatch(getLeagueByid(id), { signal: abortController.signal });
                 let mydata = await dispatch(clientauth(), { signal: abortController.signal });
                 if (mounted && selectedleague.payload.success && mydata.payload) {
+                    let obj = selectedleague.payload.leaguebyid && selectedleague.payload.leaguebyid.teams;
+                    let myteamid = mydata.payload && mydata.payload.registeredteam;
+                    let exist = await obj.some(r => r._id.toString() === myteamid.toString())
                     if (mydata.payload.steamid && mydata.payload.steamname) {
+                        iamexistHandler(exist);
                         selectedLeagueHandler(selectedleague.payload.leaguebyid);
                         mydataHandler(mydata.payload);
                         dispatch(loading(false));
@@ -430,7 +435,7 @@ const LeagueDetailPage = (props) => {
             }
         })
     }
-
+    console.log(iamexist, "<<<<<iamexist<<<<<<")
     return (
         <section id="homepage" style={{ marginBottom: 0, transform: "none" }}>
             <div className="contentwrap" style={{ transform: "none" }}>
@@ -441,7 +446,7 @@ const LeagueDetailPage = (props) => {
                     </div>
                 </div>
                 {
-                    selectedLeague.isOpen === false && selectedLeague.isProcessing === false && selectedLeague.isClosed === true && mydata && mydata.registeredteam ?
+                    selectedLeague.isOpen === false && selectedLeague.isProcessing === false && selectedLeague.isClosed === true && iamexist ?
                         <div id="signout" className="section" style={{ margin: 0 }}>
                             <div className="contentwrap" style={{ transform: "none" }}>
                                 <div className="container">
