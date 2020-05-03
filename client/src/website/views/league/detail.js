@@ -435,7 +435,7 @@ const LeagueDetailPage = (props) => {
             }
         })
     }
-    console.log(iamexist, "<<<<<iamexist<<<<<<")
+    console.log(iamexist, "<<<<<iamexist22<<<<<<")
     return (
         <section id="homepage" style={{ marginBottom: 0, transform: "none" }}>
             <div className="contentwrap" style={{ transform: "none" }}>
