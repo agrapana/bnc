@@ -992,8 +992,8 @@ const SchedulesTableScreen = (props) => {
                                                                             <th>Name</th>
                                                                             <th>Nickname</th>
                                                                             <th>Kill</th>
-                                                                            <th>Death</th>
                                                                             <th>Assists</th>
+                                                                            <th>Death</th>
                                                                             <th>MVP</th>
                                                                             <th>Score</th>
                                                                         </tr>
@@ -1006,8 +1006,8 @@ const SchedulesTableScreen = (props) => {
                                                                                 <td>{player.name}</td>
                                                                                 <td>{player.steamname}</td>
                                                                                 <td>{player.kill}</td>
-                                                                                <td>{player.death}</td>
                                                                                 <td>{player.assist}</td>
+                                                                                <td>{player.death}</td>
                                                                                 <td>{player.mvp}</td>
                                                                                 <td>{player.score}</td>
                                                                             </tr>
@@ -1044,8 +1044,8 @@ const SchedulesTableScreen = (props) => {
                                                                             <th>Name</th>
                                                                             <th>Nickname</th>
                                                                             <th>Kill</th>
-                                                                            <th>Death</th>
                                                                             <th>Assists</th>
+                                                                            <th>Death</th>
                                                                             <th>MVP</th>
                                                                             <th>Score</th>
                                                                         </tr>
@@ -1058,8 +1058,8 @@ const SchedulesTableScreen = (props) => {
                                                                                 <td>{player.name}</td>
                                                                                 <td>{player.steamname}</td>
                                                                                 <td>{player.kill}</td>
-                                                                                <td>{player.death}</td>
                                                                                 <td>{player.assist}</td>
+                                                                                <td>{player.death}</td>
                                                                                 <td>{player.mvp}</td>
                                                                                 <td>{player.score}</td>
                                                                             </tr>
