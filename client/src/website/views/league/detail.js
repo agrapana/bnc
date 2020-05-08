@@ -51,7 +51,7 @@ const LeagueDetailPage = (props) => {
                 let mydata = await dispatch(clientauth(), { signal: abortController.signal });
                 if (mounted && selectedleague.payload.success && mydata.payload) {
                     if (mydata.payload.steamid && mydata.payload.steamname) {
-                        if(mydata.payload.registeredteam){
+                        if (mydata.payload.registeredteam) {
                             let obj = selectedleague.payload.leaguebyid && selectedleague.payload.leaguebyid.teams;
                             let myteamid = mydata.payload && mydata.payload.registeredteam;
                             let exist = await obj.some(r => r._id.toString() === myteamid.toString());
@@ -411,8 +411,66 @@ const LeagueDetailPage = (props) => {
                                                 <div>Map: {result.map}</div>
                                                 {result && result.results.map((team, teami) => (
                                                     <div key={teami}>
-                                                        <div><span style={team.teamleft.score === '16' ? { fontWeight: 600, color: 'rgb(53, 145, 68)' } : null}>{team.teamleft.name}</span> {team.teamleft.score}</div>
-                                                        <div><span style={team.teamright.score === '16' ? { fontWeight: 600, color: 'rgb(53, 145, 68)' } : null}>{team.teamright.name}</span> {team.teamright.score}</div>
+                                                        <div>
+                                                            <span
+                                                                style={
+                                                                    team.teamleft.score === '16' && team.teamright.score !== '19' ?
+                                                                        {
+                                                                            fontWeight: 600, color: 'rgb(53, 145, 68)'
+                                                                        }
+                                                                        : team.teamleft.score === '19' && team.teamright.score !== '22' ?
+                                                                            {
+                                                                                fontWeight: 600, color: 'rgb(53, 145, 68)'
+                                                                            }
+                                                                            : team.teamleft.score === '22' && team.teamright.score !== '25' ?
+                                                                                {
+                                                                                    fontWeight: 600, color: 'rgb(53, 145, 68)'
+                                                                                }
+                                                                                : team.teamleft.score === '25' && team.teamright.score !== '28' ?
+                                                                                    {
+                                                                                        fontWeight: 600, color: 'rgb(53, 145, 68)'
+                                                                                    }
+                                                                                    : team.teamleft.score === '28' && team.teamright.score !== '31' ?
+                                                                                        {
+                                                                                            fontWeight: 600, color: 'rgb(53, 145, 68)'
+                                                                                        }
+                                                                                        : null
+                                                                }
+                                                            >
+                                                                {team.teamleft.name}
+                                                            </span>
+                                                            &nbsp;{team.teamleft.score}
+                                                        </div>
+                                                        <div>
+                                                            <span
+                                                                style={
+                                                                    team.teamright.score === '16' && team.teamleft.score !== '19' ?
+                                                                        {
+                                                                            fontWeight: 600, color: 'rgb(53, 145, 68)'
+                                                                        }
+                                                                        : team.teamright.score === '19' && team.teamleft.score !== '22' ?
+                                                                            {
+                                                                                fontWeight: 600, color: 'rgb(53, 145, 68)'
+                                                                            }
+                                                                            : team.teamright.score === '22' && team.teamleft.score !== '25' ?
+                                                                                {
+                                                                                    fontWeight: 600, color: 'rgb(53, 145, 68)'
+                                                                                }
+                                                                                : team.teamright.score === '25' && team.teamleft.score !== '28' ?
+                                                                                    {
+                                                                                        fontWeight: 600, color: 'rgb(53, 145, 68)'
+                                                                                    }
+                                                                                    : team.teamright.score === '28' && team.teamleft.score !== '31' ?
+                                                                                        {
+                                                                                            fontWeight: 600, color: 'rgb(53, 145, 68)'
+                                                                                        }
+                                                                                        : null
+                                                                }
+                                                            >
+                                                                {team.teamright.name}
+                                                            </span>
+                                                            &nbsp;{team.teamright.score}
+                                                        </div>
                                                     </div>
                                                 ))}
                                             </div>
