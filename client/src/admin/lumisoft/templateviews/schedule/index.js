@@ -196,8 +196,7 @@ const ScheduleScreen = (props) => {
         props.history.push({
             pathname: '/admin/master/schedules/editdata',
             state: {
-                dataselected: selected,
-                editformdata: true
+                dataselected: selected
             }
         })
     }

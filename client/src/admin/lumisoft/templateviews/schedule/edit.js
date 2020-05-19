@@ -1,6 +1,6 @@
 import React, {
-    useState
-    // useEffect, 
+    useState,
+    useEffect
     // useReducer 
 } from 'react';
 
@@ -47,12 +47,35 @@ const EditSchedule = (props) => {
         }
     ]);
 
-    const [dataselected] = useState(props.history.location.state.dataselected)
-    const [editformdatastatus] = useState(props.history.location.state.editformdata);
+    const [dataselected] = useState(props.history.location.state && props.history.location.state.dataselected)
+    const [editformdatastatus] = useState(true);
 
     const clickHandler = (link) => {
         props.history.push(link);
     }
+
+    useEffect(() => {
+        let mounted = true;
+        const abortController = new AbortController();
+        const DataselectedCheck = async () => {
+            try {
+                let history = await props.history.location.state;
+                if (!history) {
+                    if (mounted) {
+                        props.history.push('/admin/master/schedules');
+                    }
+                }
+
+            } catch (error) {
+
+            }
+        }
+        DataselectedCheck();
+        return () => {
+            mounted = false;
+            abortController.abort();
+        }
+    }, [props.history]);
 
     return (
         <AdminLayout>

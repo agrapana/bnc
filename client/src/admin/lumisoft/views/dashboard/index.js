@@ -16,6 +16,9 @@ import { getSlider } from '../../../store/actions/slider_action';
 import { getGallery } from '../../../store/actions/gallery_action';
 import { getProduct } from '../../../store/actions/product_action';
 import { getServers } from '../../../store/actions/server_action';
+import { getLeague } from '../../../store/actions/league_action';
+import { getTeams } from '../../../store/actions/league_action';
+import { getSchedules } from '../../../store/actions/league_action';
 
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
@@ -27,7 +30,8 @@ const DashboardScreen = (props) => {
         getproduct,
         getapplication,
         getslider,
-        getservers
+        getservers,
+        getleague
     } = useSelector(state => ({
         userprops: state.user,
         getapplication: state.application,
@@ -35,7 +39,8 @@ const DashboardScreen = (props) => {
         getportfolio: state.portfolio,
         getproduct: state.product,
         getslider: state.slider,
-        getservers: state.servers
+        getservers: state.servers,
+        getleague: state.league
     }));
     const size = useWindowSize();
     const isMobile = size.width <= 767.98;
@@ -71,6 +76,9 @@ const DashboardScreen = (props) => {
     const [allportfolio, allportfolioHandler] = useState([]);
     const [allproduct, allproductHandler] = useState([]);
     const [allservers, allserverHandler] = useState([]);
+    const [allleagues, allleaguesHandler] = useState([]);
+    const [allteams, allteamsHandler] = useState([]);
+    const [allschedules, allschedulesHandler] = useState([]);
 
     useEffect(() => {
         loadingtableHandler(true);
@@ -81,6 +89,9 @@ const DashboardScreen = (props) => {
         dispatch(getGallery());
         dispatch(getServers());
         dispatch(getProduct(100, 'desc', "createdAt"));
+        dispatch(getLeague());
+        dispatch(getTeams());
+        dispatch(getSchedules());
     }, [dispatch])
     useEffect(() => {
         if (userprops && userprops.getUser && userprops.getUser.success) {
@@ -111,9 +122,21 @@ const DashboardScreen = (props) => {
             let totalserver = getservers.getServers.servers.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
             allserverHandler(totalserver);
         }
+        if (getleague && getleague.getLeague && getleague.getLeague.success) {
+            let totalleague = getleague.getLeague.leagues.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            allleaguesHandler(totalleague);
+        }
+        if (getleague && getleague.getTeams && getleague.getTeams.success) {
+            let totalteams = getleague.getTeams.teams.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            allteamsHandler(totalteams);
+        }
+        if (getleague && getleague.getSchedules && getleague.getSchedules.success) {
+            let totalschedules = getleague.getSchedules.schedules.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            allschedulesHandler(totalschedules);
+        }
         loadingtableHandler(false);
-    }, [userprops, getgallery, getportfolio, getproduct, getapplication, getslider, getservers])
-
+    }, [userprops, getgallery, getportfolio, getproduct, getapplication, getslider, getservers, getleague])
+    
     const clickHandler = (link) => {
         props.history.push(link);
     }
@@ -158,6 +181,15 @@ const DashboardScreen = (props) => {
             let totalslider = await allslider.payload.sliders.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
             let allservers = await dispatch(getServers());
             let totalservers = await allservers.payload.servers.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            let allleagues = await dispatch(getLeague());
+            let totalleague = await allleagues.payload.leagues.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            let allteams = await dispatch(getTeams());
+            let totalteams = await allteams.payload.teams.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            let allschedules = await dispatch(getSchedules());
+            let totalschedules = await allschedules.payload.schedules.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            allleaguesHandler(totalleague);
+            allteamsHandler(totalteams);
+            allschedulesHandler(totalschedules);
             alluserHandler(totaluser);
             allapplicationHandler(totalapplication);
             allgalleryHandler(totalgallery);
@@ -235,6 +267,9 @@ const DashboardScreen = (props) => {
                                         showadminpath={adminroutepath}
                                         alluser={alluser}
                                         allapplication={allapplication}
+                                        allleagues={allleagues}
+                                        allteams={allteams}
+                                        allschedules={allschedules}
                                     />
                                     : null
                             }

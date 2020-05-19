@@ -19,7 +19,7 @@ const DashboardPanel = (props) => {
 
     const templateShow = (data, index) => {
         return (
-            <div className="col-md-4 col-xs-12 dashboardlink">
+            <div className="col-md-4 col-xs-12 dashboardlink" key={index}>
                 <NavLink
                     to={data.link}
                     activeClassName="active"
@@ -43,8 +43,7 @@ const DashboardPanel = (props) => {
                                             props.allslider && props.allslider.length > 0 ? props.allslider.length : "0"
                                             : data.name === "Product" ?
                                                 props.allproduct && props.allproduct.length > 0 ? props.allproduct.length : "0"
-                                                :
-                                                data.name === "Servers" ?
+                                                : data.name === "Servers" ?
                                                     props.allservers && props.allservers.length > 0 ? props.allservers.length : "0"
                                                     : null
                             }</h5>

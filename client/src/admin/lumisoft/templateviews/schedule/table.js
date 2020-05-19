@@ -52,11 +52,11 @@ const SchedulesTableScreen = (props) => {
         currentserver: {
             element: 'select',
             title: 'Server',
-            value: editformdatastatus ? temporarydataselected.currentserver._id : '',
+            value: editformdatastatus ? temporarydataselected && temporarydataselected.currentserver._id : '',
             config: {
                 name: 'serverInput',
                 options: [],
-                placeholder: editformdatastatus ? `${temporarydataselected.currentserver.name} ${temporarydataselected.currentserver.ipaddress}` : 'Choose Server'
+                placeholder: editformdatastatus ? `${temporarydataselected && temporarydataselected.currentserver.name} ${temporarydataselected && temporarydataselected.currentserver.ipaddress}` : 'Choose Server'
             },
             validation: {
                 required: true
@@ -68,11 +68,11 @@ const SchedulesTableScreen = (props) => {
         teamleft: {
             element: 'select',
             title: 'Team Left',
-            value: editformdatastatus ? temporarydataselected.teamleft._id : '',
+            value: editformdatastatus ? temporarydataselected && temporarydataselected.teamleft._id : '',
             config: {
                 name: 'teamleftInput',
                 options: [],
-                placeholder: editformdatastatus ? temporarydataselected.teamleft.name : 'Choose Team Left',
+                placeholder: editformdatastatus ? temporarydataselected && temporarydataselected.teamleft.name : 'Choose Team Left',
             },
             validation: {
                 required: true
@@ -84,11 +84,11 @@ const SchedulesTableScreen = (props) => {
         teamright: {
             element: 'select',
             title: 'Team Right',
-            value: editformdatastatus ? temporarydataselected.teamright._id : '',
+            value: editformdatastatus ? temporarydataselected && temporarydataselected.teamright._id : '',
             config: {
                 name: 'teamrightInput',
                 options: [],
-                placeholder: editformdatastatus ? temporarydataselected.teamright.name : 'Choose Team Right'
+                placeholder: editformdatastatus ? temporarydataselected && temporarydataselected.teamright.name : 'Choose Team Right'
             },
             validation: {
                 required: true
@@ -100,7 +100,7 @@ const SchedulesTableScreen = (props) => {
         start: {
             element: 'input',
             title: 'Start Schedule date',
-            value: editformdatastatus ? moment(temporarydataselected.start, 'x').format('LLLL') : 'Choose date',
+            value: editformdatastatus ? moment(temporarydataselected && temporarydataselected.start, 'x').format('LLLL') : 'Choose date',
             config: {
                 name: 'startscheduleInput',
                 type: 'text',
@@ -593,19 +593,32 @@ const SchedulesTableScreen = (props) => {
         props.history.push('/admin/master/schedules');
     }
 
+    const fetchingnewData = async (id) => {
+        let selected = await dispatch(getSchedules());
+        let final = await selected.payload.schedules.find(site => site._id === id);
+
+        props.history.push({
+            pathname: '/admin/master/schedules/editdata',
+            state: {
+                dataselected: final
+            }
+        })
+    }
+
     const submitEditData = (event) => {
         event.preventDefault();
         props.loadingtableHandler(true);
 
         let dataToSubmit2 = generateData(formdata, 'leagueteams');
         let formIsValid2 = isFormValid(formdata, 'leagueteams');
+        let dataselectedid = temporarydataselected._id;
 
         if (formIsValid2) {
             dispatch(updateSchedule(dataToSubmit2, dataselected._id)).then(response => {
                 if (response.payload.success) {
                     dispatch(clearUpdateSchedule());
                     formSuccessHandler(true);
-                    props.history.push('/admin/master/schedules')
+                    fetchingnewData(dataselectedid);
                 } else {
                     formErrorHandler(true);
                     props.loadingtableHandler(false);
@@ -735,6 +748,7 @@ const SchedulesTableScreen = (props) => {
 
         let dataToSubmit = generateData(formplayer, 'formplayer');
         let formIsValid = isFormValid(formplayer, 'formplayer');
+        let dataselectedid = temporarydataselected._id;
 
         let type = thisisteamleft ? "teamleft" : "teamright";
 
@@ -754,7 +768,7 @@ const SchedulesTableScreen = (props) => {
                 if (response.payload.success) {
                     dispatch(clearUpdateResult());
                     statisticformSuccessHandler(true);
-                    props.history.push('/admin/master/schedules')
+                    fetchingnewData(dataselectedid);
                 } else {
                     statisticformErrorHandler(true);
                     props.loadingtableHandler(false);
@@ -961,8 +975,8 @@ const SchedulesTableScreen = (props) => {
                         <label className="col-md-2 col-xs-12 colFormLabel"></label>
                         <div className="col-md-10 col-xs-12">
                             {
-                                dataselected.results && dataselected.results.length > 0 ?
-                                    dataselected.results.map((item, index) => (
+                                dataselected && dataselected.results && dataselected && dataselected.results.length > 0 ?
+                                    dataselected && dataselected.results.map((item, index) => (
                                         <div
                                             key={index}
                                         >

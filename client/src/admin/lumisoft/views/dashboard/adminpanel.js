@@ -19,7 +19,7 @@ const DashboardAdminPanel = (props) => {
 
     const templateAdminShow = (data, index) => {
         return (
-            <div className="col-md-4 col-xs-12 dashboardlink">
+            <div className="col-md-4 col-xs-12 dashboardlink" key={index}>
                 <NavLink
                     to={data.link}
                     activeClassName="active"
@@ -39,7 +39,13 @@ const DashboardAdminPanel = (props) => {
                                     props.alluser && props.alluser.length > 0 ? props.alluser.length : "0"
                                     : data.name === "Application" ?
                                         props.allapplication && props.allapplication.length > 0 ? props.allapplication.length : "0"
-                                        : null
+                                        : data.name === "League" ?
+                                            props.allleagues && props.allleagues.length > 0 ? props.allleagues.length : "0"
+                                            : data.name === "Teams" ?
+                                                props.allteams && props.allteams.length > 0 ? props.allteams.length : "0"
+                                                : data.name === "Schedules" ?
+                                                    props.allschedules && props.allschedules.length > 0 ? props.allschedules.length : "0"
+                                                    : null
                             }</h5>
                         </div>
                     </div>
