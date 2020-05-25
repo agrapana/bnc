@@ -484,7 +484,8 @@ header.frontendwebsite .navigation_items .itemContent2 {
   border: 1px solid rgba(255, 255, 255, 0.125);
   border-radius: .25rem;
   color: #fff;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  min-height: 221px; }
 
 #frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader,
 #frontendwebsite #homepage #signout .leaguecard .leaguecardHeader {
