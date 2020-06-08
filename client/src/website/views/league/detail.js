@@ -328,7 +328,7 @@ const LeagueDetailPage = (props) => {
                                             {
                                                 item.players && item.players.length > 0 ?
                                                     item.players.map((player, index2) => (
-                                                        <li key={index2}>{index2 + 1}. {player.name}</li>
+                                                        <li key={index2}>{index2 + 1}. {player.name} ({player.steamname.substring(0,10)})</li>
                                                     ))
                                                     : "Player Empty"
                                             }
@@ -341,7 +341,7 @@ const LeagueDetailPage = (props) => {
                                         {
                                             item.players && item.players.length > 0 ?
                                                 item.players.map((player, index2) => (
-                                                    <li key={index2}>{index2 + 1}. {player.name}</li>
+                                                    <li key={index2}>{index2 + 1}. {player.name} ({player.steamname.substring(0,10)})</li>
                                                 ))
                                                 : "Player Empty"
                                         }

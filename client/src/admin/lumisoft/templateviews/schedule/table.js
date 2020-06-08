@@ -979,6 +979,7 @@ const SchedulesTableScreen = (props) => {
                                     dataselected && dataselected.results.map((item, index) => (
                                         <div
                                             key={index}
+                                            className="mb50"
                                         >
                                             <div className="leaguemap">MAP {index + 1} : {item.map}</div>
                                             <div className="leagueteamleft">
@@ -990,7 +991,7 @@ const SchedulesTableScreen = (props) => {
                                                                 className="scheduleplayer"
                                                                 onClick={() => _inputStatistic(player, item, true)}
                                                             >
-                                                                {player.name}
+                                                                {player.steamname.substring(0,10)}
                                                             </li>
                                                         ))
                                                     }
@@ -1043,7 +1044,7 @@ const SchedulesTableScreen = (props) => {
                                                                 className="scheduleplayer"
                                                                 onClick={() => _inputStatistic(player, item, false)}
                                                             >
-                                                                {player.name}
+                                                                {player.steamname.substring(0,10)}
                                                             </li>
                                                         ))
                                                     }
