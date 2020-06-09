@@ -953,8 +953,8 @@ const SchedulesTableScreen = (props) => {
                         </div>
                     </div>
                     <div className="row pb25">
-                        <label className="col-md-2 col-xs-12 colFormLabel">Add Results</label>
-                        <div className="col-md-10 col-xs-12">
+                        <label className="col-md-2 col-xs-12 colFormLabel mt10 mb10">Add Results</label>
+                        <div className="col-md-10 col-xs-12 mt10 mb10">
                             <div
                                 className="categoryButtonWrapper"
                                 style={{ left: 15, justifyContent: 'flex-start' }}
@@ -991,7 +991,7 @@ const SchedulesTableScreen = (props) => {
                                                                 className="scheduleplayer"
                                                                 onClick={() => _inputStatistic(player, item, true)}
                                                             >
-                                                                {player.steamname.substring(0,10)}
+                                                                {player.name} ({player.steamname.substring(0,10)})
                                                             </li>
                                                         ))
                                                     }
@@ -1044,7 +1044,7 @@ const SchedulesTableScreen = (props) => {
                                                                 className="scheduleplayer"
                                                                 onClick={() => _inputStatistic(player, item, false)}
                                                             >
-                                                                {player.steamname.substring(0,10)}
+                                                                {player.name} ({player.steamname.substring(0,10)})
                                                             </li>
                                                         ))
                                                     }

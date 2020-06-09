@@ -3056,6 +3056,12 @@ th {
 #lumisoftmaster .adminteamlist ul li.grouplist {
   padding: 5px 0px 2px 0px; }
 
+@media (max-width: 767.98px) {
+  #lumisoftmaster .scheduleplayerlists {
+    display: block; }
+  #lumisoftmaster .scheduleplayerlists li {
+    margin: 20px 0; } }
+
 /***********************************************
                     DROPZONE
 ***********************************************/
