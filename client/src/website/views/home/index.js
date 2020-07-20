@@ -91,7 +91,7 @@ const HomePage = () => {
     return (
         <section id="homepage" style={{ marginBottom: 0, transform: "none" }}>
             <div className="contentwrap" style={{ transform: "none" }}>
-                <div className="section" style={{ padding: 0 }}>
+                <div className="section" style={{ padding: 0, marginBottom: 0 }}>
                     <div className="slidercontainer">
                         <Carousel
                             isMobile={isMobile}
@@ -102,7 +102,7 @@ const HomePage = () => {
                         />
                     </div>
                 </div>
-                <div className="section" style={{ marginBottom: '0px', marginTop: isMobile ? '0px' : '60px', paddingBottom: '0px', paddingTop: isMobile ? '0px' : '60px' }}>
+                <div className="section" style={{ marginBottom: '0px', marginTop: isMobile ? '0px' : '0px', paddingBottom: '0px', paddingTop: isMobile ? '0px' : '60px', backgroundColor: '#333' }}>
                     <div className="container">
                         <div className="row">
                             <div className="col-md-3 col-xs-12">

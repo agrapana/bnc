@@ -600,9 +600,9 @@ const LeagueDetailPage = (props) => {
                                                 fontSize: '16px',
                                                 color: '#ffffff',
                                                 marginTop: '25px',
-                                                backgroundColor: '#222222',
+                                                backgroundColor: '#333',
                                                 padding: '15px'
-                                            }}>Team Lists</h3>
+                                            }}>TEAM LISTS</h3>
                                             {_showteams(selectedLeague)}
                                         </div>
                                         {
@@ -620,9 +620,9 @@ const LeagueDetailPage = (props) => {
                                                             fontSize: '16px',
                                                             color: '#ffffff',
                                                             marginTop: '25px',
-                                                            backgroundColor: '#222222',
+                                                            backgroundColor: '#333',
                                                             padding: '15px'
-                                                        }}>Schedule Lists</h3>
+                                                        }}>SCHEDULE LISTS</h3>
                                                         {_showschedule(selectedLeague && selectedLeague.schedule)}
                                                     </div>
                                                     : null
@@ -639,9 +639,9 @@ const LeagueDetailPage = (props) => {
                                                         fontSize: '16px',
                                                         color: '#ffffff',
                                                         marginTop: '25px',
-                                                        backgroundColor: '#222222',
+                                                        backgroundColor: '#333',
                                                         padding: '15px'
-                                                    }}>Schedule Lists</h3>
+                                                    }}>SCHEDULE LISTS</h3>
                                                     {_showschedule(selectedLeague && selectedLeague.schedule)}
                                                 </div>
                                         }
@@ -657,9 +657,9 @@ const LeagueDetailPage = (props) => {
                                                 fontSize: '16px',
                                                 color: '#ffffff',
                                                 marginTop: '25px',
-                                                backgroundColor: '#222222',
+                                                backgroundColor: '#333',
                                                 padding: '15px'
-                                            }}>Results Details</h3>
+                                            }}>RESULTS DETAILS</h3>
                                             {_showresults(selectedLeague && selectedLeague.schedule)}
                                         </div>
                                     </div>

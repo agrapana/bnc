@@ -399,6 +399,9 @@ header.frontendwebsite .navigation_items .itemContent2 {
   color: #777;
   font-size: 18px; }
 
+#frontendwebsite #homepage #leaguebody {
+  background-color: #333; }
+
 #frontendwebsite #homepage #leaguebody,
 #frontendwebsite #homepage #signout {
   position: relative;
@@ -883,7 +886,7 @@ header.frontendwebsite .navigation_items .itemContent2 {
             FOOTER MAXILUM
 ***********************************************/
 #footer {
-  background-color: #111;
+  background-color: #222;
   color: #ccc;
   border-top: 5px solid rgba(0, 0, 0, 0.2);
   position: relative; }
