@@ -56,7 +56,7 @@ body, body #root #frontendwebsite {
 section#homepage {
     position: relative;
     overflow: hidden;
-    background-color: $colorVeryLightDark2;
+    background-color: #222;
 }
 .frontendwebsite.topBar.before {
     background-color: $colorWhite;
@@ -284,6 +284,8 @@ header.frontendwebsite .navigation_items .itemContent2 {
     margin: 15px;
     background-color: #222222;
     border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 1px solid rgba(255,255,255, 0.125);
 }
 #frontendwebsite #homepage #leaguebody .leaguedesc span,
 #frontendwebsite #homepage #signout .leaguedesc span {
@@ -320,7 +322,8 @@ header.frontendwebsite .navigation_items .itemContent2 {
     border-radius: .25rem;
     color: #fff;
     margin-bottom: 10px;
-    min-height: 250px;
+    min-height: 230px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #frontendwebsite #homepage #leaguebody .leaguecard .leaguecardHeader,
 #frontendwebsite #homepage #signout .leaguecard .leaguecardHeader {
@@ -724,7 +727,7 @@ header.frontendwebsite .navigation_items .itemContent2 {
             FOOTER MAXILUM
 ***********************************************/
 #footer {
-    background-color:$colorDark;
+    background-color:#111;
     color:#ccc;
     border-top: 5px solid rgba(0,0,0,.2);
     position: relative;

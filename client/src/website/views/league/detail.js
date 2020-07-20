@@ -328,7 +328,7 @@ const LeagueDetailPage = (props) => {
                                             {
                                                 item.players && item.players.length > 0 ?
                                                     item.players.map((player, index2) => (
-                                                        <li key={index2}>{index2 + 1}. {player.name} ({player.steamname.substring(0,10)})</li>
+                                                        <li key={index2}>{index2 + 1}. {player.name.substring(0, 10)} ({player.steamname.substring(0, 10)})</li>
                                                     ))
                                                     : "Player Empty"
                                             }
@@ -341,7 +341,7 @@ const LeagueDetailPage = (props) => {
                                         {
                                             item.players && item.players.length > 0 ?
                                                 item.players.map((player, index2) => (
-                                                    <li key={index2}>{index2 + 1}. {player.name} ({player.steamname.substring(0,10)})</li>
+                                                    <li key={index2}>{index2 + 1}. {player.name.substring(0, 10)} ({player.steamname.substring(0, 10)})</li>
                                                 ))
                                                 : "Player Empty"
                                         }
@@ -587,7 +587,15 @@ const LeagueDetailPage = (props) => {
                                                 {_showinfo(selectedLeague && selectedLeague.rules)}
                                             </div>
                                         </div>
-                                        <div className="col-md-12 col-xs-12 p0">
+                                        <div
+                                            className="col-md-12 col-xs-12"
+                                            style={{
+                                                paddingTop: 30,
+                                                paddingBottom: 10,
+                                                paddingLeft: 0,
+                                                paddingRight: 0
+                                            }}
+                                        >
                                             <h3 style={{
                                                 fontSize: '16px',
                                                 color: '#ffffff',
@@ -600,7 +608,14 @@ const LeagueDetailPage = (props) => {
                                         {
                                             selectedLeague.isOpen === true && selectedLeague.isProcessing === false ?
                                                 mydata && mydata.registeredteam !== "" ?
-                                                    <div className="col-md-12 col-xs-12 p0">
+                                                    <div
+                                                        className="col-md-12 col-xs-12"
+                                                        style={{
+                                                            paddingTop: 30,
+                                                            paddingBottom: 10,
+                                                            paddingLeft: 0,
+                                                            paddingRight: 0
+                                                        }}>
                                                         <h3 style={{
                                                             fontSize: '16px',
                                                             color: '#ffffff',
@@ -612,7 +627,14 @@ const LeagueDetailPage = (props) => {
                                                     </div>
                                                     : null
                                                 :
-                                                <div className="col-md-12 col-xs-12 p0">
+                                                <div
+                                                    className="col-md-12 col-xs-12"
+                                                    style={{
+                                                        paddingTop: 30,
+                                                        paddingBottom: 10,
+                                                        paddingLeft: 0,
+                                                        paddingRight: 0
+                                                    }}>
                                                     <h3 style={{
                                                         fontSize: '16px',
                                                         color: '#ffffff',
@@ -623,7 +645,14 @@ const LeagueDetailPage = (props) => {
                                                     {_showschedule(selectedLeague && selectedLeague.schedule)}
                                                 </div>
                                         }
-                                        <div className="col-md-12 col-xs-12 p0">
+                                        <div
+                                            className="col-md-12 col-xs-12"
+                                            style={{
+                                                paddingTop: 30,
+                                                paddingBottom: 10,
+                                                paddingLeft: 0,
+                                                paddingRight: 0
+                                            }}>
                                             <h3 style={{
                                                 fontSize: '16px',
                                                 color: '#ffffff',
