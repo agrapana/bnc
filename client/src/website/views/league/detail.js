@@ -383,6 +383,7 @@ const LeagueDetailPage = (props) => {
     }
 
     const _showresults = (data) => {
+        console.log(data, "<<<<<<<data")
         if (data) {
             return data.map((item, index) => (
                 <div className="col-md-3 col-xs-12" key={index} style={{ minHeight: '352px' }}>
@@ -390,7 +391,7 @@ const LeagueDetailPage = (props) => {
                         <div className="leaguecardHeader">
                             <span>{index + 1}. {item.teamleft.name} vs {item.teamright.name}</span>
                             {
-                                item.results.length > 0 ?
+                                (item.results[0] && item.results[0].results[0].teamleft.players.length > 0) || (item.results[0] && item.results[0].results[0].teamright.players.length > 0)?
                                     <span
                                         className="leaguecardHeaderIcon2"
                                         onClick={() => _gotoResultDetail(item)}
