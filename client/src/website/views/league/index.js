@@ -12,7 +12,8 @@ import { getLeague } from '../../../admin/store/actions/league_action';
 import { clientauth } from '../../../admin/store/actions/client_action';
 import { loading } from '../../../admin/store/actions/loading_action';
 import moment from 'moment';
-import { FaAndroid, FaApple, FaDropbox } from "react-icons/fa";
+import Loadingscreen from '../../views/loadingscreen';
+// import { FaAndroid, FaApple, FaDropbox } from "react-icons/fa";
 
 const LeaguePage = (props) => {
     const history = useHistory();
@@ -91,7 +92,9 @@ const LeaguePage = (props) => {
                     </div>
                 </div>
             ))
-            : <div style={{ color: '#ffffff', textTransform: 'uppercase' }}>Please wait, Now Loading... or<br />Register your steam profile to access this page!</div>
+            : <div style={{ minHeight: 500 }}>
+            <Loadingscreen />
+            </div>
     )
 
     const gotoThisLeague = (data) => {

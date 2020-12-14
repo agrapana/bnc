@@ -379,8 +379,8 @@ header.frontendwebsite .navigation_items .itemContent2 {
   position: relative;
   margin-top: 56px;
   padding: 50px 0 !important;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #eee; }
+  background-color: #359144;
+  border-bottom: 1px solid #359144; }
 
 #frontendwebsite #homepage #headpage h1 {
   padding: 0;
@@ -388,15 +388,15 @@ header.frontendwebsite .navigation_items .itemContent2 {
   line-height: 1;
   font-weight: 600;
   letter-spacing: 1px;
-  color: #333;
+  color: #fff;
   font-size: 28px;
   text-transform: uppercase; }
 
 #frontendwebsite #homepage #headpage span {
   display: block;
   margin-top: 10px;
-  font-weight: 300;
-  color: #777;
+  font-weight: 600;
+  color: #fff;
   font-size: 18px; }
 
 #frontendwebsite #homepage #leaguebody {
@@ -454,7 +454,7 @@ header.frontendwebsite .navigation_items .itemContent2 {
   background-color: #222222;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border: 1px solid rgba(255, 255, 255, 0.125); }
+  border: 1px solid rgba(53, 145, 68, 0.5); }
 
 #frontendwebsite #homepage #leaguebody .leaguedesc span,
 #frontendwebsite #homepage #signout .leaguedesc span {
@@ -486,7 +486,7 @@ header.frontendwebsite .navigation_items .itemContent2 {
   min-width: 0;
   word-wrap: break-word;
   background-clip: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  border: 1px solid rgba(53, 145, 68, 0.5);
   border-radius: .25rem;
   color: #fff;
   margin-bottom: 10px;

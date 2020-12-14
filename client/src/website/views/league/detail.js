@@ -14,6 +14,7 @@ import { logoutTeamLeague } from '../../../admin/store/actions/client_action';
 import { convertToRupiah } from '../../../admin/lumisoft/utils/form/formactions'
 import { clientauth } from '../../../admin/store/actions/client_action';
 import { loading } from '../../../admin/store/actions/loading_action';
+import Loadingscreen from '../../views/loadingscreen';
 import moment from 'moment';
 import { FaAndroid, FaApple, FaDropbox, FaSignInAlt, FaSignOutAlt, FaChevronRight } from "react-icons/fa";
 
@@ -498,145 +499,166 @@ const LeagueDetailPage = (props) => {
         })
     }
     // console.log(iamexist, "<<<<<iamexist22<<<<<<")
+    console.log(selectedLeague, "<<<<<iamexist22<<<<<<")
     return (
         <section id="homepage" style={{ marginBottom: 0, transform: "none" }}>
-            <div className="contentwrap" style={{ transform: "none" }}>
-                <div id="headpage" className="section" style={{ padding: 0, marginBottom: 0 }}>
-                    <div className="container">
-                        <h1>{selectedLeague ? selectedLeague.name : null}</h1>
-                        <span>{selectedLeague ? selectedLeague.info : null}</span>
-                    </div>
-                </div>
-                {
-                    selectedLeague.isOpen === false && selectedLeague.isProcessing === false && selectedLeague.isClosed === true && iamexist ?
-                        <div id="signout" className="section" style={{ margin: 0 }}>
-                            <div className="contentwrap" style={{ transform: "none" }}>
-                                <div className="container">
-                                    <div className="row">
-                                        <div className="col-md-12 col-xs-12 p0">
-                                            <h3 style={{
-                                                fontSize: '16px',
-                                                color: '#ffffff',
-                                                marginTop: '25px',
-                                                backgroundColor: '#222222',
-                                                padding: '15px'
-                                            }}>Please sign out from your previous team</h3>
-                                            {_showteamstologout(selectedLeague)}
+            {
+                selectedLeague && selectedLeague.teams && selectedLeague.teams.length > 0 ?
+                    <div className="contentwrap" style={{ transform: "none" }}>
+                        <div id="headpage" className="section" style={{ padding: 0, marginBottom: 0 }}>
+                            <div className="container">
+                                <h1>{selectedLeague ? selectedLeague.name : null}</h1>
+                                <span>{selectedLeague ? selectedLeague.info : null}</span>
+                            </div>
+                        </div>
+                        {
+                            selectedLeague.isOpen === false && selectedLeague.isProcessing === false && selectedLeague.isClosed === true && iamexist ?
+                                <div id="signout" className="section" style={{ margin: 0 }}>
+                                    <div className="contentwrap" style={{ transform: "none" }}>
+                                        <div className="container">
+                                            <div className="row">
+                                                <div className="col-md-12 col-xs-12 p0">
+                                                    <h3 style={{
+                                                        fontSize: '16px',
+                                                        color: '#ffffff',
+                                                        marginTop: '25px',
+                                                        backgroundColor: '#222222',
+                                                        padding: '15px'
+                                                    }}>Please sign out from your previous team</h3>
+                                                    {_showteamstologout(selectedLeague)}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        :
-                        <div id="leaguebody" className="section" style={{ margin: 0 }}>
-                            <div className="contentwrap" style={{ transform: "none" }}>
-                                <div className="container">
-                                    <div className="row">
-                                        <div className="col-md-12 col-xs-12 p0">
-                                            <div className="leaguedesc">
-                                                {_showinfo(selectedLeague && selectedLeague.rules)}
-                                            </div>
-                                        </div>
-                                        <div className="col-md-12 col-xs-12 p0">
-                                            <div className="col-md-6 col-xs-12 p0">
-                                                <div className="leaguedesc" style={{ marginTop: 0 }}>
-                                                    <div>Start : {moment(selectedLeague.start, 'x').format('LLLL')}</div>
-                                                    <div>
-                                                        Status :&nbsp;
-                                                {
-                                                            selectedLeague.isOpen && !selectedLeague.isProcessing ? "Open" :
-                                                                selectedLeague.isOpen && selectedLeague.isProcessing ? "Processing" :
-                                                                    selectedLeague.isClosed ? "Closed" : null
-                                                        }
-                                                    </div>
-                                                    <div style={{ marginTop: '20px' }}>
-                                                        Registration :
-                                            <ul>
-                                                            <li>Bank : {selectedLeague.bank}</li>
-                                                            <li>Rekening : {selectedLeague.accountnumber}</li>
-                                                            <li>A/N : {selectedLeague.accountname}</li>
-                                                            <li>@ : Rp. {convertToRupiah(parseInt(selectedLeague.amount))},-</li>
-                                                        </ul>
+                                :
+                                <div id="leaguebody" className="section" style={{ margin: 0 }}>
+                                    <div className="contentwrap" style={{ transform: "none" }}>
+                                        <div className="container">
+                                            <div className="row">
+                                                <div className="col-md-12 col-xs-12 p0">
+                                                    <div className="leaguedesc">
+                                                        {_showinfo(selectedLeague && selectedLeague.rules)}
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div className="col-md-6 col-xs-12 p0">
-                                                {
-                                                    selectedLeague.first ?
-                                                        <div className="leaguedesc" style={{ marginTop: 0, backgroundColor: '#359144' }}>
-                                                            <div>1st CHAMPION : {selectedLeague.first && selectedLeague.first.name}</div>
-                                                        </div>
-                                                        : null
-                                                }
-                                                {
-                                                    selectedLeague.second ?
+                                                <div className="col-md-12 col-xs-12 p0">
+                                                    <div className="col-md-6 col-xs-12 p0">
                                                         <div className="leaguedesc" style={{ marginTop: 0 }}>
-                                                            <div>2nd CHAMPION : {selectedLeague.second && selectedLeague.second.name}</div>
-                                                        </div>
-                                                        : null
-                                                }
+                                                            <div>Start : {moment(selectedLeague.start, 'x').format('LLLL')}</div>
+                                                            <div>
+                                                                Status :&nbsp;
                                                 {
-                                                    selectedLeague.third ?
-                                                        <div className="leaguedesc" style={{ marginTop: 0 }}>
-                                                            <div>3rd CHAMPION : {selectedLeague.third && selectedLeague.third.name}</div>
+                                                                    selectedLeague.isOpen && !selectedLeague.isProcessing ? "Open" :
+                                                                        selectedLeague.isOpen && selectedLeague.isProcessing ? "Processing" :
+                                                                            selectedLeague.isClosed ? "Closed" : null
+                                                                }
+                                                            </div>
+                                                            <div style={{ marginTop: '20px' }}>
+                                                                Registration :
+                                            <ul>
+                                                                    <li>Bank : {selectedLeague.bank}</li>
+                                                                    <li>Rekening : {selectedLeague.accountnumber}</li>
+                                                                    <li>A/N : {selectedLeague.accountname}</li>
+                                                                    <li>@ : Rp. {convertToRupiah(parseInt(selectedLeague.amount))},-</li>
+                                                                </ul>
+                                                            </div>
                                                         </div>
-                                                        : null
-                                                }
-                                                {/* <div className="col-md-12 col-xs-12 p0">
+                                                    </div>
+                                                    <div className="col-md-6 col-xs-12 p0">
+                                                        {
+                                                            selectedLeague.first ?
+                                                                <div className="leaguedesc" style={{ marginTop: 0, backgroundColor: '#359144' }}>
+                                                                    <div>1st CHAMPION : {selectedLeague.first && selectedLeague.first.name}</div>
+                                                                </div>
+                                                                : null
+                                                        }
+                                                        {
+                                                            selectedLeague.second ?
+                                                                <div className="leaguedesc" style={{ marginTop: 0 }}>
+                                                                    <div>2nd CHAMPION : {selectedLeague.second && selectedLeague.second.name}</div>
+                                                                </div>
+                                                                : null
+                                                        }
+                                                        {
+                                                            selectedLeague.third ?
+                                                                <div className="leaguedesc" style={{ marginTop: 0 }}>
+                                                                    <div>3rd CHAMPION : {selectedLeague.third && selectedLeague.third.name}</div>
+                                                                </div>
+                                                                : null
+                                                        }
+                                                        {/* <div className="col-md-12 col-xs-12 p0">
                                         {_showfinal(selectedLeague)}
                                     </div> */}
-                                            </div>
-                                        </div>
-                                        <div className="col-md-12 col-xs-12 p0">
-                                            <div className="col-md-6 col-xs-12 p0">
-                                                {_showbagan(selectedLeague)}
-                                            </div>
-
-
-                                            <div className="col-md-6 col-xs-12 p0">
-                                                {_showsemifinal(selectedLeague)}
-                                            </div>
-                                        </div>
-                                        <div
-                                            className="col-md-12 col-xs-12"
-                                            style={{
-                                                paddingTop: 30,
-                                                paddingBottom: 10,
-                                                paddingLeft: 0,
-                                                paddingRight: 0
-                                            }}
-                                        >
-                                            <h3 style={{
-                                                fontSize: '16px',
-                                                color: '#ffffff',
-                                                marginTop: '25px',
-                                                backgroundColor: '#333',
-                                                padding: '15px'
-                                            }}>TEAM LISTS</h3>
-                                            {_showteams(selectedLeague)}
-                                        </div>
-                                        {
-                                            selectedLeague.isOpen === true && selectedLeague.isProcessing === false ?
-                                                mydata && mydata.registeredteam !== "" ?
-                                                    <div
-                                                        className="col-md-12 col-xs-12"
-                                                        style={{
-                                                            paddingTop: 30,
-                                                            paddingBottom: 10,
-                                                            paddingLeft: 0,
-                                                            paddingRight: 0
-                                                        }}>
-                                                        <h3 style={{
-                                                            fontSize: '16px',
-                                                            color: '#ffffff',
-                                                            marginTop: '25px',
-                                                            backgroundColor: '#333',
-                                                            padding: '15px'
-                                                        }}>SCHEDULE LISTS</h3>
-                                                        {_showschedule(selectedLeague && selectedLeague.schedule)}
                                                     </div>
-                                                    : null
-                                                :
+                                                </div>
+                                                <div className="col-md-12 col-xs-12 p0">
+                                                    <div className="col-md-6 col-xs-12 p0">
+                                                        {_showbagan(selectedLeague)}
+                                                    </div>
+
+
+                                                    <div className="col-md-6 col-xs-12 p0">
+                                                        {_showsemifinal(selectedLeague)}
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    className="col-md-12 col-xs-12"
+                                                    style={{
+                                                        paddingTop: 30,
+                                                        paddingBottom: 10,
+                                                        paddingLeft: 0,
+                                                        paddingRight: 0
+                                                    }}
+                                                >
+                                                    <h3 style={{
+                                                        fontSize: '16px',
+                                                        color: '#ffffff',
+                                                        marginTop: '25px',
+                                                        backgroundColor: '#333',
+                                                        padding: '15px'
+                                                    }}>TEAM LISTS</h3>
+                                                    {_showteams(selectedLeague)}
+                                                </div>
+                                                {
+                                                    selectedLeague.isOpen === true && selectedLeague.isProcessing === false ?
+                                                        mydata && mydata.registeredteam !== "" ?
+                                                            <div
+                                                                className="col-md-12 col-xs-12"
+                                                                style={{
+                                                                    paddingTop: 30,
+                                                                    paddingBottom: 10,
+                                                                    paddingLeft: 0,
+                                                                    paddingRight: 0
+                                                                }}>
+                                                                <h3 style={{
+                                                                    fontSize: '16px',
+                                                                    color: '#ffffff',
+                                                                    marginTop: '25px',
+                                                                    backgroundColor: '#333',
+                                                                    padding: '15px'
+                                                                }}>SCHEDULE LISTS</h3>
+                                                                {_showschedule(selectedLeague && selectedLeague.schedule)}
+                                                            </div>
+                                                            : null
+                                                        :
+                                                        <div
+                                                            className="col-md-12 col-xs-12"
+                                                            style={{
+                                                                paddingTop: 30,
+                                                                paddingBottom: 10,
+                                                                paddingLeft: 0,
+                                                                paddingRight: 0
+                                                            }}>
+                                                            <h3 style={{
+                                                                fontSize: '16px',
+                                                                color: '#ffffff',
+                                                                marginTop: '25px',
+                                                                backgroundColor: '#333',
+                                                                padding: '15px'
+                                                            }}>SCHEDULE LISTS</h3>
+                                                            {_showschedule(selectedLeague && selectedLeague.schedule)}
+                                                        </div>
+                                                }
                                                 <div
                                                     className="col-md-12 col-xs-12"
                                                     style={{
@@ -651,34 +673,32 @@ const LeagueDetailPage = (props) => {
                                                         marginTop: '25px',
                                                         backgroundColor: '#333',
                                                         padding: '15px'
-                                                    }}>SCHEDULE LISTS</h3>
-                                                    {_showschedule(selectedLeague && selectedLeague.schedule)}
+                                                    }}>RESULTS DETAILS</h3>
+                                                    {_showresults(selectedLeague && selectedLeague.schedule)}
                                                 </div>
-                                        }
-                                        <div
-                                            className="col-md-12 col-xs-12"
-                                            style={{
-                                                paddingTop: 30,
-                                                paddingBottom: 10,
-                                                paddingLeft: 0,
-                                                paddingRight: 0
-                                            }}>
-                                            <h3 style={{
-                                                fontSize: '16px',
-                                                color: '#ffffff',
-                                                marginTop: '25px',
-                                                backgroundColor: '#333',
-                                                padding: '15px'
-                                            }}>RESULTS DETAILS</h3>
-                                            {_showresults(selectedLeague && selectedLeague.schedule)}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        }
+
+                    </div>
+                    :
+                    <div className="contentwrap" style={{ transform: "none" }}>
+                        <div id="leaguebody" className="section" style={{ margin: 0 }}>
+                            <div className="contentwrap" style={{ transform: "none" }}>
+                                <div className="container">
+                                    <div className="row">
+                                        <div style={{ minHeight: 500 }}>
+                                        <Loadingscreen />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                }
+                    </div>
+            }
 
-            </div>
         </section>
     );
 };
